@@ -1,0 +1,74 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+ 
+
+    & .container {
+       
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__lang {
+        margin-top:1rem;
+        margin-left: auto;
+        display: flex;
+        gap: 2rem;
+        //styleName: Tlang;
+        // font-family: Idealist Sans;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 2.2rem;
+        letter-spacing: 0.05em;
+        text-align: left;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+
+        &-e._active {
+            color: $white;
+
+            & span {
+                color: $green;
+            }
+        }
+
+        &-e {
+            @include hover {
+                color: $white;
+            }
+        }
+
+    }
+
+    &__c {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-logo {
+            width: 22.4rem;
+            display: flex;
+
+            & img {
+                object-fit: contain;
+            }
+        }
+
+        &-nav {
+            display: flex;
+            gap: 6rem;
+            //styleName: T01b;
+          font-family: Idealist Sans;
+            font-size: 1.6rem;
+            font-weight: 300;
+            line-height: 2.2rem;
+            letter-spacing: 0.05em;
+            text-align: left;
+            text-transform: uppercase;
+
+        }
+    }
+}

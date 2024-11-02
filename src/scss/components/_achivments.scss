@@ -1,0 +1,66 @@
+.achivments {
+    & .swiper {
+        @include desktop {
+            width: 100rem;
+        }
+    }
+
+    &-item {
+        border: .1rem solid $green;
+        border-radius: 3rem;
+  
+      
+
+        &__c {
+            background-color: rgb(38, 29, 49);
+            backdrop-filter: blur(1rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 46rem;
+            box-sizing: border-box;
+            padding: 5rem;
+            border-radius: 3rem;
+
+            & div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            &-img {
+                width: 12rem;
+                height: 12rem;
+                display: flex;
+
+                & img {
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            &-ttl {
+                text-transform: uppercase;
+                font-family: 'Esqadero FF CY 4F';
+                font-size: 2.2rem;
+                font-weight: 400;
+                line-height: 110%;
+                text-align: center;
+            }
+
+            &-txt {
+                font-family: Idealist Sans;
+                font-size: 1.6rem;
+                font-weight: 300;
+                line-height: 120%;
+                letter-spacing: 0.05em;
+                text-align: center;
+
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Главная</title>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <include src="./components/_header.html"></include>
+    <main>
+      <!--  -->
+      <section id="top" class="heading">
+        <div class="container">
+          <div class="heading__main">
+            <img
+              src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+              alt="placeholder">
+          </div>
+          <div class="heading__text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi sint dolores! Architecto
+              accusamus deserunt nisi quisquam, ex id itaque.</p>
+          </div>
+          <div class="heading__btns">
+            <button class="heading__btns-portfolio ">
+              <!--  <span class="">
+                <img src="./assets/images/icons/arrow-right-white.svg" alt="vimeo">
+              </span> -->
+              <p class="heading-btn-text">
+                наши работы
+              </p>
+            </button>
+
+            <div>
+              <a href="#" class="heading__btns-e">
+                <p class="heading__btns-e-text heading-btn-text">button hiden text</p>
+                <span class="heading__btns-e-img">
+                  <img src="./assets/images/icons/vimeo.svg" alt="vimeo">
+                </span>
+              </a>
+              <a href="#" class="heading__btns-e">
+                <p class="heading__btns-e-text heading-btn-text">button hiden text</p>
+                <span class="heading__btns-e-img">
+                  <img src="./assets/images/icons/behance.svg" alt="behance">
+                </span>
+              </a>
+              <a href="./assets/images/icons/download.svg" download class="heading__btns-e">
+                <p class="heading__btns-e-text heading-btn-text">button hiden text</p>
+                <span class="heading__btns-e-img">
+                  <img src="./assets/images/icons/download.svg" alt="down">
+                </span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!--  -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-heading">
+            <h2> <span>о</span> нас</h2>
+          </div>
+          <div class="about__c">
+            <div class="about__c-left">
+              <p class="about__c-left-text txt-up">POSTPRO 18 STUDIO</p>
+              <div class="about__c-left-years">
+                <span class="col-purple about__c-left-text">более</span>
+                <svg width="109" height="94" viewBox="0 0 109 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M91.8865 91.4494C91.6642 92.916 90.4036 94 88.9203 94H3.65433C1.76286 94 0.343366 92.2709 0.711783 90.4157L6 63.7857C7.2 57.4295 9.5 52.9981 12.9 50.4914C16.3 47.9848 21.85 46.1943 29.55 45.12L75.9 38.8086C79.7 38.2714 82.3 37.421 83.7 36.2571C85.2 35.0933 86.3 32.9 87 29.6771L88.35 23.2314C89.85 16.7857 86.85 13.5629 79.35 13.5629H45.45C41.75 13.5629 39.1 14.1448 37.5 15.3086C36 16.4724 34.95 18.7552 34.35 22.1571L33.8872 24.7811C33.6344 26.2148 32.3886 27.26 30.9328 27.26H19.0225C17.1582 27.26 15.7453 25.5776 16.0676 23.7413L17.1 17.86C18.3 11.2352 20.65 6.62476 24.15 4.02857C27.75 1.34286 33.25 0 40.65 0H88.8C96 0 101.2 1.79048 104.4 5.37143C107.7 8.86286 108.75 13.921 107.55 20.5457L105.15 33.4371C103.95 39.7933 101.65 44.2248 98.25 46.7314C94.85 49.2381 89.25 51.0286 81.45 52.1029L35.1 58.4143C31.1 58.9514 28.35 59.8019 26.85 60.9657C25.45 62.1295 24.45 64.3229 23.85 67.5457L22.371 73.8107C21.9263 75.6944 23.3552 77.5 25.2907 77.5H90.5112C92.3471 77.5 93.7524 79.1342 93.4774 80.9494L91.8865 91.4494Z"
+                    fill="#00A483" />
+                </svg>
+                <svg width="103" height="94" viewBox="0 0 103 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M25.1943 94C15.6943 94 8.84429 91.7619 4.64429 87.2857C0.544288 82.8095 -0.655711 76.2743 1.04429 67.68L9.74429 23.6343C11.4443 15.04 14.6443 8.95239 19.3443 5.37143C24.0443 1.79048 31.1943 0 40.7943 0H77.9943C87.4943 0 94.2943 2.2381 98.3943 6.71429C102.594 11.1905 103.844 17.7257 102.144 26.32L93.4443 70.3657C91.7443 78.96 88.5443 85.0476 83.8443 88.6286C79.1443 92.2095 71.9943 94 62.3943 94H25.1943ZM33.1443 79.7657H58.6443C64.0443 79.7657 67.9443 78.8257 70.3443 76.9457C72.8443 74.9762 74.5943 71.5295 75.5943 66.6057L83.0943 28.3343C84.0943 23.4105 83.5443 19.8295 81.4443 17.5914C79.3443 15.3533 75.5443 14.2343 70.0443 14.2343H44.6943C39.1943 14.2343 35.1943 15.219 32.6943 17.1886C30.2943 19.0686 28.5943 22.4705 27.5943 27.3943L20.0943 65.6657C19.1943 70.5895 19.7443 74.1705 21.7443 76.4086C23.8443 78.6467 27.6443 79.7657 33.1443 79.7657Z"
+                    fill="#00A483" />
+                </svg>
+
+                <span class="col-purple about__c-left-text">лет</span>
+
+              </div>
+              <p class="about__c-left-text">в авангарде <br />
+                рекламной индустрии</p>
+            </div>
+            <div class="about__c-right">
+              <p class="about__c-right-head txt-up"> возможности</p>
+              <ul class="about__c-right-tags">
+                <li class="about__c-right-tags-e _green">
+                  <span>&#8226;</span> 3d
+                </li>
+                <li class="about__c-right-tags-e _purple">
+                  <span>&#8226;</span> 2d
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          <div class="section-heading">
+            <h2> <span>НАШИ</span> РАБОТЫ</h2>
+          </div>
+          <ul class="portfolio__list">
+            <li class="portfolio__list-e _2x1">
+              <div class="portfolio__list-e-img">
+                <img
+                  src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+                  alt="portfel">
+              </div>
+              <div class="portfolio__list-e-overlay">
+                <h3 class="portfolio__list-e-overlay-text">top text</h3>
+                <p class="portfolio__list-e-overlay-text">middle text</p>
+                <p class="portfolio__list-e-overlay-text">bottom text</p>
+                <div class="portfolio__list-e-overlay-bottom">
+                  <a href="#" class="portfolio__list-e-overlay-text">link</a>
+                  <a class="portfolio__list-e-overlay-play" data-fancybox="portfel"
+                    href="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="24.5" stroke="white" />
+                      <path
+                        d="M35.5 22.4019C37.5 23.5566 37.5 26.4434 35.5 27.5981L22 35.3923C20 36.547 17.5 35.1036 17.5 32.7942V17.2058C17.5 14.8964 20 13.453 22 14.6077L35.5 22.4019Z"
+                        fill="white" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="portfolio__list-e _2x1">
+              <div class="portfolio__list-e-img">
+                <img
+                  src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+                  alt="portfel">
+              </div>
+              <div class="portfolio__list-e-overlay">
+                <h3 class="portfolio__list-e-overlay-text">top text</h3>
+                <p class="portfolio__list-e-overlay-text">middle text</p>
+                <p class="portfolio__list-e-overlay-text">bottom text</p>
+                <div class="portfolio__list-e-overlay-bottom">
+                  <a href="#" class="portfolio__list-e-overlay-text">link</a>
+                  <a class="portfolio__list-e-overlay-play" data-fancybox="portfel"
+                    href="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="24.5" stroke="white" />
+                      <path
+                        d="M35.5 22.4019C37.5 23.5566 37.5 26.4434 35.5 27.5981L22 35.3923C20 36.547 17.5 35.1036 17.5 32.7942V17.2058C17.5 14.8964 20 13.453 22 14.6077L35.5 22.4019Z"
+                        fill="white" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="portfolio__list-e _2x2">
+              <div class="portfolio__list-e-img">
+                <img
+                  src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+                  alt="portfel">
+              </div>
+              <div class="portfolio__list-e-overlay">
+                <h3 class="portfolio__list-e-overlay-text">top text</h3>
+                <p class="portfolio__list-e-overlay-text">middle text</p>
+                <p class="portfolio__list-e-overlay-text">bottom text</p>
+                <div class="portfolio__list-e-overlay-bottom">
+                  <a href="#" class="portfolio__list-e-overlay-text">link</a>
+                  <a class="portfolio__list-e-overlay-play" data-fancybox="portfel"
+                    href="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="24.5" stroke="white" />
+                      <path
+                        d="M35.5 22.4019C37.5 23.5566 37.5 26.4434 35.5 27.5981L22 35.3923C20 36.547 17.5 35.1036 17.5 32.7942V17.2058C17.5 14.8964 20 13.453 22 14.6077L35.5 22.4019Z"
+                        fill="white" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="portfolio__list-e">
+              <div class="portfolio__list-e-img">
+                <img
+                  src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+                  alt="portfel">
+              </div>
+              <div class="portfolio__list-e-overlay">
+                <h3 class="portfolio__list-e-overlay-text">top text</h3>
+                <p class="portfolio__list-e-overlay-text">middle text</p>
+                <p class="portfolio__list-e-overlay-text">bottom text</p>
+                <div class="portfolio__list-e-overlay-bottom">
+                  <a href="#" class="portfolio__list-e-overlay-text">link</a>
+                  <a class="portfolio__list-e-overlay-play" data-fancybox="portfel"
+                    href="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="24.5" stroke="white" />
+                      <path
+                        d="M35.5 22.4019C37.5 23.5566 37.5 26.4434 35.5 27.5981L22 35.3923C20 36.547 17.5 35.1036 17.5 32.7942V17.2058C17.5 14.8964 20 13.453 22 14.6077L35.5 22.4019Z"
+                        fill="white" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="portfolio__list-e">
+              <div class="portfolio__list-e-img">
+                <img
+                  src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+                  alt="portfel">
+              </div>
+              <div class="portfolio__list-e-overlay">
+                <h3 class="portfolio__list-e-overlay-text">top text</h3>
+                <p class="portfolio__list-e-overlay-text">middle text</p>
+                <p class="portfolio__list-e-overlay-text">bottom text</p>
+                <div class="portfolio__list-e-overlay-bottom">
+                  <a href="#" class="portfolio__list-e-overlay-text">link</a>
+                  <a class="portfolio__list-e-overlay-play" data-fancybox="portfel"
+                    href="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="24.5" stroke="white" />
+                      <path
+                        d="M35.5 22.4019C37.5 23.5566 37.5 26.4434 35.5 27.5981L22 35.3923C20 36.547 17.5 35.1036 17.5 32.7942V17.2058C17.5 14.8964 20 13.453 22 14.6077L35.5 22.4019Z"
+                        fill="white" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="portfolio__list-e">
+              <div class="portfolio__list-e-img">
+                <img
+                  src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+                  alt="portfel">
+              </div>
+              <div class="portfolio__list-e-overlay">
+                <h3 class="portfolio__list-e-overlay-text">top text</h3>
+                <p class="portfolio__list-e-overlay-text">middle text</p>
+                <p class="portfolio__list-e-overlay-text">bottom text</p>
+                <div class="portfolio__list-e-overlay-bottom">
+                  <a href="#" class="portfolio__list-e-overlay-text">link</a>
+                  <a class="portfolio__list-e-overlay-play" data-fancybox="portfel"
+                    href="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="24.5" stroke="white" />
+                      <path
+                        d="M35.5 22.4019C37.5 23.5566 37.5 26.4434 35.5 27.5981L22 35.3923C20 36.547 17.5 35.1036 17.5 32.7942V17.2058C17.5 14.8964 20 13.453 22 14.6077L35.5 22.4019Z"
+                        fill="white" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--  -->
+      <section id="partners" class="partners">
+
+        <ul class="partners__list">
+          <li class="partners__list-e">
+            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
+          </li>
+          <li class="partners__list-e">
+            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
+          </li>
+          <li class="partners__list-e">
+            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
+          </li>
+          <li class="partners__list-e">
+            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
+          </li>
+        </ul>
+
+
+      </section>
+      <!--  -->
+      <section id="achivments" class="achivments">
+        <div class="container">
+          <div class="section-heading">
+            <h2> <span>НАШИ</span> награды</h2>
+          </div>
+          <div class="swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide achivments-item">
+                <div class="achivments-item__c">
+                  <p class="achivments-item__c-ttl">1111</p>
+                  <div>
+                    <div class="achivments-item__c-img">
+                      <img src="./assets/images/achivment.png" alt="achivment">
+                    </div>
+                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</h3>
+                  </div>
+                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </li>
+              <li class="swiper-slide achivments-item">
+                <div class="achivments-item__c">
+                  <p class="achivments-item__c-ttl">2222</p>
+                  <div>
+                    <div class="achivments-item__c-img">
+                      <img src="./assets/images/achivment.png" alt="achivment">
+                    </div>
+                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</h3>
+                  </div>
+                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </li>
+              <li class="swiper-slide achivments-item">
+                <div class="achivments-item__c">
+                  <p class="achivments-item__c-ttl">3333</p>
+                  <div>
+                    <div class="achivments-item__c-img">
+                      <img src="./assets/images/achivment.png" alt="achivment">
+                    </div>
+                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</h3>
+                  </div>
+                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </li>
+              <li class="swiper-slide achivments-item">
+                <div class="achivments-item__c">
+                  <p class="achivments-item__c-ttl">4444</p>
+                  <div>
+                    <div class="achivments-item__c-img">
+                      <img src="./assets/images/achivment.png" alt="achivment">
+                    </div>
+                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</h3>
+                  </div>
+                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </li>
+              <li class="swiper-slide achivments-item">
+                <div class="achivments-item__c">
+                  <p class="achivments-item__c-ttl">5555</p>
+                  <div>
+                    <div class="achivments-item__c-img">
+                      <img src="./assets/images/achivment.png" alt="achivment">
+                    </div>
+                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</h3>
+                  </div>
+                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+      <!--  -->
+      <section class="team" id="team">
+        <div class="container">
+          <div class="section-heading">
+            <h2> <span>НАШа</span> команда</h2>
+          </div>
+          <p class="team__sub">
+            У нас большой штат настоящих профессионалов,
+            каждый из которых вносит значительный вклад в наши проекты.
+            Представляем вам лидеров команды
+          </p>
+          <ul class="team__list">
+            <li class="team__list-e">
+              <div class="team__list-e-border">
+                <div class="team__list-e-border-img">
+                  <img src="./assets/images/team.png" alt="team">
+                </div>
+              </div>
+              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
+              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
+
+            </li>
+            <li class="team__list-e">
+              <div class="team__list-e-border">
+                <div class="team__list-e-border-img">
+                  <img src="./assets/images/team.png" alt="team">
+                </div>
+              </div>
+              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
+              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
+
+            </li>
+            <li class="team__list-e">
+              <div class="team__list-e-border">
+                <div class="team__list-e-border-img">
+                  <img src="./assets/images/team.png" alt="team">
+                </div>
+              </div>
+              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
+              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
+
+            </li>
+            <li class="team__list-e">
+              <div class="team__list-e-border">
+                <div class="team__list-e-border-img">
+                  <img src="./assets/images/team.png" alt="team">
+                </div>
+              </div>
+              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
+              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
+
+            </li>
+            <li class="team__list-e">
+              <div class="team__list-e-border">
+                <div class="team__list-e-border-img">
+                  <img src="./assets/images/team.png" alt="team">
+                </div>
+              </div>
+              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
+              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
+
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--  -->
+      <section class="contacts" id="contacts">
+        <div class="container">
+          <div class="section-heading">
+            <h2> <span>НАШи</span> контакты</h2>
+          </div>
+          <ul class="contacts__list">
+            <li class="contacts__list-e">
+              <a class="contacts__list-e-link _center" href="#link">121099 г. Москва <br />
+                Шубинский переулок, д.6, стр.2 </a>
+              <div class="contacts__list-e-icon">
+                <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.2464 34.6504C8.48895 31.5739 0 23.5493 0 13.8457C0 10.1735 1.475 6.65232 4.1005 4.05566C6.72601 1.45901 10.2871 0 14.0002 0C17.7132 0 21.2739 1.45879 23.8994 4.05544C26.5249 6.6521 27.9998 10.1744 27.9998 13.8466C27.9998 23.5502 19.5113 31.5742 15.7539 34.6507C15.2141 35.0927 14.9439 35.3133 14.542 35.4265C14.2296 35.5144 13.7698 35.5144 13.4574 35.4265C13.0562 35.3135 12.7841 35.0907 12.2464 34.6504ZM14 17C11.2386 17 9 14.7614 9 12C9 9.23858 11.2386 7 14 7C16.7614 7 19 9.23858 19 12C19 14.7614 16.7614 17 14 17Z"
+                    fill="url(#paint0_linear_319_17)" class="contacts__list-e-icon-fill" />
+                  <defs>
+                    <linearGradient id="paint0_linear_319_17" x1="3.93748" y1="-2.52906e-07" x2="34.4584" y2="19.8288"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </li>
+            <li class="contacts__list-e">
+              <a class="contacts__list-e-link _center" href="#link">PostPro18 на Vimeo</a>
+              <div class="contacts__list-e-icon">
+                <svg width="37" height="32" viewBox="0 0 37 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 8.704C1.18349 7.317 2.36799 6.08 3.55148 4.992C4.73497 3.904 5.76309 3.077 6.63482 2.512C7.50654 1.947 8.28646 1.488 8.97557 1.136C9.66468 0.784 10.1813 0.555 10.5253 0.448L11.0742 0.32C11.3325 0.277 11.5907 0.256 11.849 0.256C12.2577 0.256 12.634 0.32 12.9791 0.448C13.539 0.661 13.9961 1.029 14.3512 1.552C14.7064 2.075 15.0181 2.661 15.2875 3.312C15.5569 3.963 15.788 4.73 15.9817 5.616C16.1754 6.501 16.3368 7.328 16.466 8.096C16.5951 8.864 16.7404 9.712 16.9018 10.64C17.0633 11.568 17.2197 12.32 17.37 12.896C18.0591 15.563 18.613 17.456 19.0317 18.576C19.4514 19.695 19.8984 20.256 20.3716 20.256C20.8902 20.256 21.6055 19.664 22.5196 18.481C23.4337 17.296 24.4407 15.682 25.5384 13.632C26.0984 12.608 26.3778 11.637 26.3778 10.72C26.3778 10.443 26.3566 10.199 26.3143 9.984C26.1216 8.875 25.5717 8.181 24.6677 7.904C24.4306 7.819 24.1723 7.776 23.8908 7.776C23.1381 7.776 22.2442 8.053 21.211 8.608C21.6862 5.835 23.127 3.606 25.5384 1.92C27.3676 0.64 29.2422 0 31.1562 0C31.4155 0 31.6738 0.011 31.9321 0.032C34.1275 0.202 35.6228 1.162 36.4188 2.912C36.8073 3.723 37 4.661 37 5.728C37 6.347 36.9354 6.997 36.8073 7.68C36.4188 9.856 35.6722 12.075 34.5624 14.336C33.4526 16.598 32.2368 18.598 30.9151 20.336C29.5913 22.074 28.1637 23.729 26.6371 25.296C25.1076 26.864 23.7798 28.111 22.6508 29.04C21.5208 29.968 20.5461 30.699 19.7289 31.232C18.8229 31.744 17.9784 32 17.1924 32C16.4064 32 15.6588 31.775 14.9485 31.328C14.2382 30.88 13.6359 30.368 13.1405 29.792C12.6451 29.216 12.2365 28.607 11.9136 27.968C11.5262 27.157 10.4769 23.973 8.76571 18.416C7.05454 12.858 6.01633 9.867 5.65009 9.44C5.6289 9.397 5.58552 9.354 5.52094 9.312C5.45637 9.27 5.31108 9.221 5.08508 9.168C4.85908 9.115 4.60079 9.115 4.31021 9.168C4.01963 9.221 3.62715 9.371 3.13176 9.616C2.63637 9.861 2.0986 10.208 1.51745 10.656L0 8.704Z"
+                    fill="url(#paint0_linear_319_3)" class="contacts__list-e-icon-fill" fill-opacity="0.61" />
+                  <defs>
+                    <linearGradient id="paint0_linear_319_3" x1="5.20312" y1="-2.28021e-07" x2="35.2838" y2="28.643"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+
+              </div>
+            </li>
+            <li class="contacts__list-e">
+              <a class="contacts__list-e-link" href="#link"> +7 (495) 252 00 19 </a>
+              <a class="contacts__list-e-link" href="#link"> +7 (495) 620 48 14</a>
+
+              <div class="contacts__list-e-icon">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.1921 2.35728C11.6226 0.933566 10.2437 0 8.71033 0H3.55263C1.59057 0 0 1.59018 0 3.55225C0 20.2298 13.5202 33.75 30.1978 33.75C32.1598 33.75 33.75 32.1593 33.75 30.1972L33.7509 25.0387C33.7509 23.5053 32.8175 22.1266 31.3938 21.5571L26.4505 19.5805C25.1716 19.069 23.7155 19.2992 22.6574 20.181L21.3816 21.245C19.8916 22.4867 17.6993 22.3879 16.3279 21.0165L12.7354 17.4207C11.364 16.0493 11.2626 13.8588 12.5043 12.3688L13.5681 11.0931C14.4499 10.0349 14.6822 8.57842 14.1706 7.29955L12.1921 2.35728Z"
+                    fill="url(#paint0_linear_319_34)" class="contacts__list-e-icon-fill" fill-opacity="0.61" />
+                  <path
+                    d="M27.7969 13.0086C27.6545 11.2496 26.9268 9.66601 25.6074 8.58042C24.2348 7.45096 22.4565 7.05373 20.6276 7.31187"
+                    stroke="url(#paint1_linear_319_34)" class="contacts__list-e-icon-stroke" stroke-opacity="0.61"
+                    stroke-width="2" stroke-linecap="round" />
+                  <path
+                    d="M31.5375 10.7984C31.0466 8.75251 29.8735 6.80252 28.069 5.3177C26.1915 3.77286 23.9516 2.99579 21.7683 2.96226"
+                    stroke="url(#paint2_linear_319_34)" class="contacts__list-e-icon-stroke" stroke-opacity="0.61"
+                    stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <linearGradient id="paint0_linear_319_34" x1="4.74622" y1="-2.4049e-07" x2="35.9207" y2="25.6738"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_319_34" x1="23.0098" y1="6.44306" x2="21.4482" y2="10.0707"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_319_34" x1="24.5161" y1="2.39431" x2="22.6594" y2="5.9628"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+              </div>
+            </li>
+            <li class="contacts__list-e">
+              <a class="contacts__list-e-link _center" href="#link">PostPro18 на Behance</a>
+              <div class="contacts__list-e-icon">
+                <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10.6621 0C11.741 0 12.7247 0.0965448 13.6132 0.29C14.5018 0.483273 15.2633 0.800335 15.8979 1.24009C16.5325 1.68039 17.0244 2.2657 17.3735 2.996C17.7226 3.7263 17.8971 4.62812 17.8971 5.70181C17.8971 6.86163 17.6379 7.82799 17.1197 8.6009C16.6011 9.37399 15.8345 10.0074 14.8192 10.5014C16.2153 10.9096 17.2571 11.624 17.9448 12.6435C18.6318 13.6638 18.9764 14.8935 18.9764 16.332C18.9764 17.4916 18.7543 18.4958 18.3098 19.3443C17.8658 20.1929 17.2678 20.8853 16.5172 21.4214C15.7661 21.9586 14.9092 22.3556 13.9468 22.6138C12.9784 22.872 11.9811 23.0018 10.9798 23H0V0H10.6621ZM10.0275 9.30981C10.916 9.30981 11.6457 9.09515 12.2171 8.66545C12.7883 8.23612 13.0738 7.53799 13.0738 6.57163C13.0738 6.03497 12.9786 5.59448 12.7883 5.25091C12.5979 4.90751 12.3441 4.63854 12.0267 4.44563C11.7093 4.25218 11.3444 4.11852 10.9319 4.04282C10.5076 3.96676 10.0775 3.92906 9.64672 3.93018H4.98205V9.30999L10.0275 9.30981ZM10.313 19.07C10.7993 19.07 11.2649 19.0215 11.7091 18.925C12.1533 18.8283 12.5445 18.6672 12.8834 18.4415C13.2215 18.2164 13.4913 17.9102 13.6925 17.5234C13.8933 17.1371 13.9938 16.6432 13.9938 16.0416C13.9938 14.861 13.6656 14.018 13.0102 13.5132C12.3542 13.0085 11.4869 12.756 10.4081 12.756H4.98205V19.0696L10.313 19.07ZM25.246 18.5869C25.9229 19.2532 26.8961 19.5854 28.1654 19.5854C29.0747 19.5854 29.8577 19.355 30.5133 18.893C31.1692 18.4318 31.5712 17.9429 31.7193 17.4273H35.6858C35.0514 19.4243 34.0778 20.8528 32.7665 21.7114C31.4545 22.5706 29.8678 23 28.0064 23C26.716 23 25.5522 22.7906 24.5158 22.3717C23.479 21.9532 22.6009 21.3571 21.8822 20.584C21.1628 19.8111 20.6074 18.8882 20.216 17.814C19.8244 16.7405 19.6292 15.5591 19.6292 14.2705C19.6292 13.0253 19.8297 11.8657 20.2321 10.7918C20.6336 9.7183 21.2045 8.78942 21.9458 8.00518C22.6857 7.22166 23.5692 6.60418 24.5954 6.15309C25.6212 5.702 26.7583 5.47673 28.0066 5.47673C29.4029 5.47673 30.6191 5.75045 31.6561 6.29809C32.6923 6.84554 33.5439 7.58188 34.2106 8.50454C34.8769 9.42812 35.3578 10.4806 35.6546 11.6613C35.9508 12.8427 36.0561 14.0773 35.972 15.3658H24.1357C24.1989 16.8473 24.5685 17.9215 25.246 18.5869ZM30.339 9.82508C29.7997 9.22406 28.9796 8.92308 27.8799 8.92308C27.1605 8.92308 26.5631 9.04687 26.0872 9.29354C25.6111 9.54093 25.2301 9.84629 24.9445 10.2116C24.6591 10.577 24.4578 10.9637 24.3418 11.3713C24.2252 11.7794 24.1564 12.1445 24.1353 12.4665H31.4655C31.254 11.3067 30.8786 10.4265 30.339 9.82508ZM23.3659 1.16786H32.5244V3.74568H23.3659V1.16786Z"
+                    fill="url(#paint0_linear_319_5)" class="contacts__list-e-icon-fill" fill-opacity="0.61" />
+                  <defs>
+                    <linearGradient id="paint0_linear_319_5" x1="5.0625" y1="-1.6389e-07" x2="26.0296" y2="27.0267"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+
+
+              </div>
+            </li>
+            <li class="contacts__list-e">
+              <a class="contacts__list-e-link _center" href="#link">info@postpro18.ru </a>
+              <div class="contacts__list-e-icon">
+                <svg width="34" height="27" viewBox="0 0 34 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M0 20.2504V6.00037C0 3.90017 0 2.84929 0.408726 2.04712C0.768251 1.34151 1.34151 0.768251 2.04712 0.408726C2.84929 0 3.90017 0 6.00037 0H27.7504C29.8506 0 30.8992 0 31.7014 0.408726C32.407 0.768251 32.9822 1.34151 33.3417 2.04712C33.75 2.8485 33.75 3.89811 33.75 5.99421V20.2567C33.75 22.3528 33.75 23.4009 33.3417 24.2023C32.9822 24.9079 32.407 25.4821 31.7014 25.8417C30.9 26.25 29.8519 26.25 27.7558 26.25H5.99421C3.89811 26.25 2.8485 26.25 2.04712 25.8417C1.34151 25.4821 0.768251 24.9079 0.408726 24.2023C0 23.4001 0 22.3506 0 20.2504ZM32.4664 2.68141C32.9117 2.3548 33.008 1.729 32.6814 1.28364C32.3548 0.838271 31.729 0.741994 31.2836 1.0686C29.2231 2.57968 26.3542 4.74623 24.0044 6.532C22.8287 7.42552 21.7814 8.22482 21.0281 8.80076C20.6514 9.08873 20.3482 9.32089 20.1391 9.48109L19.8986 9.6654L19.8361 9.7133L19.8235 9.72303C18.4863 10.7035 18.0291 11.0169 17.5639 11.1373C17.1123 11.2541 16.6372 11.2541 16.1856 11.1373C15.7217 11.0173 15.2671 10.706 13.9376 9.7312L13.9295 9.72498L2.47763 1.07698C2.0369 0.744157 1.40981 0.831633 1.07698 1.27237C0.744157 1.7131 0.831633 2.34019 1.27237 2.67302L12.7112 11.3112C12.7204 11.3185 12.7298 11.3256 12.7393 11.3326L12.8989 11.4497C14.0144 12.2687 14.7985 12.8443 15.6848 13.0735C16.4649 13.2753 17.2846 13.2753 18.0647 13.0735C18.9516 12.8442 19.7375 12.2672 20.855 11.4468L21.0149 11.3294L21.0324 11.3163L20.4236 10.523L21.0325 11.3163L21.0327 11.3161L21.0337 11.3153L21.0377 11.3123L21.0534 11.3002L21.1156 11.2525L21.3554 11.0687C21.564 10.9089 21.8667 10.6772 22.2428 10.3896C22.995 9.81455 24.0407 9.01644 25.2146 8.12435C27.5639 6.33891 30.4208 4.18146 32.4664 2.68141Z"
+                    fill="url(#paint0_linear_319_24)" class="contacts__list-e-icon-fill" fill-opacity="0.61" />
+                  <defs>
+                    <linearGradient id="paint0_linear_319_24" x1="4.74609" y1="-1.87048e-07" x2="29.4109" y2="26.1157"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+              </div>
+            </li>
+            <li class="contacts__list-e">
+              <a class="contacts__list-e-link _center" href="#link">скачать Презентацию</a>
+              <div class="contacts__list-e-icon">
+                <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M26.126 8.12597L19.875 1.875C19.1836 1.18363 18.8371 0.837133 18.4336 0.589844C18.0757 0.370529 17.6845 0.208928 17.2764 0.110941C16.9314 0.0281327 16.5717 0.00695001 16.0008 0.00174332C16.0005 0.00174103 16.0003 0.00173874 16 0.00173645V0H15.3494C15.5944 0 15.8091 0 16 0.00173645V7C16 9.20914 17.7909 11 20 11H27.9418C27.9815 11.2709 27.9942 11.5783 27.998 12C27.9998 12.1911 28 12.406 28 12.6514V11H27.9418C27.9278 10.9041 27.9103 10.8128 27.8887 10.7227C27.7907 10.3145 27.6284 9.92428 27.4091 9.56639C27.1617 9.16272 26.8178 8.81777 26.126 8.12597ZM28 13H20C16.6863 13 14 10.3137 14 7V0H6.40039C4.16018 0 3.03924 0 2.18359 0.435976C1.43095 0.819469 0.819467 1.43095 0.435974 2.18359C0 3.03924 0 4.16018 0 6.40039V29.6004C0 31.8406 0 32.9601 0.435976 33.8158C0.819469 34.5684 1.43095 35.181 2.18359 35.5644C3.03841 36 4.15801 36 6.39388 36L21.6062 36C23.842 36 24.96 36 25.8148 35.5644C26.5674 35.181 27.181 34.5684 27.5645 33.8158C28 32.9609 28 31.843 28 29.6072V13ZM7.89062 26.625C7.33834 26.625 6.89062 27.0727 6.89062 27.625C6.89062 28.1773 7.33834 28.625 7.89062 28.625H19.7299C20.2822 28.625 20.7299 28.1773 20.7299 27.625C20.7299 27.0727 20.2822 26.625 19.7299 26.625H7.89062ZM6.89062 21.7056C6.89062 21.1533 7.33834 20.7056 7.89062 20.7056H19.7299C20.2822 20.7056 20.7299 21.1533 20.7299 21.7056C20.7299 22.2579 20.2822 22.7056 19.7299 22.7056H7.89062C7.33834 22.7056 6.89062 22.2579 6.89062 21.7056Z"
+                    fill="url(#paint0_linear_319_8)" class="contacts__list-e-icon-fill" fill-opacity="0.61" />
+                  <defs>
+                    <linearGradient id="paint0_linear_319_8" x1="3.9375" y1="-2.56523e-07" x2="34.7143" y2="19.7132"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0EA885" />
+                      <stop offset="0.837321" stop-color="#A142FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+
+
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--  -->
+      <section class="vacancy" id="vacancy">
+        <div class="container">
+          <div class="section-heading">
+            <h2> <span>НАШи</span> вакансии</h2>
+          </div>
+          <div class="vacancy__c">
+            <div class="vacancy__c-img"></div>
+            <div class="vacancy__c-text">
+              <p>Готовы присоединиться к <span class="txt-up col-green">POSTPRO 18 STUDIO</span> ?</p>
+              <p>Направляйте Ваше резюме</p>
+              <p>на электронную почту <a href="#" class="col-purple">info@postpro18.ru</a></p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+
+    </main>
+    <include src="./components/_footer.html"></include>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+// typography
+@import './typo';
+
+
+
+.col {
+    &-bl {
+        color: $black;
+    }
+
+    &-green {
+        color: $green;
+    }
+
+    &-purple {
+        color: $purple;
+    }
+}
+
+.txt {
+    &-up {
+        text-transform: uppercase;
+    }
+}
+
+.section-heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    font-family: 'Esqadero FF CY 4F';
+    font-size: 6.5rem;
+    font-weight: 400;
+    line-height: 110%;
+    text-align: left;
+
+    margin-bottom: 7rem;
+    & h2{
+        border-left: .1rem solid $green;
+        padding-left: 2rem;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        & span{
+            background-image: $staticBg;
+            background-clip: text;
+            color: transparent;
+        }
+    }
+
+}

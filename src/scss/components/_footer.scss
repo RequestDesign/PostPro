@@ -1,0 +1,40 @@
+.footer {
+    border-top: .1rem solid $green;
+    margin-top: 16rem;
+
+    &__c {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        padding: 3rem 0 7rem;
+
+        &-txt {
+            //styleName: Т01;
+            font-family: Idealist Sans;
+            font-size: 1.6rem;
+            font-weight: 300;
+            line-height: 2.2rem;
+            letter-spacing: 0.05em;
+            text-align: left;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+
+        }
+
+        &-up {
+            width: 6rem;
+            height: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: .1rem solid $green;
+
+            & img {
+                width: 2rem;
+                height: 1rem;
+            }
+        }
+    }
+}

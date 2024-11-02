@@ -1,0 +1,15 @@
+.partners{
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+    padding: 5rem 0;
+    display: flex;
+    &__list{
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 2rem;
+        &-e{
+
+        }
+    }
+}

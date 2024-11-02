@@ -1,0 +1,84 @@
+@import './mixins';
+
+$black: rgba(23, 23, 29, 1);
+$green: rgba(0, 164, 131, 1);
+$purple: rgba(158, 124, 238, 1);
+$white: rgba(255, 255, 255, 1);
+$bg: rgba(23, 23, 29, 1);
+$red: rgba(217, 56, 56, 1);
+$staticBg: linear-gradient(129.47deg, rgba(14, 168, 133, 0.61) 7.71%, rgba(161, 66, 255, 0.61) 78.89%);
+
+html{
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $bg;
+  color: $white;
+  font-family:  sans-serif;
+
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+.disable-margin section {
+  margin-top: 6rem !important;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  position: relative;
+  // overflow: hidden;
+}
+
+.container {
+  width: 144rem;
+  margin: 0 auto;
+}
+
+
+* {
+  // outline:  1px solid red;
+}
+
+// main
+main {
+  flex-grow: 1;
+
+  section {
+    margin: 16rem 0 0;
+
+    @include mobile {
+      margin: 10rem 0 0;
+    }
+
+    &._first {
+      margin: 3.2rem 0 0rem;
+
+      @include mobile {
+        margin: 6.4rem 0 0rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 48em) {
+  .desktop {
+    display: none;
+  }
+
+}
+
+@media (max-width: 48em) {
+  .mobile {
+    display: none;
+  }
+
+}
+
+
+@import './ui/ui';
