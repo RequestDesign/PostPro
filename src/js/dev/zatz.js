@@ -5,25 +5,20 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Grid, Autoplay, EffectCreative } from 'swiper/modules';
 import { rem } from '../utils/constants'
 import { Fancybox } from "@fancyapps/ui";
+import WOW from 'wow.js';
+import Marquee from '../utils/Marquee';
+
 
 $(function () {
     initSwipers()
     initFancybox()
-
+    initHeadingText()
+    initWow()
+    initMarque()
+    
 })
 
-function dropDowns() {
-    const ddBtn = $('.drop-down-target')
-    if (!ddBtn) return
 
-    ddBtn.on('click', (e) => {
-        e.preventDefault()
-        e.currentTarget.classList.toggle('_opened')
-        e.currentTarget.closest('.drop-down-container')
-            .classList.toggle('_opened')
-    })
-
-}
 function initSwipers() {
     const swiper = document.querySelector('.achivments')
     if (swiper) {
@@ -35,9 +30,10 @@ function initSwipers() {
             centeredSlides: true,
             spaceBetween: rem(3),
             initialSlide: 2,
+            slideToClickedSlide: true,
             creativeEffect: {
                 prev: {
-                   opacity: 0.5,
+                    opacity: 0.5,
                     translate: ["-75%", 30, -300],
                 },
                 next: {
@@ -60,40 +56,7 @@ function initSwipers() {
     }
 
 }
-function modalsHandler() {
 
-
-    const modalOpeners = $('.modal-opener'),
-        modalClosers = $('.modal-closer'),
-        html = $('html')
-
-
-    if (!modalOpeners || !modalClosers) return
-
-    modalOpeners.on('click', (ev) => {
-        const { modal } = ev.currentTarget.dataset
-
-        $(`.modal-${modal}`)
-            .fadeIn()
-            .addClass('_opened')
-        html.addClass('lock')
-    })
-
-
-    modalClosers.on('click', (ev) => {
-        const { classList } = ev.target
-        if (!classList.contains('modal-closer')) return
-
-        if (classList.contains('modal')) {
-            $(ev.target).fadeOut().removeClass('_opened')
-
-        } else {
-            $(ev.target.closest('.modal')).fadeOut().removeClass('_opened')
-
-        }
-        html.removeClass('lock')
-    })
-}
 
 function initFancybox() {
     const anytarget = document.querySelector('[data-fancybox]')
@@ -115,3 +78,74 @@ function initFancybox() {
     })
 }
 
+
+function initHeadingText() {
+    const container = document.querySelector('#headingText')
+
+    if (!container) return
+
+    const target = container.querySelector('#headingTextData'),
+        forExample = ['for example', 'two', 'restart']
+
+
+    print(0, 0)
+    function print(word, letter ) {
+
+        if (forExample[word][letter]) {
+            target.textContent = target.textContent + forExample[word][letter]
+            setTimeout(() => {
+                print(word, letter + 1)
+            }, 500 + letter);
+
+
+        } else {
+
+            if(target.textContent){
+                setTimeout(() => {
+                    target.textContent = target.textContent.slice(0, -1)
+                    print(word, -1)
+                }, 200); 
+            } else if (!target.textContent){
+
+                if(forExample[word + 1]){
+                    setTimeout(() => {
+                        print(word + 1, 0)
+                    }, 500);
+                }else{
+                    setTimeout(() => {
+                        print(0, 0)
+                    }, 500); 
+                }
+
+               return
+                
+            }
+           
+
+            
+        }
+
+    }
+
+}
+
+
+function initWow() {
+    const wow = new WOW({
+        boxClass: "wow",
+        animateClass: "animate__animated",
+        offset: 150,
+        mobile: false,
+        live: true,
+    });
+    wow.init();
+}
+
+function initMarque(){
+   const container = document.querySelectorAll('.partners__list')
+  if (!container) return
+container.forEach((c)=>[
+    new Marquee(c)
+
+])
+}

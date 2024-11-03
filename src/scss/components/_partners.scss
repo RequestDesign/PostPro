@@ -1,15 +1,54 @@
-.partners{
-    margin: 0;
-    overflow: hidden;
+.partners {
     width: 100%;
     padding: 5rem 0;
-    display: flex;
-    &__list{
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 2rem;
-        &-e{
+
+    &__list {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 3rem;
+
+        &-e {
+            height: 100%;
+            display: flex;
+
+            & img {
+                height: 100%;
+                width: max-content;
+                object-fit: contain;
+            }
 
         }
+
+        & .marquee {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2rem;
+            align-items: center;
+            height: 4rem;
+
+            /*  animation: marquee 10s linear infinite alternate; */
+            &._rev {
+              
+            }
+
+            &-item {
+                flex-shrink: 0;
+
+
+
+            }
+        }
+
+
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
     }
 }

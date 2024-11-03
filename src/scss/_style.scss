@@ -10,6 +10,7 @@ $staticBg: linear-gradient(129.47deg, rgba(14, 168, 133, 0.61) 7.71%, rgba(161, 
 
 html{
   scroll-behavior: smooth;
+  user-select: none;
 }
 body {
   background-color: $bg;
@@ -32,7 +33,7 @@ body {
   min-height: 100vh;
   justify-content: space-between;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .container {

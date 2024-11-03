@@ -1,4 +1,5 @@
 .about {
+    position: relative;
     &__c {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -48,7 +49,6 @@
                 padding: 1.5rem;
                 box-sizing: border-box;
                 width: fit-content;
-                border: .1rem solid $green;
                 /* border-image-source: $staticBg;
                 border-image-slice: 1; */
                 border-radius: 1rem;
@@ -63,9 +63,6 @@
 
                 &-e {
                     border-radius: 1rem;
-                    background-color: rgba(197, 149, 255, 0.07);
-                    border: .1rem solid $green;
-
                     font-family: 'Esqadero FF CY 4F';
                     font-size: 2.2rem;
                     font-weight: 400;
@@ -74,30 +71,84 @@
                     box-sizing: border-box;
                     text-transform: uppercase;
                     user-select: none;
+                    position: relative;
+                    z-index: 2;
+                    transition: all .5s;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
 
-                    
-                    &._green {
-                        color: $green;
-                      
-                        @include hover {
-                            & span{
-                                color: $green;
-                            }
+                    @include hover {
+                        box-shadow: 0px 0px 6rem .5rem rgba(0, 164, 131, .5);
+
+                        & .about__c-right-tags-e-bg {
+                            box-shadow: 0px 0px 2rem .5rem rgba(0, 164, 131, .5) inset;
+                        }
+
+                        & .about__c-right-tags-e-border {
+                            background-image: none;
+                        }
+                        & .about__c-right-tags-e-img{
+                           /*  background-size: 30rem; */
                         }
                     }
-                    &._purple{
-                        color: $purple;
-                       
-                        @include hover {
-                            & span{
-                                color: $purple;
-                            }
-                        }  
+
+             
+
+                    & span {
+                        position: relative;
+                        z-index: 5;
                     }
-                    & span{
+
+                    &-dot {
                         color: $white;
                     }
 
+                    @include hover {
+                        & span {
+                            color: $green;
+                        }
+                    }
+
+                    &-border {
+                        background-color: $green;
+                        background-image: $staticBg;
+                        position: absolute;
+                        z-index: -1;
+                        width: calc(100% + 3px);
+                        height: calc(100% + 3px);
+                        top: -1.5px;
+                        left: -1.5px;
+                        border-radius: 1rem;
+                    }
+
+                    &-bg {
+                        
+                        position: absolute;
+                        z-index: 1;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        border-radius: 1rem;
+                        background-color: rgba(20, 18, 22, 0.856);
+                        box-shadow: 0px 0px .1rem .1rem rgba(0, 164, 131, .5) inset;
+                     
+                    }
+                    &-img{
+                        position: absolute;
+                        z-index: 2;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        border-radius: 1rem;
+                        background-image: url(./assets/images/texture.png);
+                        background-size: 50rem; 
+                        background-position: center;
+                        opacity: .3;
+                        transition:  background-size .5s;
+                    }
 
                 }
 

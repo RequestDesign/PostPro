@@ -1,18 +1,26 @@
 .achivments {
+    & .wow{
+        padding: 1rem 0;
+        box-sizing: border-box;
+    }
     & .swiper {
+       
         @include desktop {
             width: 100rem;
         }
+        
     }
 
     &-item {
-        border: .1rem solid $green;
+      
         border-radius: 3rem;
-  
+        padding: 2px ;
+        transition: padding 0s;
+        box-sizing: border-box;
       
 
         &__c {
-            background-color: rgb(38, 29, 49);
+            background-color: rgba(190, 147, 243, 0.288);
             backdrop-filter: blur(1rem);
             display: flex;
             flex-direction: column;
@@ -22,6 +30,10 @@
             box-sizing: border-box;
             padding: 5rem;
             border-radius: 3rem;
+            &.gradient-border::after{
+                border-radius: 2.6rem;
+            }
+            
 
             & div {
                 display: flex;

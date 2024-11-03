@@ -21,18 +21,17 @@
               alt="placeholder">
           </div>
           <div class="heading__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi sint dolores! Architecto
-              accusamus deserunt nisi quisquam, ex id itaque.</p>
+            <p id="headingText"> Мы создаем: <span id="headingTextData"></span></p>
           </div>
           <div class="heading__btns">
-            <button class="heading__btns-portfolio ">
-              <!--  <span class="">
-                <img src="./assets/images/icons/arrow-right-white.svg" alt="vimeo">
-              </span> -->
-              <p class="heading-btn-text">
+            <a href="#portfolio" class="heading__btns-portfolio ">
+              <span class="heading__btns-portfolio-img">
+                <img src="./assets/images/icons/arrow-right-white.svg" alt="arrow">
+              </span>
+              <p class="heading-btn-text txt-up">
                 наши работы
               </p>
-            </button>
+            </a>
 
             <div>
               <a href="#" class="heading__btns-e">
@@ -61,41 +60,62 @@
       </section>
       <!--  -->
       <section id="about" class="about">
+        <div class="gradient-bg"></div>
         <div class="container">
-          <div class="section-heading">
-            <h2> <span>о</span> нас</h2>
+          <div class="section-heading wow animate__fadeInUp">
+            <h2 class="wow animate__width wow animate__heading" data-wow-delay=".8s"> &nbsp;<span>о</span> нас</h2>
           </div>
           <div class="about__c">
             <div class="about__c-left">
-              <p class="about__c-left-text txt-up">POSTPRO 18 STUDIO</p>
+              <p class="about__c-left-text txt-up wow animate__fadeInLeft">POSTPRO 18 STUDIO</p>
               <div class="about__c-left-years">
-                <span class="col-purple about__c-left-text">более</span>
-                <svg width="109" height="94" viewBox="0 0 109 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M91.8865 91.4494C91.6642 92.916 90.4036 94 88.9203 94H3.65433C1.76286 94 0.343366 92.2709 0.711783 90.4157L6 63.7857C7.2 57.4295 9.5 52.9981 12.9 50.4914C16.3 47.9848 21.85 46.1943 29.55 45.12L75.9 38.8086C79.7 38.2714 82.3 37.421 83.7 36.2571C85.2 35.0933 86.3 32.9 87 29.6771L88.35 23.2314C89.85 16.7857 86.85 13.5629 79.35 13.5629H45.45C41.75 13.5629 39.1 14.1448 37.5 15.3086C36 16.4724 34.95 18.7552 34.35 22.1571L33.8872 24.7811C33.6344 26.2148 32.3886 27.26 30.9328 27.26H19.0225C17.1582 27.26 15.7453 25.5776 16.0676 23.7413L17.1 17.86C18.3 11.2352 20.65 6.62476 24.15 4.02857C27.75 1.34286 33.25 0 40.65 0H88.8C96 0 101.2 1.79048 104.4 5.37143C107.7 8.86286 108.75 13.921 107.55 20.5457L105.15 33.4371C103.95 39.7933 101.65 44.2248 98.25 46.7314C94.85 49.2381 89.25 51.0286 81.45 52.1029L35.1 58.4143C31.1 58.9514 28.35 59.8019 26.85 60.9657C25.45 62.1295 24.45 64.3229 23.85 67.5457L22.371 73.8107C21.9263 75.6944 23.3552 77.5 25.2907 77.5H90.5112C92.3471 77.5 93.7524 79.1342 93.4774 80.9494L91.8865 91.4494Z"
-                    fill="#00A483" />
-                </svg>
-                <svg width="103" height="94" viewBox="0 0 103 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M25.1943 94C15.6943 94 8.84429 91.7619 4.64429 87.2857C0.544288 82.8095 -0.655711 76.2743 1.04429 67.68L9.74429 23.6343C11.4443 15.04 14.6443 8.95239 19.3443 5.37143C24.0443 1.79048 31.1943 0 40.7943 0H77.9943C87.4943 0 94.2943 2.2381 98.3943 6.71429C102.594 11.1905 103.844 17.7257 102.144 26.32L93.4443 70.3657C91.7443 78.96 88.5443 85.0476 83.8443 88.6286C79.1443 92.2095 71.9943 94 62.3943 94H25.1943ZM33.1443 79.7657H58.6443C64.0443 79.7657 67.9443 78.8257 70.3443 76.9457C72.8443 74.9762 74.5943 71.5295 75.5943 66.6057L83.0943 28.3343C84.0943 23.4105 83.5443 19.8295 81.4443 17.5914C79.3443 15.3533 75.5443 14.2343 70.0443 14.2343H44.6943C39.1943 14.2343 35.1943 15.219 32.6943 17.1886C30.2943 19.0686 28.5943 22.4705 27.5943 27.3943L20.0943 65.6657C19.1943 70.5895 19.7443 74.1705 21.7443 76.4086C23.8443 78.6467 27.6443 79.7657 33.1443 79.7657Z"
-                    fill="#00A483" />
-                </svg>
+                <span class="col-purple about__c-left-text wow animate__fadeInLeft" data-wow-delay=".1s">более</span>
 
-                <span class="col-purple about__c-left-text">лет</span>
+                <div class="wow animate__fadeInLeft" data-wow-delay=".2s">
+                  <svg width="109" height="94" viewBox="0 0 109 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M91.8865 91.4494C91.6642 92.916 90.4036 94 88.9203 94H3.65433C1.76286 94 0.343366 92.2709 0.711783 90.4157L6 63.7857C7.2 57.4295 9.5 52.9981 12.9 50.4914C16.3 47.9848 21.85 46.1943 29.55 45.12L75.9 38.8086C79.7 38.2714 82.3 37.421 83.7 36.2571C85.2 35.0933 86.3 32.9 87 29.6771L88.35 23.2314C89.85 16.7857 86.85 13.5629 79.35 13.5629H45.45C41.75 13.5629 39.1 14.1448 37.5 15.3086C36 16.4724 34.95 18.7552 34.35 22.1571L33.8872 24.7811C33.6344 26.2148 32.3886 27.26 30.9328 27.26H19.0225C17.1582 27.26 15.7453 25.5776 16.0676 23.7413L17.1 17.86C18.3 11.2352 20.65 6.62476 24.15 4.02857C27.75 1.34286 33.25 0 40.65 0H88.8C96 0 101.2 1.79048 104.4 5.37143C107.7 8.86286 108.75 13.921 107.55 20.5457L105.15 33.4371C103.95 39.7933 101.65 44.2248 98.25 46.7314C94.85 49.2381 89.25 51.0286 81.45 52.1029L35.1 58.4143C31.1 58.9514 28.35 59.8019 26.85 60.9657C25.45 62.1295 24.45 64.3229 23.85 67.5457L22.371 73.8107C21.9263 75.6944 23.3552 77.5 25.2907 77.5H90.5112C92.3471 77.5 93.7524 79.1342 93.4774 80.9494L91.8865 91.4494Z"
+                      fill="#00A483" />
+                  </svg>
+                  <svg width="103" height="94" viewBox="0 0 103 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M25.1943 94C15.6943 94 8.84429 91.7619 4.64429 87.2857C0.544288 82.8095 -0.655711 76.2743 1.04429 67.68L9.74429 23.6343C11.4443 15.04 14.6443 8.95239 19.3443 5.37143C24.0443 1.79048 31.1943 0 40.7943 0H77.9943C87.4943 0 94.2943 2.2381 98.3943 6.71429C102.594 11.1905 103.844 17.7257 102.144 26.32L93.4443 70.3657C91.7443 78.96 88.5443 85.0476 83.8443 88.6286C79.1443 92.2095 71.9943 94 62.3943 94H25.1943ZM33.1443 79.7657H58.6443C64.0443 79.7657 67.9443 78.8257 70.3443 76.9457C72.8443 74.9762 74.5943 71.5295 75.5943 66.6057L83.0943 28.3343C84.0943 23.4105 83.5443 19.8295 81.4443 17.5914C79.3443 15.3533 75.5443 14.2343 70.0443 14.2343H44.6943C39.1943 14.2343 35.1943 15.219 32.6943 17.1886C30.2943 19.0686 28.5943 22.4705 27.5943 27.3943L20.0943 65.6657C19.1943 70.5895 19.7443 74.1705 21.7443 76.4086C23.8443 78.6467 27.6443 79.7657 33.1443 79.7657Z"
+                      fill="#00A483" />
+                  </svg>
+                </div>
+
+                <span class="col-purple about__c-left-text wow animate__fadeInLeft" data-wow-delay=".3s">лет</span>
 
               </div>
-              <p class="about__c-left-text">в авангарде <br />
+              <p class="about__c-left-text wow animate__fadeInLeft" data-wow-delay=".5">в авангарде <br />
                 рекламной индустрии</p>
             </div>
             <div class="about__c-right">
-              <p class="about__c-right-head txt-up"> возможности</p>
+              <p class="about__c-right-head txt-up gradient-border wow animate__fadeInUp"> возможности</p>
               <ul class="about__c-right-tags">
-                <li class="about__c-right-tags-e _green">
-                  <span>&#8226;</span> 3d
+                <li class="about__c-right-tags-e wow animate__fadeInUp">
+                  <div class="about__c-right-tags-e-bg"></div>
+                  <div class="about__c-right-tags-e-img"></div>
+                  <div class="about__c-right-tags-e-border"></div>
+                  <span class="about__c-right-tags-e-dot">&#8226;</span>
+                  <span class="col-green">3d</span>
                 </li>
-                <li class="about__c-right-tags-e _purple">
-                  <span>&#8226;</span> 2d
+                <li class="about__c-right-tags-e wow animate__fadeInUp">
+                  <div class="about__c-right-tags-e-bg"></div>
+                  <div class="about__c-right-tags-e-img"></div>
+                  <div class="about__c-right-tags-e-border"></div>
+                  <span class="about__c-right-tags-e-dot">&#8226;</span>
+                  <span class="col-purple">2d</span>
                 </li>
+                <li class="about__c-right-tags-e wow animate__fadeInUp">
+                  <div class="about__c-right-tags-e-bg"></div>
+                  <div class="about__c-right-tags-e-img"></div>
+                  <div class="about__c-right-tags-e-border"></div>
+                  <span class="about__c-right-tags-e-dot">&#8226;</span>
+                  <span class="col-green">Lorem, ipsum.</span>
+                  <span class="col-purple">Lorem, ipsum.</span>
+                </li>
+
               </ul>
             </div>
           </div>
@@ -103,12 +123,14 @@
       </section>
       <!--  -->
       <section id="portfolio" class="portfolio">
+        <div class="gradient-bg"></div>
         <div class="container">
-          <div class="section-heading">
-            <h2> <span>НАШИ</span> РАБОТЫ</h2>
+          <div class="section-heading wow animate__fadeInUp">
+            <h2 class="wow animate__width wow animate__heading" data-wow-delay=".8s"> &nbsp;<span>наши</span> работы
+            </h2>
           </div>
           <ul class="portfolio__list">
-            <li class="portfolio__list-e _2x1">
+            <li class="portfolio__list-e _2x1 wow animate__fadeInUp">
               <div class="portfolio__list-e-img">
                 <img
                   src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
@@ -132,7 +154,7 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio__list-e _2x1">
+            <li class="portfolio__list-e _2x1 wow animate__fadeInUp">
               <div class="portfolio__list-e-img">
                 <img
                   src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
@@ -156,7 +178,7 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio__list-e _2x2">
+            <li class="portfolio__list-e _2x2 wow animate__fadeInUp">
               <div class="portfolio__list-e-img">
                 <img
                   src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
@@ -180,7 +202,7 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio__list-e">
+            <li class="portfolio__list-e wow animate__fadeInUp">
               <div class="portfolio__list-e-img">
                 <img
                   src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
@@ -204,7 +226,7 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio__list-e">
+            <li class="portfolio__list-e wow animate__fadeInUp">
               <div class="portfolio__list-e-img">
                 <img
                   src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
@@ -228,7 +250,7 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio__list-e">
+            <li class="portfolio__list-e wow animate__fadeInUp">
               <div class="portfolio__list-e-img">
                 <img
                   src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
@@ -257,120 +279,138 @@
       </section>
       <!--  -->
       <section id="partners" class="partners">
-
-        <ul class="partners__list">
-          <li class="partners__list-e">
-            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
-          </li>
-          <li class="partners__list-e">
-            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
-          </li>
-          <li class="partners__list-e">
-            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
-          </li>
-          <li class="partners__list-e">
-            <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
-          </li>
-        </ul>
-
+        <div class="partners__list">
+          <ul class="marquee wow animate__fadeInRight">
+            <li class="partners__list-e marquee-item">
+              <img src="./assets/images/icons/partner.svg" alt="pivko mmmmooaaahooo">
+            </li>
+            
+          </ul>
+        </div>
+        <div class="partners__list ">
+          <ul class="marquee _rev wow animate__fadeInRight">
+            <li class="partners__list-e marquee-item">
+              <img src="./assets/images/icons/partner2.svg" alt="pivko mmmmooaaahooo">
+            </li>
+          </ul>
+        </div>
 
       </section>
       <!--  -->
       <section id="achivments" class="achivments">
         <div class="container">
-          <div class="section-heading">
-            <h2> <span>НАШИ</span> награды</h2>
+          <div class="section-heading wow animate__fadeInUp">
+            <h2 class="wow animate__width wow animate__heading" data-wow-delay=".8s"> &nbsp;<span>наши</span> награды
+            </h2>
           </div>
-          <div class="swiper">
-            <ul class="swiper-wrapper">
-              <li class="swiper-slide achivments-item">
-                <div class="achivments-item__c">
-                  <p class="achivments-item__c-ttl">1111</p>
-                  <div>
-                    <div class="achivments-item__c-img">
-                      <img src="./assets/images/achivment.png" alt="achivment">
+          <div class="wow animate__fadeInUp">
+            <div class="swiper ">
+              <ul class="swiper-wrapper">
+                <li class="swiper-slide achivments-item">
+                  <div class="achivments-item__c  gradient-border">
+                    <p class="achivments-item__c-ttl">1111</p>
+                    <div>
+                      <div class="achivments-item__c-img">
+                        <img src="./assets/images/achivment.png" alt="achivment">
+                      </div>
+                      <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                        adipisicing.</h3>
                     </div>
-                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
-                      adipisicing.</h3>
+                    <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
+                      elit.
+                    </p>
                   </div>
-                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </li>
-              <li class="swiper-slide achivments-item">
-                <div class="achivments-item__c">
-                  <p class="achivments-item__c-ttl">2222</p>
-                  <div>
-                    <div class="achivments-item__c-img">
-                      <img src="./assets/images/achivment.png" alt="achivment">
+                </li>
+                <li class="swiper-slide achivments-item">
+                  <div class="achivments-item__c  gradient-border">
+                    <p class="achivments-item__c-ttl">2222</p>
+                    <div>
+                      <div class="achivments-item__c-img">
+                        <img src="./assets/images/achivment.png" alt="achivment">
+                      </div>
+                      <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                        adipisicing.</h3>
                     </div>
-                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
-                      adipisicing.</h3>
+                    <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
+                      elit.
+                    </p>
                   </div>
-                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </li>
-              <li class="swiper-slide achivments-item">
-                <div class="achivments-item__c">
-                  <p class="achivments-item__c-ttl">3333</p>
-                  <div>
-                    <div class="achivments-item__c-img">
-                      <img src="./assets/images/achivment.png" alt="achivment">
+                </li>
+                <li class="swiper-slide achivments-item ">
+                  <div class="achivments-item__c gradient-border">
+                    <p class="achivments-item__c-ttl">3333</p>
+                    <div>
+                      <div class="achivments-item__c-img">
+                        <img src="./assets/images/achivment.png" alt="achivment">
+                      </div>
+                      <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                        adipisicing.</h3>
                     </div>
-                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
-                      adipisicing.</h3>
+                    <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
+                      elit.
+                    </p>
                   </div>
-                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </li>
-              <li class="swiper-slide achivments-item">
-                <div class="achivments-item__c">
-                  <p class="achivments-item__c-ttl">4444</p>
-                  <div>
-                    <div class="achivments-item__c-img">
-                      <img src="./assets/images/achivment.png" alt="achivment">
+                </li>
+                <li class="swiper-slide achivments-item">
+                  <div class="achivments-item__c  gradient-border">
+                    <p class="achivments-item__c-ttl">4444</p>
+                    <div>
+                      <div class="achivments-item__c-img">
+                        <img src="./assets/images/achivment.png" alt="achivment">
+                      </div>
+                      <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                        adipisicing.</h3>
                     </div>
-                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
-                      adipisicing.</h3>
+                    <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
+                      elit.
+                    </p>
                   </div>
-                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </li>
-              <li class="swiper-slide achivments-item">
-                <div class="achivments-item__c">
-                  <p class="achivments-item__c-ttl">5555</p>
-                  <div>
-                    <div class="achivments-item__c-img">
-                      <img src="./assets/images/achivment.png" alt="achivment">
+                </li>
+                <li class="swiper-slide achivments-item">
+                  <div class="achivments-item__c  gradient-border">
+                    <p class="achivments-item__c-ttl">5555</p>
+                    <div>
+                      <div class="achivments-item__c-img">
+                        <img src="./assets/images/achivment.png" alt="achivment">
+                      </div>
+                      <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
+                        adipisicing.</h3>
                     </div>
-                    <h3 class="achivments-item__c-ttl txt-up col-green"> Lorem ipsum dolor sit amet consectetur
-                      adipisicing.</h3>
+                    <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
+                      elit.
+                    </p>
                   </div>
-                  <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-
         </div>
       </section>
       <!--  -->
       <section class="team" id="team">
+        <div class="gradient-bg"></div>
+
+        <div class="team__bg _top">
+          <div></div>
+        </div>
+        <div class="team__bg _middle">
+          <div></div>
+        </div>
+        <div class="team__bg _bottom">
+          <div></div>
+        </div>
         <div class="container">
-          <div class="section-heading">
-            <h2> <span>НАШа</span> команда</h2>
+          <div class="section-heading wow animate__fadeInUp">
+            <h2 class="wow animate__width wow animate__heading" data-wow-delay=".8s"> &nbsp;<span>наша</span> Команда
+            </h2>
           </div>
-          <p class="team__sub">
+          <p class="team__sub wow animate__fadeInUp">
             У нас большой штат настоящих профессионалов,
             каждый из которых вносит значительный вклад в наши проекты.
             Представляем вам лидеров команды
           </p>
           <ul class="team__list">
-            <li class="team__list-e">
+            <li class="team__list-e wow animate__fadeInUp">
               <div class="team__list-e-border">
                 <div class="team__list-e-border-img">
                   <img src="./assets/images/team.png" alt="team">
@@ -380,7 +420,7 @@
               <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
 
             </li>
-            <li class="team__list-e">
+            <li class="team__list-e wow animate__fadeInUp">
               <div class="team__list-e-border">
                 <div class="team__list-e-border-img">
                   <img src="./assets/images/team.png" alt="team">
@@ -390,7 +430,7 @@
               <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
 
             </li>
-            <li class="team__list-e">
+            <li class="team__list-e wow animate__fadeInUp">
               <div class="team__list-e-border">
                 <div class="team__list-e-border-img">
                   <img src="./assets/images/team.png" alt="team">
@@ -400,7 +440,7 @@
               <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
 
             </li>
-            <li class="team__list-e">
+            <li class="team__list-e wow animate__fadeInUp">
               <div class="team__list-e-border">
                 <div class="team__list-e-border-img">
                   <img src="./assets/images/team.png" alt="team">
@@ -410,7 +450,7 @@
               <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
 
             </li>
-            <li class="team__list-e">
+            <li class="team__list-e wow animate__fadeInUp">
               <div class="team__list-e-border">
                 <div class="team__list-e-border-img">
                   <img src="./assets/images/team.png" alt="team">
@@ -426,11 +466,12 @@
       <!--  -->
       <section class="contacts" id="contacts">
         <div class="container">
-          <div class="section-heading">
-            <h2> <span>НАШи</span> контакты</h2>
+          <div class="section-heading wow animate__fadeInUp">
+            <h2 class="wow animate__width wow animate__heading" data-wow-delay=".8s"> &nbsp;<span>наши</span> контакты
+            </h2>
           </div>
           <ul class="contacts__list">
-            <li class="contacts__list-e">
+            <li class="contacts__list-e wow animate__fadeInUp">
               <a class="contacts__list-e-link _center" href="#link">121099 г. Москва <br />
                 Шубинский переулок, д.6, стр.2 </a>
               <div class="contacts__list-e-icon">
@@ -448,7 +489,7 @@
                 </svg>
               </div>
             </li>
-            <li class="contacts__list-e">
+            <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".1s">
               <a class="contacts__list-e-link _center" href="#link">PostPro18 на Vimeo</a>
               <div class="contacts__list-e-icon">
                 <svg width="37" height="32" viewBox="0 0 37 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -467,7 +508,7 @@
 
               </div>
             </li>
-            <li class="contacts__list-e">
+            <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".2s">
               <a class="contacts__list-e-link" href="#link"> +7 (495) 252 00 19 </a>
               <a class="contacts__list-e-link" href="#link"> +7 (495) 620 48 14</a>
 
@@ -505,7 +546,7 @@
 
               </div>
             </li>
-            <li class="contacts__list-e">
+            <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".3s">
               <a class="contacts__list-e-link _center" href="#link">PostPro18 на Behance</a>
               <div class="contacts__list-e-icon">
                 <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -525,7 +566,7 @@
 
               </div>
             </li>
-            <li class="contacts__list-e">
+            <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".4s">
               <a class="contacts__list-e-link _center" href="#link">info@postpro18.ru </a>
               <div class="contacts__list-e-icon">
                 <svg width="34" height="27" viewBox="0 0 34 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -543,7 +584,7 @@
 
               </div>
             </li>
-            <li class="contacts__list-e">
+            <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".5s">
               <a class="contacts__list-e-link _center" href="#link">скачать Презентацию</a>
               <div class="contacts__list-e-icon">
                 <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -570,15 +611,18 @@
       <!--  -->
       <section class="vacancy" id="vacancy">
         <div class="container">
-          <div class="section-heading">
-            <h2> <span>НАШи</span> вакансии</h2>
+          <div class="section-heading wow animate__fadeInUp">
+            <h2 class="wow animate__width wow animate__heading" data-wow-delay=".8s"> &nbsp;<span>наши</span> вакансии
+            </h2>
           </div>
           <div class="vacancy__c">
-            <div class="vacancy__c-img"></div>
+            <div class="vacancy__c-img wow animate__fadeInUp"></div>
             <div class="vacancy__c-text">
-              <p>Готовы присоединиться к <span class="txt-up col-green">POSTPRO 18 STUDIO</span> ?</p>
-              <p>Направляйте Ваше резюме</p>
-              <p>на электронную почту <a href="#" class="col-purple">info@postpro18.ru</a></p>
+              <p class="wow animate__fadeInUp">Готовы присоединиться к <span class="txt-up col-green">POSTPRO 18
+                  STUDIO</span> ?</p>
+              <p class="wow animate__fadeInUp" data-wow-delay=".2s">Направляйте Ваше резюме</p>
+              <p class="wow animate__fadeInUp" data-wow-delay=".44s">на электронную почту <a href="#"
+                  class="col-purple">info@postpro18.ru</a></p>
             </div>
           </div>
 

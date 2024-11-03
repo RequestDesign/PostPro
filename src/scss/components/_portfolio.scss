@@ -1,4 +1,10 @@
 .portfolio {
+    position: relative;
+    & .gradient-bg{
+        scale: -1 1;
+        bottom: 0;
+        left: 0;
+    }
     &__list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

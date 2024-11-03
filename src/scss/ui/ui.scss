@@ -24,27 +24,98 @@
 }
 
 .section-heading {
-    width: 100%;
     display: flex;
-    justify-content: center;
-
+    width: fit-content;
+    margin: auto;
     font-family: 'Esqadero FF CY 4F';
     font-size: 6.5rem;
     font-weight: 400;
     line-height: 110%;
     text-align: left;
-
+  overflow: hidden; 
     margin-bottom: 7rem;
-    & h2{
-        border-left: .1rem solid $green;
-        padding-left: 2rem;
+    border-left: 1px solid $green;
+   /*  padding-left: 2rem; */
+ 
+
+    & h2 {
+
         box-sizing: border-box;
         text-transform: uppercase;
-        & span{
+
+        & span {
             background-image: $staticBg;
             background-clip: text;
             color: transparent;
         }
     }
 
+ 
+
+}
+@keyframes heading {
+    0% {
+       transform: translateX(-105%);
+     
+    }
+   
+    100% {
+        transform: translateX(0);
+       
+    }
+}
+
+.animate__heading {
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: heading;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+
+.gradient-border {
+    position: relative;
+
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: -2px;
+        top: -2px;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background-image: $staticBg;
+        border-radius: 1rem;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 1px;
+        left: 0;
+        width: calc(100% - 1px);
+        height: calc(100% - 2px);
+        background-color: $bg;
+        border-radius: 1rem;
+    }
+}
+
+.gradient-bg{
+    z-index: -1;
+    position: absolute;
+    top: -10%;
+    right: 0%;
+    width: 170rem;
+    height: 170rem;
+    background-image: url(./assets/images/bg-gr.svg);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+/*     background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.15) 7.71%, rgba(161, 66, 255, 0.15) 78.89%);
+    box-shadow: 0px 0px 17rem 18rem $bg inset; */
+   /*  border-radius: 50%; */
+    opacity: .5;
 }
