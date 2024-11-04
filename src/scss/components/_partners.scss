@@ -25,17 +25,14 @@
             gap: 2rem;
             align-items: center;
             height: 4rem;
-
             /*  animation: marquee 10s linear infinite alternate; */
+
             &._rev {
               
             }
 
             &-item {
                 flex-shrink: 0;
-
-
-
             }
         }
 

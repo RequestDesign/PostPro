@@ -1,26 +1,38 @@
 .achivments {
-    & .wow{
+    & .wow {
         padding: 1rem 0;
         box-sizing: border-box;
     }
+
     & .swiper {
-       
+
         @include desktop {
             width: 100rem;
         }
-        
+
     }
 
     &-item {
-      
+        position: relative;
         border-radius: 3rem;
-        padding: 2px ;
+        padding: 2px;
         transition: padding 0s;
         box-sizing: border-box;
-      
+
+        & .gradient-border::after {
+            border-radius: 2.6rem;
+            top: 2px;
+            left: 1px;
+            width: calc(100% - 3px);
+            height: calc(100% - 5px);
+        }
+       /*  & .gradient-border::before{
+            display: none;
+        } */
+
 
         &__c {
-            background-color: rgba(190, 147, 243, 0.288);
+            background-color: rgba(197, 149, 255, 0.07);
             backdrop-filter: blur(1rem);
             display: flex;
             flex-direction: column;
@@ -30,10 +42,21 @@
             box-sizing: border-box;
             padding: 5rem;
             border-radius: 3rem;
-            &.gradient-border::after{
-                border-radius: 2.6rem;
-            }
-            
+            position: relative;
+            z-index: 3;
+
+        /*     &-bg {
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                width: 25rem;
+                height: 25rem;
+                background-color: red;
+                background: radial-gradient(circle, rgba(8,0,255,1) 1%, rgba(8,0,255,0) 75%);
+            } */
+
+
 
             & div {
                 display: flex;

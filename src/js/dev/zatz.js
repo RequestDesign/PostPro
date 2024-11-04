@@ -15,7 +15,7 @@ $(function () {
     initHeadingText()
     initWow()
     initMarque()
-    
+
 })
 
 
@@ -85,14 +85,15 @@ function initHeadingText() {
     if (!container) return
 
     const target = container.querySelector('#headingTextData'),
-        forExample = ['for example', 'two', 'restart']
+        array = container.querySelector('.heading__text-list').textContent.split('/')
+      
 
 
     print(0, 0)
-    function print(word, letter ) {
+    function print(word, letter) {
 
-        if (forExample[word][letter]) {
-            target.textContent = target.textContent + forExample[word][letter]
+        if (array[word][letter]) {
+            target.textContent = target.textContent + array[word][letter]
             setTimeout(() => {
                 print(word, letter + 1)
             }, 500 + letter);
@@ -100,29 +101,29 @@ function initHeadingText() {
 
         } else {
 
-            if(target.textContent){
+            if (target.textContent) {
                 setTimeout(() => {
                     target.textContent = target.textContent.slice(0, -1)
                     print(word, -1)
-                }, 200); 
-            } else if (!target.textContent){
+                }, 200);
+            } else if (!target.textContent) {
 
-                if(forExample[word + 1]){
+                if (array[word + 1]) {
                     setTimeout(() => {
                         print(word + 1, 0)
                     }, 500);
-                }else{
+                } else {
                     setTimeout(() => {
                         print(0, 0)
-                    }, 500); 
+                    }, 500);
                 }
 
-               return
-                
-            }
-           
+                return
 
-            
+            }
+
+
+
         }
 
     }
@@ -141,11 +142,16 @@ function initWow() {
     wow.init();
 }
 
-function initMarque(){
-   const container = document.querySelectorAll('.partners__list')
-  if (!container) return
-container.forEach((c)=>[
-    new Marquee(c)
+function initMarque() {
+    const container = document.querySelectorAll('.partners__list')
+    if (!container) return
+    container.forEach((c) => [
+        new Marquee(c)
 
-])
+    ])
+}
+
+
+function achivActions() {
+
 }

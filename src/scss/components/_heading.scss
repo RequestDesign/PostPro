@@ -41,7 +41,7 @@
         background-color: $black;
         border-radius: 1rem;
 
-        & p {
+        & #headingText {
           
             color: $white;
             font-family: Idealist Sans;
@@ -55,6 +55,9 @@
                 animation: blink 1s infinite linear ;
             }
            
+        }
+        &-list{
+            display: none;
         }
     }
 

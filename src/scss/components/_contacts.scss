@@ -28,6 +28,10 @@
                 border-radius: 1rem;
                 background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.3) 7.71%, rgba(161, 66, 255, 0.3) 78.89%);
                 position: relative;
+                & svg{
+                    max-width: 60%;
+                    max-height: 60%;
+                }
 
                 &::after {
                     content: '';

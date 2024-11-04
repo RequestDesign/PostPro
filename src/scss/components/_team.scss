@@ -50,8 +50,6 @@
                     -.9rem -1rem 5rem 0px rgba(197, 149, 255, 0.2) inset,
                     3rem 3.2rem 10rem 0px rgba(23, 4, 43, 0.41);
 
-                background-image: url(./assets/images/texture.png);
-                background-size: 1rem;
 
 
                 &-img {
@@ -107,7 +105,7 @@
             top: 50%;
 
             & div {
-                background-image: url(./assets/images/line-green.png);
+                background-image: url(./assets/images/line-green.svg);
             }
         }
 
@@ -117,7 +115,7 @@
             top: 60%;
 
             & div {
-                background-image: url(./assets/images/line-purple.png);
+                background-image: url(./assets/images/line-purple.svg);
             }
         }
 
@@ -127,7 +125,7 @@
             top: 70%;
 
             & div {
-                background-image: url(./assets/images/line-green.png);
+                background-image: url(./assets/images/line-green.svg);
             }
 
         }

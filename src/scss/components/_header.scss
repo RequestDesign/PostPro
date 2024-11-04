@@ -2,18 +2,17 @@
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
- 
+
 
     & .container {
-       
+
         display: flex;
         flex-direction: column;
     }
 
     &__lang {
-        margin-top:1rem;
+        margin-top: 1rem;
         margin-left: auto;
         display: flex;
         gap: 2rem;
@@ -61,7 +60,7 @@
             display: flex;
             gap: 6rem;
             //styleName: T01b;
-          font-family: Idealist Sans;
+            font-family: Idealist Sans;
             font-size: 1.6rem;
             font-weight: 300;
             line-height: 2.2rem;
@@ -69,6 +68,110 @@
             text-align: left;
             text-transform: uppercase;
 
+            &-e {
+                border-radius: .5rem;
+
+                position: relative;
+
+                &-text {
+                    border-radius: .5rem;
+                    padding: .1rem 1rem;
+                    background-color: rgba(23, 23, 29, 0.116);
+                    backdrop-filter: blur(1rem);
+                    position: relative;
+                    z-index: 5;
+                    display: block;
+                    transition: color .5s, text-shadow .5s;
+
+                }
+
+                &-bg {
+                    transition: opacity .5s;
+                    opacity: 0;
+                    border-radius: .5rem;
+                    position: absolute;
+                    display: block;
+                    background-color: $bg;
+                    z-index: 4;
+                    width: calc(100% - 4px);
+                    height: calc(100% - 4px);
+                    top: 2px;
+                    left: 2px;
+                }
+
+                &-gradient {
+                    transition: opacity .5s;
+                    opacity: 0;
+                    border-radius: .5rem;
+                    position: absolute;
+                    display: block;
+                    z-index: 3;
+                    width: calc(100% + 4px);
+                    height: calc(100% + 4px);
+                    top: -2px;
+                    left: -2px;
+                    filter: blur(2px);
+
+                    overflow: hidden;
+
+                    & span {
+                        display: block;
+                        width: 200%;
+                        aspect-ratio: 1 / 1;
+                        background: linear-gradient(129.47deg,
+                                rgba(14, 168, 133, 0.61) 30%,
+                                rgba(161, 66, 255, 0.61) 65%);
+                        animation: gradient 3s linear infinite;
+                        transform: translate(-23%, -32%);
+                    }
+                }
+
+                &._vacancy {
+                    
+                     & ._vacancy-bg {
+                        opacity: 1;
+                        filter: none;
+                        & span{
+                            background: $staticBg;
+
+                        }
+                    }
+                    
+                }
+
+                @include hover {
+                    & .header__c-nav-e-gradient {
+                        opacity: 1;
+                    }
+
+                    & .header__c-nav-e-bg {
+                        opacity: 1;
+                    }
+
+                    & .header__c-nav-e-text {
+                        color: $green;
+                        text-shadow: $green 1px 0 10px;
+                    }
+                }
+            }
+
         }
     }
+}
+
+@keyframes gradient {
+    0% {
+        transform: translate(-23%, -32%) rotate(0deg);
+
+    }
+
+    50% {
+        transform: translate(-23%, -25%) rotate(360deg);
+
+    }
+
+    100% {
+        transform: translate(-23%, -25%) rotate(360deg);
+    }
+
 }
