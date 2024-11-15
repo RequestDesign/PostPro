@@ -133,7 +133,12 @@ input[type='number'] {
   }
 }
 
-
+.fancybox__slide .fancybox-content {
+  width: 80%;
+  height: 80%;
+  max-width: calc(100% - 100px);
+  max-height: calc(100% - 88px);
+}
 
 @import 'swiper/scss';
 @import 'swiper/scss/effect-creative';

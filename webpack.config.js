@@ -7,7 +7,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
-
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 const mode = process.env.NODE_ENV || "development";
 const devMode = mode === "development";
 const target = devMode ? "web" : "browserslist";
@@ -22,43 +22,16 @@ const pages = HTML_FILES.map((page) => {
   });
 });
 
-const videoSourcePath = path.resolve(__dirname, "./", "src/assets/", "video");
-const videoDestPath = path.resolve(__dirname, "./", "dist/assets/", "video");
+const sourcePath = path.resolve(__dirname, "./", "src/assets/");
+const destPath = path.resolve(__dirname, "./", "dist/assets/");
 
-// Проверяем существование директории
-if (fs.existsSync(videoSourcePath)) {
-  console.log(`Copying videos from ${videoSourcePath} to ${videoDestPath}`);
 
-  // Создаем объект CopyPlugin только если директория существует
-  const copyPlugin = new CopyPlugin({
-    patterns: [
-      {
-        from: videoSourcePath,
-        to: videoDestPath,
-      },
-    ],
-  });
-
-  // Инициализируем массив plugins, если он не определен
-  if (!module.exports.plugins) {
-    console.log("nety plugins");
-    module.exports.plugins = [];
-  }
-  console.log(module.exports.plugins);
-
-  // Добавляем созданный объект CopyPlugin в массив плагинов
-  module.exports.plugins.push(copyPlugin);
-} else {
-  console.warn(
-    `Warning: Directory ${videoSourcePath} does not exist. Videos will not be copied.`
-  );
-}
 //рабочий
 // const INCLUDE_PATTERN =
-//   /<include\s+src=["'](\.\/)?([^"']+)["']\s+data-text='([^']+)'\s*><\/include>/g;
+//   /<include\s+src=["'](\.\/)?([^"']+)["']\s+data-props='([^']+)'\s*><\/include>/g;
 
 const INCLUDE_PATTERN =
-  /<include\s+src=["'](\.\/)?([^"']+)["'](?:\s+data-text='([^']+)')?\s*><\/include>/g;
+  /<include\s+src=["'](\.\/)?([^"']+)["'](?:\s+data-props='([^']+)')?\s*><\/include>/g;
 
 const { JSDOM } = require("jsdom");
 
@@ -68,17 +41,17 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
       ? path.dirname(loaderContext.resourcePath)
       : path.dirname(resourcePath);
 
-  function replaceHtml(match, pathRule, src, dataText) {
+  function replaceHtml(match, pathRule, src, dataProps) {
+ 
     if (pathRule === "./") {
       fileDir = loaderContext.context;
     }
     const filePath = path.resolve(fileDir, src);
     loaderContext.dependency(filePath);
     let html = fs.readFileSync(filePath, "utf8");
-    console.log("filePath: ", filePath, "match: ", match);
     try {
-      console.log("data: ", dataText);
-      const data = dataText && JSON.parse(dataText);
+   
+      const data = dataProps && JSON.parse(dataProps);
       const dom = new JSDOM(html);
       const document = dom.window.document;
       if (data) {
@@ -110,7 +83,6 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
       // Рекурсивно обрабатываем вложенные компоненты
 
       html = processNestedHtml(html, loaderContext, filePath);
-      console.log("html: ", html);
     } catch (error) {
       console.error(`Error parsing data-text attribute: ${error.message}`);
     }
@@ -120,8 +92,8 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
 
   content = content.replace(
     INCLUDE_PATTERN,
-    (match, pathRule, src, dataText) => {
-      return replaceHtml(match, pathRule, src, dataText);
+    (match, pathRule, src, dataProps) => {
+      return replaceHtml(match, pathRule, src, dataProps);
     }
   );
 
@@ -132,7 +104,7 @@ function processHtmlLoader(content, loaderContext) {
   let newContent = processNestedHtml(content, loaderContext);
   newContent = newContent.replace(
     /(src|data-src)="(.*?)\.(jpg|png)"/gi,
-    (match, p1, p2, p3) => {
+    (match, p1, p2) => {
       return `${p1}="${p2}.webp"`;
     }
   );
@@ -164,15 +136,14 @@ module.exports = {
     clean: true,
     //название js файла в билде
     // [name] - стандартный по вебпаку (main), [contenthash] - добавляептся хэш к названию
-    filename: "[name].js",
+    filename: "js/[name].js",
   },
 
   plugins: [
     new CleanWebpackPlugin(),
-
     ...pages,
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "css/[name].css",
       chunkFilename: "[name].[contenthash:8].css",
     }),
     new ImageMinimizerPlugin({
@@ -202,44 +173,72 @@ module.exports = {
       silent: false,
       strict: true,
     }),
-    fs.existsSync(videoSourcePath)
+    fs.existsSync(sourcePath)
       ? new CopyPlugin({
-          patterns: [
-            {
-              from: path.resolve(__dirname, "./", "src/assets/", "images"),
-              to: path.resolve(__dirname, "./", "dist/assets/", "images"),
-              noErrorOnMissing: true,
-            },
-            {
-              from: path.resolve(__dirname, "./", "src/assets/", "fonts"),
-              to: path.resolve(__dirname, "./", "dist/assets/", "fonts"),
-              noErrorOnMissing: true,
-            },
-            {
-              from: videoSourcePath,
-              to: videoDestPath,
-              noErrorOnMissing: true,
-            },
-          ],
-        })
+        patterns: [
+          {
+            from: path.resolve(__dirname, "./", "src/assets/", "images"),
+            to: path.resolve(__dirname, "./", "dist/assets/", "images"),
+            noErrorOnMissing: true,
+          },
+          {
+            from: path.resolve(__dirname, "./", "src/assets/", "fonts"),
+            to: path.resolve(__dirname, "./", "dist/assets/", "fonts"),
+            noErrorOnMissing: true,
+          },
+          {
+            from: sourcePath,
+            to: destPath,
+            noErrorOnMissing: true,
+          },
+        ],
+      })
       : new CopyPlugin({
-          patterns: [
-            {
-              from: path.resolve(__dirname, "./", "src/assets/", "images"),
-              to: path.resolve(__dirname, "./", "dist/assets/", "images"),
-              noErrorOnMissing: true,
-            },
-            {
-              from: path.resolve(__dirname, "./", "src/assets/", "fonts"),
-              to: path.resolve(__dirname, "./", "dist/assets/", "fonts"),
-              noErrorOnMissing: true,
-            },
-          ],
-        }),
+        patterns: [
+          {
+            from: path.resolve(__dirname, "./", "src/assets/", "images"),
+            to: path.resolve(__dirname, "./", "dist/assets/", "images"),
+            noErrorOnMissing: true,
+          },
+          {
+            from: path.resolve(__dirname, "./", "src/assets/", "fonts"),
+            to: path.resolve(__dirname, "./", "dist/assets/", "fonts"),
+            noErrorOnMissing: true,
+          },
+        ],
+      }),
+    new FileManagerPlugin({
+      events: {
+        onEnd: {
+          mkdir: [devMode ? '' : 'dist/css'],
+          copy: [
+            { source: 'dist/js', destination: 'deploy/local/templates/sitename/js' },
+            { source: 'dist/css', destination: 'deploy/local/templates/sitename/css' },
+          ]
+        }
+      }
+    }),
   ],
 
   optimization: {
     minimize: false,
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // получает имя, то есть node_modules/packageName/not/this/part.js
+            // или node_modules/packageName
+           // const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            // имена npm-пакетов можно, не опасаясь проблем, использовать
+            // в URL, но некоторые серверы не любят символы наподобие @
+           // return `${packageName.replace('@', '')}`;
+          },
+        },
+      },
+    }
   },
 
   module: {
@@ -281,7 +280,7 @@ module.exports = {
           },
           "group-css-media-queries-loader",
           "sass-loader",
-        ],
+        ]
       },
       // шрифты
       {
@@ -301,19 +300,7 @@ module.exports = {
             presets: [["@babel/preset-env", { targets: "defaults" }]],
           },
         },
-      },
-      //video
-      {
-        test: /\.(mov|mp4)$/,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
-        generator: {
-          filename: "assets/videos/[name][ext]",
-        },
-      },
+      }
     ],
   },
 };

@@ -111,6 +111,8 @@
                     top: -2px;
                     left: -2px;
                     filter: blur(2px);
+                    -webkit-transform: translateZ(0);
+                    -webkit-backface-visibility: hidden;
 
                     overflow: hidden;
 
@@ -127,16 +129,17 @@
                 }
 
                 &._vacancy {
-                    
-                     & ._vacancy-bg {
+
+                    & ._vacancy-bg {
                         opacity: 1;
                         filter: none;
-                        & span{
+
+                        & span {
                             background: $staticBg;
 
                         }
                     }
-                    
+
                 }
 
                 @include hover {

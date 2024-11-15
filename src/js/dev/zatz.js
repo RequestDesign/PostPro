@@ -64,15 +64,15 @@ function initFancybox() {
 
     Fancybox.bind('[data-fancybox]', {
         Thumbs: false,
-        Toolbar: {
-            display: {
-                left: [],
-                middle: [
-                    "infobar",
-                    "zoomIn",
-                    "zoomOut",
-                ],
-                right: ["close"],
+        aspectRatio: true,
+        on: {
+            ready: (fancybox) => {
+                // Показываем прелоадер перед загрузкой
+                console.log('ready')
+            },
+            load: (fancybox) => {
+                // Скрываем прелоадер после загрузки
+                console.log('load');
             },
         },
     })
@@ -86,7 +86,7 @@ function initHeadingText() {
 
     const target = container.querySelector('#headingTextData'),
         array = container.querySelector('.heading__text-list').textContent.split('/')
-      
+
 
 
     print(0, 0)
@@ -146,7 +146,7 @@ function initMarque() {
     const container = document.querySelectorAll('.partners__list')
     if (!container) return
     container.forEach((c) => [
-        new Marquee(c)
+        new Marquee(c, 180)
 
     ])
 }
