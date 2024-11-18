@@ -15,22 +15,37 @@ $(function () {
     initHeadingText()
     initWow()
     initMarque()
-
+    initHeaderSwiper()
 })
 
+function initHeaderSwiper() {
+    const targets = $('.header__c-nav-e')
+    if (!targets) return
+    targets.on('mouseenter', (e) => {
+        e.currentTarget.classList.add('_hover')
+    })
+    targets.on('mouseleave', (e) => {
+        e.currentTarget.classList.remove('_hover')
+    })
+}
 
 function initSwipers() {
     const swiper = document.querySelector('.achivments')
     if (swiper) {
         new Swiper(swiper.querySelector('.swiper'), {
-            modules: [EffectCreative],
-            loop: false,
+            modules: [EffectCreative, Autoplay],
+            loop: true,
             effect: 'creative',
             slidesPerView: 3,
             centeredSlides: true,
             spaceBetween: rem(3),
             initialSlide: 2,
             slideToClickedSlide: true,
+
+          /*   autoplay: {
+                delay: 3000,
+                pauseOnMouseEnter: true,
+            }, */
             creativeEffect: {
                 prev: {
                     opacity: 0.5,
@@ -85,7 +100,10 @@ function initHeadingText() {
     if (!container) return
 
     const target = container.querySelector('#headingTextData'),
-        array = container.querySelector('.heading__text-list').textContent.split('/')
+        array = container.querySelector('.heading__text-list').textContent.split('/'),
+        writeSpeed = 200,
+        deleteSpeed = 200,
+        waitSpeed = 1000
 
 
 
@@ -96,26 +114,34 @@ function initHeadingText() {
             target.textContent = target.textContent + array[word][letter]
             setTimeout(() => {
                 print(word, letter + 1)
-            }, 500 + letter);
+            }, writeSpeed + letter);
 
 
         } else {
 
             if (target.textContent) {
-                setTimeout(() => {
-                    target.textContent = target.textContent.slice(0, -1)
-                    print(word, -1)
-                }, 200);
+                if(target.textContent.length == array[word].length){
+                    setTimeout(() => {
+                        target.textContent = target.textContent.slice(0, -1)
+                        print(word, -1)
+                    }, waitSpeed);
+                }else{
+                    setTimeout(() => {
+                        target.textContent = target.textContent.slice(0, -1)
+                        print(word, -1)
+                    }, deleteSpeed);  
+                }
+              
             } else if (!target.textContent) {
 
                 if (array[word + 1]) {
                     setTimeout(() => {
                         print(word + 1, 0)
-                    }, 500);
+                    }, writeSpeed);
                 } else {
                     setTimeout(() => {
                         print(0, 0)
-                    }, 500);
+                    }, writeSpeed);
                 }
 
                 return
@@ -152,6 +178,3 @@ function initMarque() {
 }
 
 
-function achivActions() {
-
-}
