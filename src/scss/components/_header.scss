@@ -112,11 +112,12 @@
                     position: absolute;
                     display: block;
                     z-index: 3;
-                    width: calc(100% + 2px);
-                    height: calc(100% + 2px);
-                    top: -1px;
-                    left: -1px;
-                    /* filter: blur(2px); */
+                    width: calc(100% + 4px);
+                    height: calc(100% + 4px);
+                    top: -2px;
+                    left: -2px;
+                 
+                    
                     -webkit-transform: translateZ(0);
                     -webkit-backface-visibility: hidden;
 
@@ -125,18 +126,19 @@
                     & span {
                         display: block;
                         width: 200%;
+                        border-radius: 50%;
                         aspect-ratio: 1 / 1;
                       /*   background: linear-gradient(129.47deg,
                                 rgba(13, 150, 118, 0.849) 30%,
                                 rgba(161, 66, 255, 0.774) 65%); */
                         background: linear-gradient(127deg,
                                 rgba(9, 216, 168, 0.849) 0%,
-                                rgba(13, 150, 118, 0.849) 35%,
-                                rgba(13, 150, 118, 0) 40%,
-                                rgba(161, 66, 255, 0.774) 65%,
+                                rgba(13, 150, 118, 0.849) 43%,
+                                rgba(13, 150, 118, 0) 50%,
+                                rgba(161, 66, 255, 0.774) 58%,
                                 rgba(161, 66, 255, 0.938) 100%);
 
-                        transform: translate(-23%, -32%) rotate(0);
+                        transform: translate(-26%, -44%) rotate(0);
                         transition: transform .5s;
                     }
                 }
@@ -145,23 +147,23 @@
                     position: absolute;
 
 
-                    width: 3px;
-                    height: 3px;
+                    width: 4px;
+                    height: 4px;
                     z-index: 10;
 
                     opacity: 0;
                     scale: 0 0;
-                    transition: left .5s linear;
+                    transition: left .4s linear;
                     background-size: cover;
 
                     &._green {
-                        top: -1.5px;
+                        top: -3px;
                         left: 0;
                         background: radial-gradient(circle, rgba(232, 232, 232, 1) 0%, $green 5%, rgba(255, 0, 0, 0) 63%);
                     }
 
                     &._purple {
-                        bottom: -1.5px;
+                        bottom: -3px;
                         left: 70%;
                         background: radial-gradient(circle, rgba(232, 232, 232, 1) 0%, $purple 5%, rgba(255, 0, 0, 0) 63%);
                     }
@@ -174,7 +176,7 @@
                         opacity: 1;
 
                         & span {
-                            transform: translate(-23%, -32%) rotate(60deg);
+                            transform: translate(-26%, -44%) rotate(86deg);
                         }
                     }
 
@@ -183,14 +185,14 @@
                     }
 
                     & .header__c-nav-e-blick._green {
-                        left: 70%;
+                        left: 80%;
                         scale: 12 2;
                         animation: fade .5s linear normal;
 
                     }
 
                     & .header__c-nav-e-blick._purple {
-                        left: 20%;
+                        left: 10%;
                         scale: 12 2;
                         animation: fade .5s linear normal;
                     }
