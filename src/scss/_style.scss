@@ -67,18 +67,16 @@ main {
   }
 }
 
-@media (max-width: 48em) {
-  .desktop {
+@include desktop{
+  .mobile{
     display: none;
   }
-
 }
 
-@media (max-width: 48em) {
-  .mobile {
-    display: none;
+@include mobile{
+  .desktop{
+    display: none
   }
-
 }
 
 

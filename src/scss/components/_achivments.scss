@@ -11,6 +11,7 @@
         }
 
     }
+
     & .container {
         position: relative;
     }
@@ -24,16 +25,19 @@
         height: 6rem;
         filter: blur(50px);
         border-radius: 50%;
-        &._purple{
+
+        &._purple {
             background-color: $purple;
             top: 50%;
             left: 50%;
         }
-        &._green{
+
+        &._green {
             background-color: $green;
             top: 60%;
         }
-        &._white{
+
+        &._white {
             background-color: $white;
             top: 70%;
         }
@@ -47,12 +51,18 @@
         transition: padding 0s;
         box-sizing: border-box;
 
-        & .gradient-border::after {
-            border-radius: 2.6rem;
-            top: 2px;
-            left: 1px;
-            width: calc(100% - 3px);
-            height: calc(100% - 5px);
+        & .gradient-border {
+
+            &::after {
+                border-radius: 2rem;
+                top: 2px;
+                left: 1px;
+                width: calc(100% - 3px);
+                height: calc(100% - 5px);
+            }
+            &::before{
+                border-radius: 3rem;
+            }
         }
 
         /*  & .gradient-border::before{
@@ -61,7 +71,7 @@
 
 
         &__c {
-            background-color: rgba(197, 149, 255, 0.07);
+            background-color: rgb(66 58 77 / 7%);
             backdrop-filter: blur(1rem);
             display: flex;
             flex-direction: column;

@@ -32,11 +32,17 @@
     font-weight: 400;
     line-height: 110%;
     text-align: left;
-  overflow: hidden; 
+    overflow: hidden;
     margin-bottom: 7rem;
     border-left: 1px solid $green;
-   /*  padding-left: 2rem; */
- 
+
+    /*  padding-left: 2rem; */
+    @include mobile {
+        font-size: 5.6rem;
+        padding-top: 1.8rem;
+        padding-bottom: 1.8rem;
+
+    }
 
     & h2 {
 
@@ -50,18 +56,20 @@
         }
     }
 
- 
+
+
 
 }
+
 @keyframes heading {
     0% {
-       transform: translateX(-105%);
-     
+        transform: translateX(-105%);
+
     }
-   
+
     100% {
         transform: translateX(0);
-       
+
     }
 }
 
@@ -88,6 +96,13 @@
         height: calc(100% + 4px);
         background-image: $staticBg;
         border-radius: 1rem;
+
+        @include mobile {
+            left: -1px;
+            top: -1px;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+        }
     }
 
     &::after {
@@ -100,10 +115,11 @@
         height: calc(100% - 2px);
         background-color: $bg;
         border-radius: 1rem;
+
     }
 }
 
-.gradient-bg{
+.gradient-bg {
     z-index: -1;
     position: absolute;
     top: -10%;
@@ -114,8 +130,8 @@
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
-/*     background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.15) 7.71%, rgba(161, 66, 255, 0.15) 78.89%);
+    /*     background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.15) 7.71%, rgba(161, 66, 255, 0.15) 78.89%);
     box-shadow: 0px 0px 17rem 18rem $bg inset; */
-   /*  border-radius: 50%; */
+    /*  border-radius: 50%; */
     opacity: .5;
 }

@@ -1,6 +1,4 @@
 import $ from 'jquery'
-import Form from '../utils/Form'
-import Inputmask from 'inputmask'
 import Swiper from 'swiper';
 import { Navigation, Pagination, Grid, Autoplay, EffectCreative } from 'swiper/modules';
 import { rem } from '../utils/constants'
@@ -16,6 +14,7 @@ $(function () {
     initWow()
     initMarque()
     initHeaderSwiper()
+    initHeader()
 })
 
 function initHeaderSwiper() {
@@ -28,42 +27,82 @@ function initHeaderSwiper() {
         e.currentTarget.classList.remove('_hover')
     })
 }
+function initHeader() {
+    const header = $('.header'),
+        headerOpener = header.find('.header__c-btn'),
+        headerLinks = header.find('.header__c-nav-e'),
+        html = $('html')
+
+
+    headerOpener.on('click', () => {
+        if (!header.hasClass('_opened')) {
+            html.addClass('lock')
+            header.addClass('_opened')
+        } else {
+            html.removeClass('lock')
+            header.removeClass('_opened')
+        }
+    })
+    headerLinks.on('click', () => {
+        html.removeClass('lock')
+        header.removeClass('_opened')
+    })
+
+    let startTouch = 0
+    header.on('touchstart', (e) => {
+        console.log(e.touches[0].clientY);
+        startTouch = e.touches[0].clientY
+    })
+    header.on('touchend', (e) => {
+        console.log(e.originalEvent.changedTouches[0].clientY);
+        if (e.originalEvent.changedTouches[0].clientY < startTouch - 50) {
+            html.removeClass('lock')
+            header.removeClass('_opened')
+        }
+        startTouch = 0
+    })
+
+
+
+}
 
 function initSwipers() {
     const swiper = document.querySelector('.achivments')
     if (swiper) {
+        const config = {
+            translateY: () => { return window.innerWidth > 768 ? 30 : 15 }
+        }
         new Swiper(swiper.querySelector('.swiper'), {
             modules: [EffectCreative, Autoplay],
             loop: true,
             effect: 'creative',
-            slidesPerView: 3,
+            slidesPerView: 2.1,
             centeredSlides: true,
             spaceBetween: rem(3),
             initialSlide: 2,
             slideToClickedSlide: true,
 
-          /*   autoplay: {
-                delay: 3000,
-                pauseOnMouseEnter: true,
-            }, */
+              autoplay: {
+                  delay: 3000,
+                  pauseOnMouseEnter: true,
+              },
             creativeEffect: {
                 prev: {
-                    opacity: 0.5,
-                    translate: ["-75%", 30, -300],
+                    opacity: 0.15,
+                    translate: ["-75%", config.translateY(), -300],
                 },
                 next: {
-                    opacity: 0.5,
-                    translate: ["75%", 30, -300],
+                    opacity: 0.15,
+                    translate: ["75%", config.translateY(), -300],
                 },
                 limitProgress: 2
             },
-            /*  breakpoints: {
-                 768: {
-                     slidesPerView: 1,
-                     slidesPerGroup: 1,
- 
-                 }
-             }, */
+            breakpoints: {
+                768: {
+                    slidesPerView: 3
+
+                }
+            },
 
 
         })
@@ -120,18 +159,18 @@ function initHeadingText() {
         } else {
 
             if (target.textContent) {
-                if(target.textContent.length == array[word].length){
+                if (target.textContent.length == array[word].length) {
                     setTimeout(() => {
                         target.textContent = target.textContent.slice(0, -1)
                         print(word, -1)
                     }, waitSpeed);
-                }else{
+                } else {
                     setTimeout(() => {
                         target.textContent = target.textContent.slice(0, -1)
                         print(word, -1)
-                    }, deleteSpeed);  
+                    }, deleteSpeed);
                 }
-              
+
             } else if (!target.textContent) {
 
                 if (array[word + 1]) {

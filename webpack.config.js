@@ -42,7 +42,7 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
       : path.dirname(resourcePath);
 
   function replaceHtml(match, pathRule, src, dataProps) {
- 
+
     if (pathRule === "./") {
       fileDir = loaderContext.context;
     }
@@ -50,7 +50,7 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
     loaderContext.dependency(filePath);
     let html = fs.readFileSync(filePath, "utf8");
     try {
-   
+
       const data = dataProps && JSON.parse(dataProps);
       const dom = new JSDOM(html);
       const document = dom.window.document;
@@ -114,7 +114,7 @@ function processHtmlLoader(content, loaderContext) {
 module.exports = {
   mode,
   target,
-  devtool: "inline-source-map",
+  devtool: devMode ? "inline-source-map" : false,
   devServer: {
     historyApiFallback: true,
     open: true,
@@ -230,11 +230,11 @@ module.exports = {
           name(module) {
             // получает имя, то есть node_modules/packageName/not/this/part.js
             // или node_modules/packageName
-           // const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            // const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
 
             // имена npm-пакетов можно, не опасаясь проблем, использовать
             // в URL, но некоторые серверы не любят символы наподобие @
-           // return `${packageName.replace('@', '')}`;
+            // return `${packageName.replace('@', '')}`;
           },
         },
       },
