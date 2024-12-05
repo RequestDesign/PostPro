@@ -267,11 +267,12 @@ function initSwipers() {
       modules: [modules/* EffectCreative */.gI, modules/* Autoplay */.pt],
       loop: true,
       effect: 'creative',
-      slidesPerView: 2.1,
+      slidesPerView: 2,
       centeredSlides: true,
       spaceBetween: rem(3),
       initialSlide: 2,
-      slideToClickedSlide: true,
+      /*   slideToClickedSlide: true, */
+
       autoplay: {
         delay: 3000,
         pauseOnMouseEnter: true,
