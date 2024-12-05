@@ -82,10 +82,11 @@ function initSwipers() {
             initialSlide: 2,
             slideToClickedSlide: true,
 
-              autoplay: {
-                  delay: 3000,
-                  pauseOnMouseEnter: true,
-              },
+            autoplay: {
+                delay: 3000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: true,
+            },
             creativeEffect: {
                 prev: {
                     opacity: 0.15,
@@ -140,8 +141,8 @@ function initHeadingText() {
 
     const target = container.querySelector('#headingTextData'),
         array = container.querySelector('.heading__text-list').textContent.split('/'),
-        writeSpeed = 200,
-        deleteSpeed = 200,
+        writeSpeed = 100,
+        deleteSpeed = 50,
         waitSpeed = 1000
 
 

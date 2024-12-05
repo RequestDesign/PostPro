@@ -1,5 +1,38 @@
 .about {
     position: relative;
+    overflow: visible;
+
+    & .container {
+        position: relative;
+
+    }
+
+    &__pic {
+        position: absolute;
+        top: -12rem;
+        right: 13rem;
+        width: 27rem;
+        height: 25rem;
+        display: flex;
+        @include mobile{
+            top: -6rem;
+            right: 6rem;
+            width: 12rem;
+            height: 12rem;
+        }
+
+        & img {
+            object-fit: contain;
+        }
+    }
+    & .gradient-bg{
+        top: 40%;
+        left: 40%;
+        @include mobile{
+            top: 70%;
+        }
+    }
+
 
     @include mobile {
         margin-top: 17rem;
@@ -7,8 +40,8 @@
 
     &__c {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20rem;
+        grid-template-columns: .9fr 1fr;
+        gap: 15rem;
 
         @include mobile {
             grid-template-columns: 100%;
@@ -66,14 +99,14 @@
         }
 
         &-right {
-          
+
 
             &-head {
                 text-transform: uppercase;
                 font-family: 'Esqadero FF CY 4F';
                 font-size: 2.2rem;
                 font-weight: 400;
-                line-height: 110%;
+                line-height: normal;
                 text-align: left;
                 padding: 1.5rem;
                 box-sizing: border-box;
@@ -81,7 +114,14 @@
                 /* border-image-source: $staticBg;
                 border-image-slice: 1; */
                 border-radius: 1rem;
+                display: block;
                
+
+                &:after {
+                    top: 0;
+                    height: 100%;
+                }
+
 
             }
 
@@ -90,13 +130,14 @@
                 flex-wrap: wrap;
                 gap: 4.5rem;
                 margin-top: 4.5rem;
+            
 
                 &-e {
                     border-radius: 1rem;
                     font-family: 'Esqadero FF CY 4F';
                     font-size: 2.2rem;
                     font-weight: 400;
-                    line-height: 110%;
+                    line-height: normal;
                     padding: 1.5rem;
                     box-sizing: border-box;
                     text-transform: uppercase;
@@ -106,9 +147,14 @@
                     transition: all .5s;
                     display: flex;
                     align-items: center;
-                    gap: 1rem;
+                    @include mobile{
+                        font-size: 2.15rem;
+                        line-height: normal;
+                        padding: 1.6rem;
+                    }
 
-                   &:hover {
+
+                    &:hover {
                         box-shadow: 0px 0px 6rem .5rem rgba(0, 164, 131, .5);
 
                         & .about__c-right-tags-e-bg {
@@ -122,9 +168,13 @@
                         & .about__c-right-tags-e-img {
                             /*  background-size: 30rem; */
                         }
+
                         & span {
                             color: $green;
                         }
+                    }
+                    &-text{
+                       
                     }
 
 
@@ -136,9 +186,10 @@
 
                     &-dot {
                         color: $white;
+                        margin-right: 1rem;
                     }
 
-               
+
 
                     &-border {
                         background-color: $green;
@@ -150,7 +201,8 @@
                         top: -1.5px;
                         left: -1.5px;
                         border-radius: 1rem;
-                        @include mobile{
+
+                        @include mobile {
                             width: calc(100% + 2px);
                             height: calc(100% + 2px);
                             top: -1px;

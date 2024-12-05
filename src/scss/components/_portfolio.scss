@@ -1,10 +1,61 @@
 .portfolio {
     position: relative;
 
+    & .container {
+        position: relative;
+    }
+
+    &__pic {
+        width: 20rem;
+        height: 42rem;
+        top: -18rem;
+        left: 2rem;
+        display: flex;
+        position: absolute;
+
+        @include mobile {
+            width: 8.6rem;
+            height: 17rem;
+            top: 2rem;
+            left: 84%;
+
+        }
+
+        & img {
+            object-fit: contain;
+        }
+    }
+
+    &__pic-bottom {
+        width: 26rem;
+        height: 25rem;
+        bottom: -8rem;
+        right: -8rem;
+        display: flex;
+        position: absolute;
+
+        @include mobile {
+            right: 81%;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        & img {
+            object-fit: contain;
+        }
+    }
+
+
     & .gradient-bg {
         scale: -1 1;
-        bottom: 0;
-        left: 0;
+        top: 80%;
+        left: -20%;
+        transform: translateY(-50%);
+
+        @include mobile {
+            top: 85%;
+            left: -10%;
+        }
     }
 
     &__list {

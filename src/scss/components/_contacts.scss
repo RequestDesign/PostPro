@@ -1,5 +1,37 @@
 .contacts {
 
+    & .container {
+        position: relative;
+    }
+
+    @include mobile {
+
+        & .gradient-bg {
+            top: 20%;
+            right: -50%;
+        }
+    }
+
+    &__pic {
+        position: absolute;
+        width: 21rem;
+        height: 20rem;
+        top: -12rem;
+        left: 15rem;
+        display: flex;
+        @include mobile{
+            top: 37rem;
+            left: 52rem;  
+        }
+
+        & img {
+            object-fit: contain;
+            @include mobile{
+                transform: rotate(-15deg);
+            }
+        }
+    }
+
     &__list {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -7,6 +39,13 @@
         gap: 6rem;
         width: 83rem;
         margin: auto;
+
+        @include mobile {
+            grid-template-columns: 100%;
+            justify-content: center;
+            padding: 0 2rem;
+            gap: 4rem;
+        }
 
         &-e {
             display: grid;
@@ -28,7 +67,13 @@
                 border-radius: 1rem;
                 background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.3) 7.71%, rgba(161, 66, 255, 0.3) 78.89%);
                 position: relative;
-                & svg{
+
+                @include mobile {
+                    width: 8rem;
+                    height: 8rem;
+                }
+
+                & svg {
                     max-width: 60%;
                     max-height: 60%;
                 }
@@ -41,30 +86,34 @@
                     height: 200%;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -50%) ;
+                    transform: translate(-50%, -50%);
                     opacity: 0;
                     background: radial-gradient(circle, rgba(0, 164, 131, .5) 0%, transparent 62%, transparent 100%);
                     transition: transform .5s, opacity .5s;
                 }
-                .contacts__list-e-icon-fill
-                &-fill, &-stroke{
+
+                .contacts__list-e-icon-fill &-fill,
+                &-stroke {
                     transition: fill .5s, stroke .5s;
                 }
-                @include hover {
-                        background-image: none;
-                        background-color: rgba(0, 164, 131, .2);
-                        &::after{
-                            transform: translate(-50%, -50%) ;
-                            opacity: 1;
-                        }
-                        & .contacts__list-e-icon-fill {
-                            fill: $green;
-                        }
 
-                        & .contacts__list-e-icon-stroke {
-                            stroke: $green;
-                        }
-                    
+                @include hover {
+                    background-image: none;
+                    background-color: rgba(0, 164, 131, .2);
+
+                    &::after {
+                        transform: translate(-50%, -50%);
+                        opacity: 1;
+                    }
+
+                    & .contacts__list-e-icon-fill {
+                        fill: $green;
+                    }
+
+                    & .contacts__list-e-icon-stroke {
+                        stroke: $green;
+                    }
+
                 }
             }
 
@@ -78,6 +127,11 @@
                 text-align: left;
                 color: $purple;
 
+                @include mobile {
+                    font-size: 2.8rem;
+                    color: $green;
+                }
+
                 &._center {
                     grid-row: span 2;
                 }
@@ -89,10 +143,12 @@
                     &~.contacts__list-e-icon {
                         background-image: none;
                         background-color: rgba(0, 164, 131, .2);
-                        &::after{
-                            transform: translate(-50%, -50%) ;
+
+                        &::after {
+                            transform: translate(-50%, -50%);
                             opacity: 1;
                         }
+
                         & .contacts__list-e-icon-fill {
                             fill: $green;
                         }
@@ -101,7 +157,7 @@
                             stroke: $green;
                         }
                     }
-                    
+
                 }
             }
 

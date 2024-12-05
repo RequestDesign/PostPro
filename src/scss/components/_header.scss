@@ -103,19 +103,28 @@
             &-e {
                 border-radius: .5rem;
                 position: relative;
-              
+
 
                 @include mobile {
+                    font-size: 3.2rem;
+                    color: $green;
+                    & *{
+                        background-color: transparent;
+                        backdrop-filter: none;
+                    }
+
                     & span {
                         display: none;
                     }
 
                     & .header__c-nav-e-text {
                         display: block;
+                       
                     }
-                    font-size: 3.2rem;
-                    color: $green;
-                    &:active{
+
+                
+
+                    &:active {
                         color: $white;
                     }
                 }
@@ -130,7 +139,7 @@
                     display: block;
                     transition: color .5s, text-shadow .5s;
 
-                   
+
 
                 }
 

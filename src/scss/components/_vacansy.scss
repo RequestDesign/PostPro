@@ -5,10 +5,102 @@
         margin: auto;
         gap: 10rem;
 
+        @include mobile {
+            gap: 4rem;
+        }
+
         &-img {
             width: 34rem;
             height: 30rem;
-            background-color: rgb(91, 86, 100);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include mobile{
+                height: auto;
+                justify-content: flex-end;
+                align-items: flex-end;
+            }
+
+            &-pic {
+                position: absolute;
+                top: -3rem;
+                left: -2.5rem;
+                width: 23rem;
+                height: 22.5rem;
+                display: flex;
+                z-index: 1;
+                @include mobile{
+                    top: -4rem;
+                left: -4.7rem;
+                }
+
+                & img {
+                    transform-origin: right bottom;
+                    transform: rotate(15deg);
+                    object-fit: contain;
+                }
+            }
+
+            &-circle {
+                width: 18rem;
+                height: 18rem;
+                border-radius: 50%;
+                background: linear-gradient(135.32deg, rgba(14, 168, 133, 0.3) 25.26%, rgba(161, 66, 255, 0.3) 88.33%);
+                position: relative;
+                @include mobile{
+                    width: 11rem;
+                    height: 11rem;
+                }
+
+                &-1 {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 3.8rem;
+                    height: 3.8rem;
+                    border-radius: 50%;
+                    background-color: $bg;
+                    transform: translate(-50%, -50%);
+                    @include mobile{
+                        border-width: 1rem;
+                        width: 2.2rem;
+                        height: 2.2rem;
+                    }
+                }
+
+                &-2 {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 9.4rem;
+                    height: 9.4rem;
+                    border-radius: 50%;
+                    border: 1.5rem solid $bg;
+                    transform: translate(-50%, -50%);
+                    @include mobile{
+                        border-width: 1rem;
+                        width: 5.4rem;
+                        height: 5.4rem;
+                    }
+                }
+
+                &-3 {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 15.7rem;
+                    height: 15.7rem;
+                    border-radius: 50%;
+                    border: 1.5rem solid $bg;
+                    transform: translate(-50%, -50%);
+                    @include mobile{
+                        border-width: 1rem;
+                        width: 9rem;
+                        height: 9rem;
+                    }
+                }
+            }
         }
 
         &-text {
@@ -22,8 +114,17 @@
             line-height: 120%;
             letter-spacing: 0.05em;
             text-align: left;
-            & .col-purple{
-                @include hover{
+
+            @include mobile {
+                font-size: 2.8rem;
+
+                & p:first-of-type {
+                    margin-bottom: 3rem;
+                }
+            }
+
+            & .col-purple {
+                @include hover {
                     text-decoration: underline;
                 }
 

@@ -35,12 +35,14 @@
     overflow: hidden;
     margin-bottom: 7rem;
     border-left: 1px solid $green;
+    padding: 2rem 0;
 
     /*  padding-left: 2rem; */
     @include mobile {
         font-size: 5.6rem;
         padding-top: 1.8rem;
         padding-bottom: 1.8rem;
+        margin-bottom: 6rem;
 
     }
 
@@ -126,12 +128,21 @@
     right: 0%;
     width: 170rem;
     height: 170rem;
-    background-image: url(./assets/images/bg-gr.svg);
+    background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.15) 7.71%, rgba(161, 66, 255, 0.15) 78.89%);
+    border-radius: 50%;
+    filter: blur(30rem);
+    /*  background-image: url(./assets/images/bg-gr.svg);
     background-size: contain;
     background-position: right;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     /*     background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.15) 7.71%, rgba(161, 66, 255, 0.15) 78.89%);
     box-shadow: 0px 0px 17rem 18rem $bg inset; */
     /*  border-radius: 50%; */
-    opacity: .5;
+    opacity: 1;
+    @include mobile{
+        width: 80rem;
+        height: 80rem;
+        filter: blur(14rem);
+    }
+  
 }

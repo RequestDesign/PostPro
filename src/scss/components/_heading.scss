@@ -1,12 +1,14 @@
 .heading {
-    height: calc(100dvh - 16rem);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 0;
+    padding-top: 18rem;
+    height: 100dvh;
 
     @include mobile {
-        height: auto;
-        margin-top: 22rem;
+
+        padding-top: 22rem;
     }
 
     & .container {
@@ -32,6 +34,11 @@
         border-radius: 3rem;
         overflow: hidden;
         aspect-ratio: 16/9;
+        height: 72rem;
+
+        @include mobile {
+            height: 37rem;
+        }
 
 
         & img {
@@ -103,7 +110,7 @@
 
             @include mobile {
                 opacity: 1;
-          
+
             }
 
             @include hover {
@@ -172,6 +179,8 @@
 
             @include mobile {
                 opacity: 1;
+                background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.2) 7.71%, rgba(161, 66, 255, 0.2) 78.89%);
+
 
             }
 
