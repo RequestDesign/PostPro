@@ -48,8 +48,8 @@
 
     & .gradient-bg {
         scale: -1 1;
-        top: 80%;
-        left: -20%;
+        top: 50%;
+        left: -40%;
         transform: translateY(-50%);
 
         @include mobile {
