@@ -14,7 +14,8 @@
         width: 27rem;
         height: 25rem;
         display: flex;
-        @include mobile{
+
+        @include mobile {
             top: -6rem;
             right: 6rem;
             width: 12rem;
@@ -25,10 +26,12 @@
             object-fit: contain;
         }
     }
-    & .gradient-bg{
+
+    & .gradient-bg {
         top: 40%;
         left: 40%;
-        @include mobile{
+
+        @include mobile {
             top: 70%;
         }
     }
@@ -115,7 +118,17 @@
                 border-image-slice: 1; */
                 border-radius: 1rem;
                 display: block;
+                & span{
+                    height: 2rem;
+                    display: block;
+
+                    @include mobile {
+                        height: 1.7rem;
+                        transform: translateY(.5rem);
+                    }
+                }
                
+
 
                 &:after {
                     top: 0;
@@ -130,7 +143,7 @@
                 flex-wrap: wrap;
                 gap: 4.5rem;
                 margin-top: 4.5rem;
-            
+
 
                 &-e {
                     border-radius: 1rem;
@@ -147,7 +160,8 @@
                     transition: all .5s;
                     display: flex;
                     align-items: center;
-                    @include mobile{
+
+                    @include mobile {
                         font-size: 2.15rem;
                         line-height: normal;
                         padding: 1.6rem;
@@ -173,8 +187,14 @@
                             color: $green;
                         }
                     }
-                    &-text{
-                       
+
+                    &-text {
+                        height: 2rem;
+
+                        @include mobile {
+                            height: 1.7rem;
+                        }
+
                     }
 
 
@@ -187,6 +207,10 @@
                     &-dot {
                         color: $white;
                         margin-right: 1rem;
+
+                        @include mobile {
+                            margin-top: .3rem;
+                        }
                     }
 
 
