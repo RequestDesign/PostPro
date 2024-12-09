@@ -11,6 +11,13 @@ $staticBg: linear-gradient(129.47deg, rgba(14, 168, 133, 0.61) 7.71%, rgba(161, 
 html{
   scroll-behavior: smooth;
   user-select: none;
+  opacity: 0;
+  touch-action: none;
+  overflow: hidden;
+  &._page-loaded{
+    opacity: 1;
+    overflow: visible;
+  }
 }
 body {
   background-color: $bg;

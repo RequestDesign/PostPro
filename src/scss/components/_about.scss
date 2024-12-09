@@ -196,10 +196,10 @@
                         background-image: $staticBg;
                         position: absolute;
                         z-index: -1;
-                        width: calc(100% + 3px);
-                        height: calc(100% + 3px);
-                        top: -1.5px;
-                        left: -1.5px;
+                        width: calc(100% + 2px);
+                        height: calc(100% + 2px);
+                        top: -1px;
+                        left: -1px;
                         border-radius: 1rem;
 
                         @include mobile {

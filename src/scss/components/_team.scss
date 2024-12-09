@@ -2,8 +2,10 @@
     position: relative;
 
     & .gradient-bg {
-        top: 0;
-        right: -50%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -20rem;
+        
     }
 
     & .container {

@@ -19,11 +19,17 @@
             <img
               src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
               alt="placeholder">
+            <video class="heading__main-video" autoplay="true" preload="auto" controls="false" disablepictureinpicture
+              pip="false" muted loop>
+              <source src="./assets/video/vidos.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="heading__text">
-            <span id="headingText"> Мы создаем: <span id="headingTextData"></span>
-              <span class="heading__text-list">for example/two /restart</span>
-            </span>
+            <div id="headingText">
+               <span class="heading__text-static"> Мы создаем: &shy;</span> 
+               <span id="headingTextData"></span>
+              <span class="heading__text-list">компьютерную графику/AI /3D персонажей/постпродакшн/</span>
+            </div>
 
           </div>
           <div class="heading__btns">
@@ -105,17 +111,27 @@
                 <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "3D"}}'></include>
                 <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "2D"}}'></include>
                 <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "AI"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "SFX"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "ЗВУК"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "ПОСТПРОДАКШН"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "цвето"} , ".about__c-right-tags-e-two": {"html": "коррекция"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "монтаж"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "кино"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'></include>
-              
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "SFX"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "ЗВУК"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "ПОСТПРОДАКШН"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "цвето"} , ".about__c-right-tags-e-two": {"html": "коррекция"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "монтаж"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "кино"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'></include>
+
 
               </ul>
             </div>
@@ -241,62 +257,23 @@
           <p class="team__sub wow animate__fadeInUp">
             У нас большой штат настоящих профессионалов,
             каждый из которых вносит значительный вклад в наши проекты.
-            <br/>
-            <br/>
+            <br />
+            <br />
             Представляем вам лидеров команды
           </p>
           <ul class="team__list">
-            <li class="team__list-e wow animate__fadeInUp">
-              <div class="team__list-e-border">
-
-                <div class="team__list-e-border-img">
-                  <img src="./assets/images/team.png" alt="team">
-                </div>
-              </div>
-              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
-              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
-
-            </li>
-            <li class="team__list-e wow animate__fadeInUp">
-              <div class="team__list-e-border">
-                <div class="team__list-e-border-img">
-                  <img src="./assets/images/team.png" alt="team">
-                </div>
-              </div>
-              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
-              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
-
-            </li>
-            <li class="team__list-e wow animate__fadeInUp">
-              <div class="team__list-e-border">
-                <div class="team__list-e-border-img">
-                  <img src="./assets/images/team.png" alt="team">
-                </div>
-              </div>
-              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
-              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
-
-            </li>
-            <li class="team__list-e wow animate__fadeInUp">
-              <div class="team__list-e-border">
-                <div class="team__list-e-border-img">
-                  <img src="./assets/images/team.png" alt="team">
-                </div>
-              </div>
-              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
-              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
-
-            </li>
-            <li class="team__list-e wow animate__fadeInUp">
-              <div class="team__list-e-border">
-                <div class="team__list-e-border-img">
-                  <img src="./assets/images/team.png" alt="team">
-                </div>
-              </div>
-              <h3 class="team__list-e-ttl col-green">Lorem ipsum dolor sit amet.</h3>
-              <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
-
-            </li>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+            <include src="./components/_team-card.html"></include>
+          
           </ul>
         </div>
       </section>
@@ -314,7 +291,9 @@
           </div>
           <ul class="contacts__list">
             <li class="contacts__list-e wow animate__fadeInUp">
-              <a class="contacts__list-e-link _center" href="#link">121099 г. Москва <br />
+              <a class="contacts__list-e-link _center" target="_blank"
+                href="https://yandex.ru/maps/213/moscow/house/shubinskiy_pereulok_6s2/Z04YcwBnQUEOQFtvfXt1dn5gZQ==/?l=stv%2Csta&ll=37.577849%2C55.747232&z=17.06">121099
+                г. Москва <br />
                 Шубинский переулок, д.6, стр.2 </a>
               <div class="contacts__list-e-icon">
                 <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -332,7 +311,7 @@
               </div>
             </li>
             <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".1s">
-              <a class="contacts__list-e-link _center" href="#link">PostPro18 на Vimeo</a>
+              <a class="contacts__list-e-link _center" href="https://vimeo.com/" target="_blank">PostPro18 на Vimeo</a>
               <div class="contacts__list-e-icon">
                 <svg width="37" height="32" viewBox="0 0 37 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -351,8 +330,8 @@
               </div>
             </li>
             <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".2s">
-              <a class="contacts__list-e-link" href="#link"> +7 (495) 252 00 19 </a>
-              <a class="contacts__list-e-link" href="#link"> +7 (495) 620 48 14</a>
+              <a class="contacts__list-e-link" href="tel:+74952520019"> +7 (495) 252 00 19 </a>
+              <a class="contacts__list-e-link" href="tel:+74956204814"> +7 (495) 620 48 14</a>
 
               <div class="contacts__list-e-icon">
                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -389,7 +368,8 @@
               </div>
             </li>
             <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".3s">
-              <a class="contacts__list-e-link _center" href="#link">PostPro18 на Behance</a>
+              <a class="contacts__list-e-link _center" target="_blank" href="https://www.behance.net/">PostPro18 на
+                Behance</a>
               <div class="contacts__list-e-icon">
                 <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -409,7 +389,7 @@
               </div>
             </li>
             <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".4s">
-              <a class="contacts__list-e-link _center" href="#link">info@postpro18.ru </a>
+              <a class="contacts__list-e-link _center" href="mailto:info@postpro18.ru">info@postpro18.ru </a>
               <div class="contacts__list-e-icon">
                 <svg width="34" height="27" viewBox="0 0 34 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -427,7 +407,8 @@
               </div>
             </li>
             <li class="contacts__list-e wow animate__fadeInUp" data-wow-delay=".5s">
-              <a class="contacts__list-e-link _center" href="#link">скачать Презентацию</a>
+              <a class="contacts__list-e-link _center" target="_blank" href="./assets/images/achivment.png"
+                download>скачать Презентацию</a>
               <div class="contacts__list-e-icon">
                 <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -473,8 +454,8 @@
               <p class="wow animate__fadeInUp">Готовы присоединиться к <span class="txt-up col-green">POSTPRO 18
                   STUDIO</span> ?</p>
               <p class="wow animate__fadeInUp" data-wow-delay=".2s">Направляйте Ваше резюме</p>
-              <p class="wow animate__fadeInUp" data-wow-delay=".44s">на электронную почту <a href="#"
-                  class="col-purple">info@postpro18.ru</a></p>
+              <p class="wow animate__fadeInUp" data-wow-delay=".44s">на электронную почту <a
+                  href="mailto:info@postpro18.ru" class="col-purple">info@postpro18.ru</a></p>
             </div>
           </div>
 

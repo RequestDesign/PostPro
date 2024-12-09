@@ -5,6 +5,11 @@
     width: 100%;
     transition: background-color .5s linear;
     z-index: 100;
+    @include mobile{
+        background-color: rgba(23, 23, 29, 0.74);
+        backdrop-filter: blur(45px);
+
+    }
 
     & .container {
 
@@ -312,9 +317,7 @@
     }
 
     &._opened {
-        background-color: rgba(23, 23, 29, 0.74);
-        backdrop-filter: blur(45px);
-
+       
         & .header__c {
 
             grid-template-rows: min-content 1fr;

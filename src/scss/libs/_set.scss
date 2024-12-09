@@ -139,7 +139,12 @@ input[type='number'] {
   max-width: calc(100% - 100px);
   max-height: calc(100% - 88px);
 }
-
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
 @import 'swiper/scss';
 @import 'swiper/scss/effect-creative';
 @import 'swiper/scss/autoplay';

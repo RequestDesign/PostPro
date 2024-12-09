@@ -2,7 +2,7 @@
 
     margin-top: 16rem;
 
-    &__border {
+/*     &__border {
         width: 100%;
         height: 2px;
         background: $staticBg;
@@ -13,13 +13,21 @@
             width: calc(100% - 8rem);
         }
 
-    }
+    } */
 
     &__c {
         display: flex;
         justify-content: center;
         gap: 3rem;
         padding: 3rem 0 7rem;
+        border-top: 1px solid ;
+        border-image-source: linear-gradient(93.11deg, rgba(14, 168, 133, 0.2) 13.34%, rgba(161, 66, 255, 0.2) 63.89%);
+        border-style: solid;
+        border-image-slice: 1;
+        border-left: none;
+        border-right:none ;
+        border-bottom: none;
+       
 
         @include mobile {
             flex-direction: column;

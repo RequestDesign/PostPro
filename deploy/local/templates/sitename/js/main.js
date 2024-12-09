@@ -212,6 +212,8 @@ jquery_default()(function () {
   initMarque();
   initHeaderSwiper();
   initHeader();
+  initVideos();
+  jquery_default()('html').addClass('_page-loaded');
 });
 function initHeaderSwiper() {
   const targets = jquery_default()('.header__c-nav-e');
@@ -243,11 +245,9 @@ function initHeader() {
   });
   let startTouch = 0;
   header.on('touchstart', e => {
-    console.log(e.touches[0].clientY);
     startTouch = e.touches[0].clientY;
   });
   header.on('touchend', e => {
-    console.log(e.originalEvent.changedTouches[0].clientY);
     if (e.originalEvent.changedTouches[0].clientY < startTouch - 50) {
       html.removeClass('lock');
       header.removeClass('_opened');
@@ -372,6 +372,22 @@ function initMarque() {
   const container = document.querySelectorAll('.partners__list');
   if (!container) return;
   container.forEach(c => [new Marquee(c, 180)]);
+}
+function initVideos() {
+  const vidos = document.querySelectorAll('.heading__main');
+  if (vidos) {
+    vidos.forEach(el => {
+      const video = el.querySelector('video'),
+        placeholder = el.querySelector('img');
+      if (!video || !placeholder) return;
+      if (placeholder) {
+        video.addEventListener('canplay', () => {
+          placeholder.style.display = 'none';
+          video.style.display = 'flex';
+        });
+      }
+    });
+  }
 }
 ;// CONCATENATED MODULE: ./src/index.js
 
