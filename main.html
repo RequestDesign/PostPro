@@ -13,7 +13,7 @@
     <header class="header">
 
     <div class="container ">
-        <div class="header__lang">
+        <div class="header__lang desktop">
             <a href="#" class="header__lang-e _active"><span>•</span>ру</a>
             <a href="#" class="header__lang-e "><span>•</span>en</a>
         </div>
@@ -159,8 +159,8 @@
           </div>
           <div class="heading__text">
             <div id="headingText">
-               <span class="heading__text-static"> Мы создаем: &shy;</span> 
-               <span id="headingTextData"></span>
+              <span class="heading__text-static"> Мы создаем: &shy;</span>
+              <span id="headingTextData"></span>
               <span class="heading__text-list">компьютерную графику/AI /3D персонажей/постпродакшн/</span>
             </div>
 
@@ -204,7 +204,9 @@
       <section id="about" class="about">
         <div class="container">
           <div class="about__pic wow animate__fadeInRight">
-            <img src="./assets/images/pic-about.webp" alt="">
+            <video autoplay muted loop poster="./assets/images/pic-about.webp">
+              <source src="./assets/video/6.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg"></div>
           <div class="section-heading wow animate__fadeInUp">
@@ -241,44 +243,14 @@
               </span>
               <ul class="about__c-right-tags">
                 <li class="mobile about__c-right-head txt-up gradient-border wow animate__fadeInUp">
-                 <span> возможности</span>
+                  <span> возможности</span>
                 </li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one">3D</span>
-        <span class="col-purple about__c-right-tags-e-two"></span>
-        <span class="col-green about__c-right-tags-e-three"></span>
-    </span>
-
-</li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one"></span>
-        <span class="col-purple about__c-right-tags-e-two">2D</span>
-        <span class="col-green about__c-right-tags-e-three"></span>
-    </span>
-
-</li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one">AI</span>
-        <span class="col-purple about__c-right-tags-e-two"></span>
-        <span class="col-green about__c-right-tags-e-three"></span>
-    </span>
-
-</li>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "3D"}}'>
+                </include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "2D"}}'>
+                </include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "AI"}}'>
+                </include>
                 <li class="about__c-right-tags-e wow animate__fadeInUp">
     <div class="about__c-right-tags-e-bg"></div>
     <div class="about__c-right-tags-e-img"></div>
@@ -315,30 +287,12 @@
     </span>
 
 </li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one">моушн</span>
-        <span class="col-purple about__c-right-tags-e-two">-графика</span>
-        <span class="col-green about__c-right-tags-e-three"></span>
-    </span>
-
-</li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one"></span>
-        <span class="col-purple about__c-right-tags-e-two">коррекция</span>
-        <span class="col-green about__c-right-tags-e-three"></span>
-    </span>
-
-</li>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "цвето"} , ".about__c-right-tags-e-two": {"html": "коррекция"}}'>
+                </include>
                 <li class="about__c-right-tags-e wow animate__fadeInUp">
     <div class="about__c-right-tags-e-bg"></div>
     <div class="about__c-right-tags-e-img"></div>
@@ -363,42 +317,15 @@
     </span>
 
 </li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one"></span>
-        <span class="col-purple about__c-right-tags-e-two">разработка</span>
-        <span class="col-green about__c-right-tags-e-three">персонажей</span>
-    </span>
-
-</li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one"></span>
-        <span class="col-purple about__c-right-tags-e-two">экраны</span>
-        <span class="col-green about__c-right-tags-e-three">­360</span>
-    </span>
-
-</li>
-                <li class="about__c-right-tags-e wow animate__fadeInUp">
-    <div class="about__c-right-tags-e-bg"></div>
-    <div class="about__c-right-tags-e-img"></div>
-    <div class="about__c-right-tags-e-border"></div>
-    <span class="about__c-right-tags-e-dot">•</span>
-    <span class="about__c-right-tags-e-text">
-        <span class="col-green about__c-right-tags-e-one">мультимедийные </span>
-        <span class="col-purple about__c-right-tags-e-two">интерактивные</span>
-        <span class="col-green about__c-right-tags-e-three">вставки</span>
-    </span>
-
-</li>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'>
+                </include>
 
 
               </ul>
@@ -410,11 +337,16 @@
       <section id="portfolio" class="portfolio">
         <div class="container ">
           <div class="portfolio__pic wow animate__fadeInLeft">
-            <img src="./assets/images/pic-portfolio.webp" alt="">
+            <video autoplay muted loop poster="./assets/images/pic-portfolio.webp">
+              <source src="./assets/video/3.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg"></div>
           <div class="portfolio__pic-bottom wow animate__fadeIn">
-            <img src="./assets/images/pic-portfolio-bottom.webp" alt="">
+            <!-- видос -->
+            <video autoplay muted loop poster="./assets/images/pic-portfolio-bottom.webp">
+              <source src="./assets/video/3.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="section-heading wow animate__fadeInUp">
             <h2 class="wow animate__width wow animate__heading" data-wow-delay=".5s"> &nbsp;<span>наши</span> работы
@@ -589,8 +521,18 @@
       <!--  -->
       <section id="achivments" class="achivments">
         <div class="container">
+          <div class="achivments__eggs wow animate__fadeIn" data-wow-delay="1s">
+            <div class="achivments__eggs-list">
+              <div class="achivments__eggs-list-el _purple"></div>
+              <div class="achivments__eggs-list-el _white"></div>
+              <div class="achivments__eggs-list-el _green"></div>
+            </div>
+          </div>
+
           <div class="achivments__pic wow animate__fadeInLeft">
-            <img src="./assets/images/pic-achivments.webp" alt="">
+            <video autoplay muted loop poster="./assets/images/pic-achivments.webp">
+              <source src="./assets/video/3.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="section-heading wow animate__fadeInUp">
             <h2 class="wow animate__width wow animate__heading" data-wow-delay=".5s"> &nbsp;<span>наши</span> награды
@@ -601,16 +543,14 @@
               <ul class="swiper-wrapper">
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">111</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">111</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">111</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -620,16 +560,14 @@
   </li>
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">222</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">222</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">222</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -639,16 +577,14 @@
   </li>
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">333</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">333</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">333</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -658,16 +594,14 @@
   </li>
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">444</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">444</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">444</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -677,16 +611,14 @@
   </li>
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">555</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">555</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">555</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -696,16 +628,14 @@
   </li>
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">666</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">666</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">666</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -715,16 +645,14 @@
   </li>
                 <li class="swiper-slide achivments-item">
     <div class="gradient-border">
-      <div class="achivments-item-light _red"></div>
-      <div class="achivments-item-light _green"></div>
-      <div class="achivments-item-light _blue"></div>
+   
       <div class="achivments-item__c ">
         <p class="achivments-item__c-ttl">777</p>
         <div>
           <div class="achivments-item__c-img">
             <img src="./assets/images/achivment.webp" alt="achivment">
           </div>
-          <h3 class="achivments-item__c-ttl txt-up col-green">777</h3>
+          <p class="achivments-item__c-ttl txt-up col-green">777</p>
         </div>
         <p class="achivments-item__c-txt col-purple">Lorem ipsum dolor sit amet consectetur adipisicing
           elit.
@@ -753,7 +681,10 @@
 
         <div class="container">
           <div class="team__pic desktop wow animate__fadeInRight">
-            <img src="./assets/images/pic-team.webp" alt="">
+
+            <video autoplay muted loop poster="./assets/images/pic-team.webp">
+              <source src="./assets/video/2.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg"></div>
           <div class="section-heading wow animate__fadeInUp">
@@ -889,7 +820,7 @@
     <p class="team__list-e-sub col-purple">Lorem ipsum dolor sit amet consectetur.</p>
 
 </li>
-          
+
           </ul>
         </div>
       </section>
@@ -897,8 +828,12 @@
       <section class="contacts" id="contacts">
         <div class="container">
           <div class="contacts__pic wow animate__fadeInLeft">
-            <img class="desktop" src="./assets/images/pic-contacts.webp" alt="">
-            <img class="mobile" src="./assets/images/pic-team.webp" alt="">
+            <video class="desktop" autoplay muted loop poster="./assets/images/pic-contacts.webp">
+              <source src="./assets/video/4.mp4" type="video/mp4">
+            </video>
+            <video class="mobile" autoplay muted loop poster="./assets/images/pic-team.webp">
+              <source src="./assets/video/2.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg mobile"></div>
           <div class="section-heading wow animate__fadeInUp">
@@ -1058,7 +993,9 @@
           <div class="vacancy__c">
             <div class="vacancy__c-img wow animate__fadeInUp">
               <div class="vacancy__c-img-pic wow animate__fadeInLeft">
-                <img src="./assets/images/pic-vacansy.webp" alt="">
+                <video autoplay muted loop poster="./assets/images/pic-vacansy.webp">
+                  <source src="./assets/video/1.mp4" type="video/mp4">
+                </video>
               </div>
               <div class="vacancy__c-img-circle wow animate__fadeIn">
                 <div class="vacancy__c-img-circle-1"></div>
