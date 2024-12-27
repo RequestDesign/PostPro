@@ -5,9 +5,9 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const fs = require("fs");
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 const glob = require("glob");
-const FileManagerPlugin = require('filemanager-webpack-plugin');
 const mode = process.env.NODE_ENV || "development";
 const devMode = mode === "development";
 const target = devMode ? "web" : "browserslist";
@@ -19,6 +19,7 @@ const pages = HTML_FILES.map((page) => {
     filename: path.basename(page),
     chunks: [path.basename(page, ".html"), "main"],
     minify: false,
+
   });
 });
 
@@ -54,6 +55,8 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
       const data = dataProps && JSON.parse(dataProps);
       const dom = new JSDOM(html);
       const document = dom.window.document;
+
+
       if (data) {
         Object.keys(data).forEach((selector) => {
           const elementData = data[selector];
@@ -103,6 +106,9 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
 function processHtmlLoader(content, loaderContext) {
   let newContent = processNestedHtml(content, loaderContext);
   newContent = newContent.replace(
+    /<title>.*?<\/title>/i, `<title>${loaderContext.resourcePath.split('\\').at(-1)}</title>`
+  );
+  newContent = newContent.replace(
     /(src|data-src)="(.*?)\.(jpg|png)"/gi,
     (match, p1, p2) => {
       return `${p1}="${p2}.webp"`;
@@ -114,16 +120,17 @@ function processHtmlLoader(content, loaderContext) {
 module.exports = {
   mode,
   target,
-  devtool: devMode ? "inline-source-map" : false,
+  devtool: devMode ? "inline-source-map" : false, //сорс мапа
   devServer: {
     historyApiFallback: true,
     open: true,
     hot: true,
-    port: "auto",
+    port: "8080",
     host: "local-ip",
     static: path.resolve(__dirname, "dist"),
     watchFiles: path.join(__dirname, "src"),
   },
+
 
   entry: {
     main: path.resolve(__dirname, "src", "index.js"),
@@ -138,8 +145,42 @@ module.exports = {
     // [name] - стандартный по вебпаку (main), [contenthash] - добавляептся хэш к названию
     filename: "js/[name].js",
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+
+        terserOptions: {
+          compress: true,
+        },
+        extractComments: false, // Убираем комментарии из минифицированного бандла
+        exclude: /main\.js$/, // Минимизируем все кроме мэйна, только либы
+      }),
+    ],
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // получает имя, то есть node_modules/packageName/not/this/part.js
+            // или node_modules/packageName
+           /*  const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+            if (packageName.length) {
+              return `${packageName[1].replace('@', '')}`;
+            } */
+            // имена npm-пакетов можно, не опасаясь проблем, использовать
+            // в URL, но некоторые серверы не любят символы наподобие @
+
+          },
+        },
+      },
+    },
+
+  },
 
   plugins: [
+
     new CleanWebpackPlugin(),
     ...pages,
     new MiniCssExtractPlugin({
@@ -173,73 +214,22 @@ module.exports = {
       silent: false,
       strict: true,
     }),
-    fs.existsSync(sourcePath)
-      ? new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(__dirname, "./", "src/assets/", "images"),
-            to: path.resolve(__dirname, "./", "dist/assets/", "images"),
-            noErrorOnMissing: true,
-          },
-          {
-            from: path.resolve(__dirname, "./", "src/assets/", "fonts"),
-            to: path.resolve(__dirname, "./", "dist/assets/", "fonts"),
-            noErrorOnMissing: true,
-          },
-          {
-            from: sourcePath,
-            to: destPath,
-            noErrorOnMissing: true,
-          },
-        ],
-      })
-      : new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(__dirname, "./", "src/assets/", "images"),
-            to: path.resolve(__dirname, "./", "dist/assets/", "images"),
-            noErrorOnMissing: true,
-          },
-          {
-            from: path.resolve(__dirname, "./", "src/assets/", "fonts"),
-            to: path.resolve(__dirname, "./", "dist/assets/", "fonts"),
-            noErrorOnMissing: true,
-          },
-        ],
-      }),
-    new FileManagerPlugin({
-      events: {
-        onEnd: {
-          mkdir: [devMode ? '' : 'dist/css'],
-          copy: [
-            { source: 'dist/js', destination: 'deploy/local/templates/sitename/js' },
-            { source: 'dist/css', destination: 'deploy/local/templates/sitename/css' },
-          ]
-        }
-      }
-    }),
+
+    new CopyPlugin({
+      patterns: [
+        {
+          from: sourcePath,
+          to: destPath,
+          noErrorOnMissing: true,
+        },
+
+      ],
+    })
+
+
   ],
 
-  optimization: {
-    minimize: false,
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            // получает имя, то есть node_modules/packageName/not/this/part.js
-            // или node_modules/packageName
-            // const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
 
-            // имена npm-пакетов можно, не опасаясь проблем, использовать
-            // в URL, но некоторые серверы не любят символы наподобие @
-            // return `${packageName.replace('@', '')}`;
-          },
-        },
-      },
-    }
-  },
 
   module: {
     rules: [
@@ -303,4 +293,7 @@ module.exports = {
       }
     ],
   },
+  /*  externals: {
+     swiper: "Swiper", // Исключаем Swiper из обработки
+   }, */
 };

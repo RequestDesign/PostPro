@@ -92,6 +92,7 @@
                 }
 
                 @include mobile {
+                    padding-left: 10rem;
                     &-count svg {
                         height: 8rem;
                         width: fit-content;

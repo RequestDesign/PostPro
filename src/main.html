@@ -16,18 +16,16 @@
       <section id="top" class="heading">
         <div class="container">
           <div class="heading__main ">
-            <img
-              src="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
-              alt="placeholder">
-            <video class="heading__main-video" autoplay="true" preload="auto" controls="false" disablepictureinpicture
-              pip="false" muted loop>
+          
+            <video class="heading__main-video" pip="false" muted loop autoplay="true" disablepictureinpicture poster="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
+              >
               <source src="./assets/video/vidos.mp4" type="video/mp4" />
             </video>
           </div>
           <div class="heading__text">
             <div id="headingText">
-               <span class="heading__text-static"> Мы создаем: &shy;</span> 
-               <span id="headingTextData"></span>
+              <span class="heading__text-static"> Мы создаем: &shy;</span>
+              <span id="headingTextData"></span>
               <span class="heading__text-list">компьютерную графику/AI /3D персонажей/постпродакшн/</span>
             </div>
 
@@ -71,7 +69,9 @@
       <section id="about" class="about">
         <div class="container">
           <div class="about__pic wow animate__fadeInRight">
-            <img src="./assets/images/pic-about.png" alt="">
+            <video autoplay muted loop poster="./assets/images/pic-about.webp">
+              <source src="./assets/video/6.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg"></div>
           <div class="section-heading wow animate__fadeInUp">
@@ -108,11 +108,14 @@
               </span>
               <ul class="about__c-right-tags">
                 <li class="mobile about__c-right-head txt-up gradient-border wow animate__fadeInUp">
-                 <span> возможности</span>
+                  <span> возможности</span>
                 </li>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "3D"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "2D"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "AI"}}'></include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "3D"}}'>
+                </include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "2D"}}'>
+                </include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "AI"}}'>
+                </include>
                 <include src="./components/_about-tag.html"
                   data-props='{".about__c-right-tags-e-two": {"html": "SFX"}}'></include>
                 <include src="./components/_about-tag.html"
@@ -120,19 +123,24 @@
                 <include src="./components/_about-tag.html"
                   data-props='{".about__c-right-tags-e-two": {"html": "ПОСТПРОДАКШН"}}'></include>
                 <include src="./components/_about-tag.html"
-                  data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'></include>
+                  data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'>
+                </include>
                 <include src="./components/_about-tag.html"
-                  data-props='{".about__c-right-tags-e-two": {"html": "цвето"} , ".about__c-right-tags-e-two": {"html": "коррекция"}}'></include>
+                  data-props='{".about__c-right-tags-e-two": {"html": "цвето"} , ".about__c-right-tags-e-two": {"html": "коррекция"}}'>
+                </include>
                 <include src="./components/_about-tag.html"
                   data-props='{".about__c-right-tags-e-one": {"html": "монтаж"}}'></include>
                 <include src="./components/_about-tag.html"
                   data-props='{".about__c-right-tags-e-two": {"html": "кино"}}'></include>
                 <include src="./components/_about-tag.html"
-                  data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'></include>
+                  data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'>
+                </include>
                 <include src="./components/_about-tag.html"
-                  data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'></include>
+                  data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'>
+                </include>
                 <include src="./components/_about-tag.html"
-                  data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'></include>
+                  data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'>
+                </include>
 
 
               </ul>
@@ -144,11 +152,16 @@
       <section id="portfolio" class="portfolio">
         <div class="container ">
           <div class="portfolio__pic wow animate__fadeInLeft">
-            <img src="./assets/images/pic-portfolio.png" alt="">
+            <video autoplay muted loop poster="./assets/images/pic-portfolio.webp">
+              <source src="./assets/video/3.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg"></div>
           <div class="portfolio__pic-bottom wow animate__fadeIn">
-            <img src="./assets/images/pic-portfolio-bottom.png" alt="">
+            <!-- видос -->
+            <video autoplay muted loop poster="./assets/images/pic-portfolio-bottom.webp">
+              <source src="./assets/video/3.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="section-heading wow animate__fadeInUp">
             <h2 class="wow animate__width wow animate__heading" data-wow-delay=".5s"> &nbsp;<span>наши</span> работы
@@ -204,8 +217,18 @@
       <!--  -->
       <section id="achivments" class="achivments">
         <div class="container">
+          <div class="achivments__eggs wow animate__fadeIn" data-wow-delay="1s">
+            <div class="achivments__eggs-list">
+              <div class="achivments__eggs-list-el _purple"></div>
+              <div class="achivments__eggs-list-el _white"></div>
+              <div class="achivments__eggs-list-el _green"></div>
+            </div>
+          </div>
+
           <div class="achivments__pic wow animate__fadeInLeft">
-            <img src="./assets/images/pic-achivments.png" alt="">
+            <video autoplay muted loop poster="./assets/images/pic-achivments.webp">
+              <source src="./assets/video/3.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="section-heading wow animate__fadeInUp">
             <h2 class="wow animate__width wow animate__heading" data-wow-delay=".5s"> &nbsp;<span>наши</span> награды
@@ -249,7 +272,10 @@
 
         <div class="container">
           <div class="team__pic desktop wow animate__fadeInRight">
-            <img src="./assets/images/pic-team.png" alt="">
+
+            <video autoplay muted loop poster="./assets/images/pic-team.webp">
+              <source src="./assets/video/2.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg"></div>
           <div class="section-heading wow animate__fadeInUp">
@@ -275,7 +301,7 @@
             <include src="./components/_team-card.html"></include>
             <include src="./components/_team-card.html"></include>
             <include src="./components/_team-card.html"></include>
-          
+
           </ul>
         </div>
       </section>
@@ -283,8 +309,12 @@
       <section class="contacts" id="contacts">
         <div class="container">
           <div class="contacts__pic wow animate__fadeInLeft">
-            <img class="desktop" src="./assets/images/pic-contacts.png" alt="">
-            <img class="mobile" src="./assets/images/pic-team.png" alt="">
+            <video class="desktop" autoplay muted loop poster="./assets/images/pic-contacts.webp">
+              <source src="./assets/video/4.mp4" type="video/mp4">
+            </video>
+            <video class="mobile" autoplay muted loop poster="./assets/images/pic-team.webp">
+              <source src="./assets/video/2.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="gradient-bg mobile"></div>
           <div class="section-heading wow animate__fadeInUp">
@@ -444,7 +474,9 @@
           <div class="vacancy__c">
             <div class="vacancy__c-img wow animate__fadeInUp">
               <div class="vacancy__c-img-pic wow animate__fadeInLeft">
-                <img src="./assets/images/pic-vacansy.png" alt="">
+                <video autoplay muted loop poster="./assets/images/pic-vacansy.webp">
+                  <source src="./assets/video/1.mp4" type="video/mp4">
+                </video>
               </div>
               <div class="vacancy__c-img-circle wow animate__fadeIn">
                 <div class="vacancy__c-img-circle-1"></div>

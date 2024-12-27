@@ -271,6 +271,7 @@ function initSwipers() {
       centeredSlides: true,
       spaceBetween: rem(3),
       initialSlide: 2,
+      speed: 1000,
       /*   slideToClickedSlide: true, */
 
       autoplay: {

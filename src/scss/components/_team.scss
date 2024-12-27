@@ -66,6 +66,24 @@
             &:nth-child(2) {
                 padding: 0 8rem;
             }
+            @include mobile{
+                &:first-of-type {
+                    padding: 0 8rem;
+                }
+    
+                &:nth-child(2) {
+                    padding: 0 8rem;
+                }  
+                &:nth-child(3) {
+                    padding: 0 8rem;
+                } 
+                &:nth-child(4) {
+                    padding: 0 8rem;
+                } 
+                &:nth-child(5) {
+                    padding: 0 8rem;
+                } 
+            }
 
             &-border {
                 width: 25rem;
