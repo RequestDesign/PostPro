@@ -212,7 +212,7 @@ jquery_default()(function () {
   initMarque();
   initHeaderSwiper();
   initHeader();
-  initVideos();
+  /*    initVideos() */
   jquery_default()('html').addClass('_page-loaded');
 });
 function initHeaderSwiper() {
