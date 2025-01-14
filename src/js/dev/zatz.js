@@ -81,7 +81,8 @@ function initSwipers() {
             centeredSlides: true,
             spaceBetween: rem(3),
             initialSlide: 2,
-            speed: 1000,
+            speed: 500,
+            followFinger: true,
             /*   slideToClickedSlide: true, */
 
             autoplay: {
@@ -102,8 +103,8 @@ function initSwipers() {
             },
             breakpoints: {
                 768: {
+                    followFinger: false,
                     slidesPerView: 3
-
                 }
             },
 

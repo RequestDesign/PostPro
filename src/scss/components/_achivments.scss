@@ -23,7 +23,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-       
+
 
         &-list {
 
@@ -39,6 +39,7 @@
                 height: 11rem;
                 filter: blur(5rem);
                 opacity: .7;
+
                 &._purple {
                     background-color: $purple;
                     top: 30%;
@@ -70,6 +71,7 @@
         display: flex;
         top: -14rem;
         left: 0;
+        transform: rotate(13.5deg);
 
         @include mobile {
             width: 10rem;
@@ -81,7 +83,7 @@
 
         & img {
             object-fit: contain;
-            transform: rotate(15deg);
+
         }
     }
 
@@ -154,9 +156,11 @@
         }
 
 
-      transition: background-color 1s linear, backdrop-filter 1s linear ;
-      background-color: rgb(66 58 77 / 0%);
-      backdrop-filter: blur(0);
+        transition: background-color 1s linear,
+        backdrop-filter 1s linear;
+        background-color: rgb(66 58 77 / 0%);
+        backdrop-filter: blur(0);
+
         &.swiper-slide-active {
             background-color: rgb(66 58 77 / 7%);
             backdrop-filter: blur(3rem);
@@ -303,7 +307,7 @@
     }
 
 
-  
+
     100% {
         top: 30%;
         left: calc(80% - 11rem);
@@ -328,7 +332,7 @@
     }
 
 
-  
+
     100% {
         top: 30%;
         left: 20%;
@@ -356,7 +360,7 @@
     }
 
 
-  
+
     100% {
 
         top: calc(90% - 11rem);

@@ -1,5 +1,6 @@
 .portfolio {
     position: relative;
+    z-index:7;
 
     & .container {
         position: relative;
@@ -12,6 +13,7 @@
         left: 2rem;
         display: flex;
         position: absolute;
+        z-index: -1;
 
         @include mobile {
             width: 8.6rem;
@@ -33,6 +35,7 @@
         right: -8rem;
         display: flex;
         position: absolute;
+        z-index: -1;
 
         @include mobile {
             right: 81%;
@@ -56,6 +59,12 @@
             top: 85%;
             left: -10%;
         }
+        &.mobile{
+            scale: 1;
+            transform: translate(translate(-20rem, -41rem));
+            top: 0;
+            left: 50%;
+        }
     }
 
     &__list {
@@ -71,7 +80,7 @@
         }
 
         &-e {
-            border-radius: 3rem;
+            border-radius: 1rem;
             overflow: hidden;
             position: relative;
             display: flex;

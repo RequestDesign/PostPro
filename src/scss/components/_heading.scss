@@ -3,12 +3,12 @@
     align-items: center;
     justify-content: center;
     margin-top: 0;
-    padding-top: 18rem;
+    padding-top: 14rem;
     height: 100dvh;
 
     @include mobile {
         height: auto;
-        padding-top: 22rem;
+        padding-top: 25rem;
     }
 
     & .container {
@@ -31,7 +31,7 @@
     &__main {
         width: 100%;
         display: flex;
-        border-radius: 3rem;
+        border-radius: 1.5rem;
         overflow: hidden;
         aspect-ratio: 16/9;
         height: 72rem;
@@ -95,6 +95,9 @@
             text-align: center;
             display: flex;
             flex-wrap: nowrap;
+            @include mobile{
+                font-size: 3rem;
+            }
 
             & span {
                 flex-shrink: 0;

@@ -15,6 +15,7 @@
         }
 
     } */
+     
 
     &__c {
         display: flex;
@@ -35,6 +36,9 @@
             justify-content: center;
             align-items: center;
             padding: 6rem 3rem;
+            width: calc(100% - 6rem);
+            margin-left: 3rem;
+            margin-right: 3rem;
         }
 
         &-social {
@@ -89,10 +93,14 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            @include desktop{
+                margin-left: 9rem;
+            }
 
             @include mobile {
                 width: 8rem;
                 height: 8rem;
+                margin: 10rem 0 14rem;
             }
 
             &::after {

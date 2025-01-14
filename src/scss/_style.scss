@@ -4,7 +4,7 @@ $black: #17171d;
 $green: rgba(0, 164, 131, 1);
 $purple: rgba(158, 124, 238, 1);
 $white: rgba(255, 255, 255, 1);
-$bg: #17171d;
+$bg: #000000;
 $red: rgba(217, 56, 56, 1);
 $staticBg: linear-gradient(129.47deg, rgba(14, 168, 133, 0.61) 7.71%, rgba(161, 66, 255, 0.61) 78.89%);
 
@@ -12,7 +12,6 @@ html{
   scroll-behavior: smooth;
   user-select: none;
   opacity: 0;
-  touch-action: none;
   overflow: hidden;
   &._page-loaded{
     opacity: 1;
