@@ -15,8 +15,86 @@ $(function () {
     initMarque()
     initHeaderSwiper()
     initHeader()
- /*    initVideos() */
+    /*    initVideos() */
     $('html').addClass('_page-loaded')
+
+
+    document.querySelectorAll('.about__c-right-tags-e')
+        .forEach((el) => {
+            /**
+             *   height: number;
+                width: number;
+                x: number;
+                y: number;
+                bottom: number;
+                left: number;
+                right: number;
+                top: number;
+                */
+
+
+
+
+            /*  wrp.style.width = width + 'px'
+            wrp.style.height = height + 'px'
+            wrp.style.left = (x - container.x) + 'px'
+            wrp.style.top = (y - container.y + height + height)  + 'px' */
+
+            el.addEventListener('click', (ev) => {
+                if (!ev.currentTarget.classList.contains('_opened')) {
+
+                    //prev
+                    const prev = ev.currentTarget.closest('.about__c-right-tags').querySelector('._opened')
+                    if (prev) {
+                        prev.style.zIndex = '2'
+                        prev.classList.remove('_opened')
+                        const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
+                        wrpPrev.style.width = '100%'
+                        wrpPrev.style.left = '0'
+                        wrpPrev.style.maxHeight = '100%'
+                        setTimeout(() => {
+                            prev.style.zIndex = '1'
+                        }, 500);
+                    }
+
+                    //actual
+                    const container = ev.currentTarget.closest('.about__c-right-tags').getBoundingClientRect()
+                    const { width, height, left, top } = el.getBoundingClientRect()
+                    el.style.zIndex = '5'
+
+                    const wrp = ev.currentTarget.querySelector('.about__c-right-tags-e-wrp')
+                    wrp.style.width = container.width + 'px'
+                    wrp.style.left = (container.left - left) + 'px'
+                    wrp.style.maxHeight = '100dvh'
+
+
+
+                    ev.currentTarget.classList.add('_opened')
+                } else {
+                    const prev = ev.currentTarget
+                    if (prev) {
+                        prev.classList.remove('_opened')
+                        const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
+                        wrpPrev.style.width = '100%'
+                        wrpPrev.style.left = '0'
+                        wrpPrev.style.maxHeight = '100%'
+
+                        setTimeout(() => {
+                            prev.style.zIndex = '1'
+                        }, 500);
+
+                    }
+
+                }
+
+
+            })
+
+
+
+
+        })
+
 })
 
 function initHeaderSwiper() {
@@ -52,7 +130,7 @@ function initHeader() {
 
     let startTouch = 0
     header.on('touchstart', (e) => {
-       
+
         startTouch = e.touches[0].clientY
     })
     header.on('touchend', (e) => {

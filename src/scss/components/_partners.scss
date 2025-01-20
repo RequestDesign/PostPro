@@ -6,10 +6,8 @@
         width: 100%;
         overflow: hidden;
         margin-top: 3rem;
-        @include mobile{
-            &:last-of-type{
-                margin-top: 6rem;
-            }
+        &:last-of-type{
+            margin-top: 6rem;
         }
 
         &-e {
