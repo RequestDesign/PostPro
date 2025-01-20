@@ -175,7 +175,8 @@
                     align-items: center;
                     position: relative;
                     cursor: pointer;
-                    &._opened{
+
+                    &._opened {
                         cursor: default;
                     }
 
@@ -204,10 +205,18 @@
                             overflow: hidden;
                             width: 100%;
 
-                            &-el {
-                                padding: 3rem;
+                            @include mobile {
+                                margin-top: 5rem;
+                            }
 
-                                white-space: nowrap;
+                            &-el {
+                                padding: 5px 8.7rem 4.6rem;
+
+                                @include mobile {
+                                    padding: 5px 10rem 5rem;
+                                }
+
+                               /*  white-space: nowrap; */
 
                             }
                         }

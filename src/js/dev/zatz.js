@@ -39,7 +39,8 @@ $(function () {
             wrp.style.height = height + 'px'
             wrp.style.left = (x - container.x) + 'px'
             wrp.style.top = (y - container.y + height + height)  + 'px' */
-
+            el.querySelector('.about__c-right-tags-e-wrp-text-el')
+                .style.width = el.closest('.about__c-right-tags').getBoundingClientRect().width + 'px'
             el.addEventListener('click', (ev) => {
                 if (!ev.currentTarget.classList.contains('_opened')) {
 
