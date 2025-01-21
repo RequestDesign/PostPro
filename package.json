@@ -28,6 +28,7 @@
     "css-loader": "^6.8.1",
     "dom-parser": "^0.1.6",
     "file-loader": "^6.2.0",
+    "filemanager-webpack-plugin": "^8.0.0",
     "gh-pages": "^6.1.1",
     "glob": "^10.3.10",
     "group-css-media-queries-loader": "^4.3.0",
@@ -37,6 +38,7 @@
     "image-webpack-loader": "^8.1.0",
     "imagemin": "^8.0.1",
     "imagemin-webp-webpack-plugin": "^3.3.6",
+    "jsdom": "^22.1.0",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.2.0",
@@ -45,13 +47,12 @@
     "style-loader": "^3.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "filemanager-webpack-plugin": "^8.0.0",
-    "jsdom": "^22.1.0"
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "animate.css": "^4.1.1",
+    "gsap": "^3.12.7",
     "jquery": "^3.7.1",
     "swiper": "^11.1.14",
     "wow.js": "^1.2.2"

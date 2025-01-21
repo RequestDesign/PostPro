@@ -5,6 +5,8 @@ import { rem } from '../utils/constants'
 import { Fancybox } from "@fancyapps/ui";
 import WOW from 'wow.js';
 import Marquee from '../utils/Marquee';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
 
 
 $(function () {
@@ -280,14 +282,68 @@ function initHeadingText() {
 
 
 function initWow() {
-    const wow = new WOW({
-        boxClass: "wow",
-        animateClass: "animate__animated",
-        offset: 150,
-        mobile: false,
-        live: true,
+     /*  const wow = new WOW({
+          boxClass: "wow",
+          animateClass: "animate__animated",
+          offset: 150,
+          mobile: false,
+          live: true,
+      });
+      wow.init(); */
+
+    gsap.defaults({ duration: .5 });
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.registerEffect({
+        name: 'fadeIn',
+        effect: (targets, config, pst) => {
+            return gsap.fromTo(
+                targets,
+                { opacity: 0, visibility: 'hidden' },
+                { opacity: 1, visibility: 'visible', ...config },
+                pst ? { position: pst } : null
+            );
+        },
+        extendTimeline: true
     });
-    wow.init();
+
+
+    /* Timeline */
+    const tl = gsap.timeline()
+        .fadeIn('.section-heading > h2', {
+            onStart: () => {
+                console.log('Animation started');
+            },
+            onComplete: () => {
+                console.log('Animation completed');
+            }
+        });
+    tl.reverse()
+    ScrollTrigger.create({
+        trigger: '.section-heading > h2',
+        start: 'top 70%', // Начинаем анимацию при достижении 70% от верха
+        end: 'top 10%',   // Заканчиваем анимацию при достижении 10% от верха
+        toggleActions: 'play none none reverse', // Определяет поведение анимации в зависимости от направления прокрутки
+        onEnter: () => {
+            console.log('start');
+            tl.play();
+        },
+        onEnterBack: () => {
+            console.log('start');
+            tl.play();
+        },
+        onLeave: () => {
+            console.log('end');
+            tl.reverse();
+        },
+        onLeaveBack: () => {
+            console.log('end');
+            tl.reverse();
+        },
+        markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+    });
+    /*  */
+
 }
 
 function initMarque() {
