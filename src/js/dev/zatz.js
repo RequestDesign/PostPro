@@ -7,7 +7,7 @@ import WOW from 'wow.js';
 import Marquee from '../utils/Marquee';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
-
+import CSSRulePlugin from 'gsap/all';
 
 $(function () {
     initSwipers()
@@ -44,49 +44,70 @@ $(function () {
             el.querySelector('.about__c-right-tags-e-wrp-text-el')
                 .style.width = el.closest('.about__c-right-tags').getBoundingClientRect().width + 'px'
             el.addEventListener('click', (ev) => {
+                const container = ev.currentTarget.closest('.about__c-right-tags').getBoundingClientRect(),
+                    wrp = ev.currentTarget.querySelector('.about__c-right-tags-e-wrp'),
+                    text = ev.currentTarget.querySelector('.about__c-right-tags-e-wrpText')
+
                 if (!ev.currentTarget.classList.contains('_opened')) {
 
                     //prev
-                    const prev = ev.currentTarget.closest('.about__c-right-tags').querySelector('._opened')
-                    if (prev) {
-                        prev.style.zIndex = '2'
-                        prev.classList.remove('_opened')
-                        const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
-                        wrpPrev.style.width = '100%'
-                        wrpPrev.style.left = '0'
-                        wrpPrev.style.maxHeight = '100%'
-                        setTimeout(() => {
-                            prev.style.zIndex = '1'
-                        }, 500);
-                    }
+                    /*  const prev = ev.currentTarget.closest('.about__c-right-tags').querySelector('._opened')
+                     if (prev) {
+                         prev.style.zIndex = '2'
+                         prev.classList.remove('_opened')
+                         const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
+                         wrpPrev.style.width = '100%'
+                         wrpPrev.style.left = '0'
+                         wrpPrev.style.height = '100%'
+                         setTimeout(() => {
+                             prev.style.zIndex = '1'
+                         }, 500);
+                     } */
 
                     //actual
-                    const container = ev.currentTarget.closest('.about__c-right-tags').getBoundingClientRect()
+
                     const { width, height, left, top } = el.getBoundingClientRect()
                     el.style.zIndex = '5'
 
-                    const wrp = ev.currentTarget.querySelector('.about__c-right-tags-e-wrp')
+
                     wrp.style.width = container.width + 'px'
                     wrp.style.left = (container.left - left) + 'px'
-                    wrp.style.maxHeight = '100dvh'
+                    wrp.style.top = (container.top - top) + 'px'
+                    wrp.style.height = container.height + 'px'
 
 
-
+                    text.style.transform = `translate(${(container.left - left)}px, ${(container.top - top)}px)`
                     ev.currentTarget.classList.add('_opened')
+
                 } else {
-                    const prev = ev.currentTarget
-                    if (prev) {
-                        prev.classList.remove('_opened')
-                        const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
-                        wrpPrev.style.width = '100%'
-                        wrpPrev.style.left = '0'
-                        wrpPrev.style.maxHeight = '100%'
+                    /*  const prev = ev.currentTarget
+                     if (prev) {
+                         prev.classList.remove('_opened')
+                         const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
+                         wrpPrev.style.width = '100%'
+                         wrpPrev.style.left = '0'
+                         wrpPrev.style.height = '100%'
+ 
+                         setTimeout(() => {
+                             prev.style.zIndex = '1'
+                         }, 500);
+ 
+                     } */
 
-                        setTimeout(() => {
-                            prev.style.zIndex = '1'
-                        }, 500);
+                    const { width, height, left, top } = el.getBoundingClientRect()
+                    setTimeout(() => {
+                        el.style.zIndex = '1'
+                    }, 600);
 
-                    }
+
+                    wrp.style.width = '100%'
+                    wrp.style.left = '0px'
+                    wrp.style.top = '0px'
+                    wrp.style.height = '100%'
+
+
+                    text.style.transform = `translate(0px, 0px)`
+                    ev.currentTarget.classList.remove('_opened')
 
                 }
 
@@ -282,68 +303,262 @@ function initHeadingText() {
 
 
 function initWow() {
-     /*  const wow = new WOW({
-          boxClass: "wow",
-          animateClass: "animate__animated",
-          offset: 150,
-          mobile: false,
-          live: true,
-      });
-      wow.init(); */
-
-    gsap.defaults({ duration: .5 });
+    /* const wow = new WOW({
+        boxClass: "wow",
+        animateClass: "animate__animated",
+        offset: 150,
+        mobile: false,
+        live: true,
+    });
+    wow.init(); */
+    if (window.innerWidth < 768) return
+    gsap.defaults({ duration: .5, ease: 'none' });
     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(CSSRulePlugin);
 
+
+    /*---------------animate__heading--------------  */
     gsap.registerEffect({
-        name: 'fadeIn',
+        name: 'heading',
         effect: (targets, config, pst) => {
             return gsap.fromTo(
                 targets,
-                { opacity: 0, visibility: 'hidden' },
-                { opacity: 1, visibility: 'visible', ...config },
-                pst ? { position: pst } : null
+                { opacity: 0, translateX: '-105%', visibility: 'hidden' },
+                {
+                    opacity: 1,
+                    translateX: '0%',
+                    visibility: 'visible',
+                    duration: 1,
+                    delay: .5,
+                    ease: 'sine.inOut',
+                }
             );
         },
         extendTimeline: true
     });
+    document.querySelectorAll('.animate__heading')
+        .forEach((el) => {
+            const tl = gsap.timeline()
+                .heading(el, {});
+            tl.reverse()
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                end: 'top 10%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => {
+                    tl.play();
+                },
+                onEnterBack: () => {
+                    tl.play();
+                },
+                onLeave: () => {
+                    tl.reverse();
+                },
+                onLeaveBack: () => {
+                    tl.reverse();
+                },
+                // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+            });
+        })
+    /*---------------animate__heading--------------  */
+
+    /*---------------animate__fadeInUp--------------  */
+    document.querySelectorAll('.animate__fadeInUp')
+        .forEach((el) => {
+            const tl = gsap.timeline()
+            gsap.set(el, {
+                opacity: 0,
+                transform: 'translateY: 105%'
+            });
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                end: 'top 10%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => {
+                    tl.clear();
+                    tl.fromTo(el, {
+                        opacity: 0,
+                        translateY: '105%',
+                    }, {
+                        opacity: 1,
+                        translateY: '0%',
+                        duration: 0.5,
+                    }).play();
+                },
+                onEnterBack: () => {
+                    tl.clear();
+                    tl.fromTo(el, {
+                        opacity: 0,
+                        translateY: '-105%',
+                    }, {
+                        opacity: 1,
+                        translateY: '0%',
+                        duration: 0.5,
+                    }).play();
+                },
+                onLeave: () => {
+                    tl.clear();
+                    tl.fromTo(el, {
+                        opacity: 1,
+                        translateY: '0%',
+                    }, {
+                        opacity: 0,
+                        translateY: '-105%',
+                        duration: 0.5,
+                    }).play();
+                },
+                onLeaveBack: () => {
+                    tl.clear();
+                    tl.fromTo(el, {
+                        opacity: 1,
+                        translateY: '0%',
+                    }, {
+                        opacity: 0,
+                        translateY: '105%',
+                        duration: 0.5,
+                    }).play();
 
 
-    /* Timeline */
-    const tl = gsap.timeline()
-        .fadeIn('.section-heading > h2', {
-            onStart: () => {
-                console.log('Animation started');
-            },
-            onComplete: () => {
-                console.log('Animation completed');
-            }
-        });
-    tl.reverse()
-    ScrollTrigger.create({
-        trigger: '.section-heading > h2',
-        start: 'top 70%', // Начинаем анимацию при достижении 70% от верха
-        end: 'top 10%',   // Заканчиваем анимацию при достижении 10% от верха
-        toggleActions: 'play none none reverse', // Определяет поведение анимации в зависимости от направления прокрутки
-        onEnter: () => {
-            console.log('start');
-            tl.play();
+                },
+                //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+            });
+        })
+
+    /*---------------animate__fadeInUp--------------  */
+
+    /*---------------animate__fadeIn--------------  */
+    gsap.registerEffect({
+        name: 'animate__fadeIn',
+        effect: (targets, config, pst) => {
+            return gsap.fromTo(
+                targets,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: config.duration ? config.duration : 1,
+                    delay: config.delay ? config.delay : 0,
+                }
+            );
         },
-        onEnterBack: () => {
-            console.log('start');
-            tl.play();
-        },
-        onLeave: () => {
-            console.log('end');
-            tl.reverse();
-        },
-        onLeaveBack: () => {
-            console.log('end');
-            tl.reverse();
-        },
-        markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+        extendTimeline: true
     });
-    /*  */
+    document.querySelectorAll('.animate__fadeIn')
+        .forEach((el) => {
+            const tl = gsap.timeline()
+                .animate__fadeIn(el, {});
+            tl.reverse()
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                end: 'top 10%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => {
+                    tl.play();
+                },
+                onEnterBack: () => {
+                    tl.play();
+                },
+                onLeave: () => {
+                    tl.reverse();
+                },
+                onLeaveBack: () => {
+                    tl.reverse();
+                },
+                // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+            });
+        })
+    /*---------------animate__fadeIn--------------  */
 
+    /*---------------animate__fadeInLeft--------------  */
+    gsap.registerEffect({
+        name: 'animate__fadeInLeft',
+        effect: (targets, config, pst) => {
+            return gsap.fromTo(
+                targets,
+                { opacity: 0, translateX: '-105%' },
+                {
+                    opacity: 1,
+                    translateX: '0',
+                    duration: config.duration ? config.duration : 1,
+                    delay: config.delay ? config.delay : 0,
+                }
+            );
+        },
+        extendTimeline: true
+    });
+    document.querySelectorAll('.animate__fadeInLeft')
+        .forEach((el) => {
+            const tl = gsap.timeline()
+                .animate__fadeInLeft(el, {});
+            tl.reverse()
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                end: 'top 10%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => {
+                    tl.play();
+                },
+                onEnterBack: () => {
+                    tl.play();
+                },
+                onLeave: () => {
+                    tl.reverse();
+                },
+                onLeaveBack: () => {
+                    tl.reverse();
+                },
+                //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+            });
+        })
+    /*---------------animate__fadeInLeft--------------  */
+
+    /*---------------animate__fadeInRight--------------  */
+    gsap.registerEffect({
+        name: 'animate__fadeInRight',
+        effect: (targets, config, pst) => {
+            return gsap.fromTo(
+                targets,
+                { opacity: 0, translateX: '105%' },
+                {
+                    opacity: 1,
+                    translateX: '0',
+                    duration: config.duration ? config.duration : 1,
+                    delay: config.delay ? config.delay : 0,
+                }
+            );
+        },
+        extendTimeline: true
+    });
+    document.querySelectorAll('.animate__fadeInRight')
+        .forEach((el) => {
+            const tl = gsap.timeline()
+                .animate__fadeInRight(el, {});
+            tl.reverse()
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                end: 'top 10%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => {
+                    tl.play();
+                },
+                onEnterBack: () => {
+                    tl.play();
+                },
+                onLeave: () => {
+                    tl.reverse();
+                },
+                onLeaveBack: () => {
+                    tl.reverse();
+                },
+                //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+            });
+        })
+    /*---------------animate__fadeInRight--------------  */
 }
 
 function initMarque() {

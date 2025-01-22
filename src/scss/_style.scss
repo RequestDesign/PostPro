@@ -15,7 +15,7 @@ html{
   overflow: hidden;
   &._page-loaded{
     opacity: 1;
-    overflow: visible;
+    overflow: auto;
   }
 }
 body {
