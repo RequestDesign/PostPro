@@ -6,8 +6,10 @@ import { Fancybox } from "@fancyapps/ui";
 import WOW from 'wow.js';
 import Marquee from '../utils/Marquee';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
+import { ScrollTrigger, } from 'gsap/src/ScrollTrigger';
+import { TextPlugin } from 'gsap/src/TextPlugin';
 import CSSRulePlugin from 'gsap/all';
+import Typed from 'typed.js';
 
 $(function () {
     initSwipers()
@@ -179,7 +181,7 @@ function initSwipers() {
             modules: [EffectCreative, Autoplay],
             loop: true,
             effect: 'creative',
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             centeredSlides: true,
             spaceBetween: rem(3),
             initialSlide: 2,
@@ -311,10 +313,16 @@ function initWow() {
         live: true,
     });
     wow.init(); */
-    if (window.innerWidth < 768) return
+    if (window.innerWidth < 768) {
+document.querySelectorAll('.animate__heading')
+.forEach((e)=>{
+    e.textContent = e.dataset.typed
+})
+        return
+    }
     gsap.defaults({ duration: .5, ease: 'none' });
     gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(CSSRulePlugin);
+    gsap.registerPlugin(TextPlugin);
 
 
     /*---------------animate__heading--------------  */
@@ -338,27 +346,58 @@ function initWow() {
     });
     document.querySelectorAll('.animate__heading')
         .forEach((el) => {
-            const tl = gsap.timeline()
-                .heading(el, {});
-            tl.reverse()
+            const tl = gsap.timeline({ paused: true })
+            /*  if (!el.querySelector('span').dataset.typed) return
+  */
+
+            /*   const toPrint = Array.from(el.querySelectorAll('span')).map(el => {
+                  return new Typed(el, {
+                      strings: [el.dataset.typed],
+                      typeSpeed: 50,
+                      showCursor: false,
+                      onComplete:(self)=>{
+                          self.showCursor = false;
+                      }
+                  });
+              })
+  
+              console.log(toPrint); */
+
+
+              tl.to(el, {
+                duration: 1,
+                text: { value: el.dataset.typed }, // Анимация текста
+                ease: 'none'
+            }).reverse();
+
             ScrollTrigger.create({
                 trigger: el,
                 start: 'top 80%',
                 end: 'top 10%',
                 toggleActions: 'play none none reverse',
                 onEnter: () => {
-                    tl.play();
+                  tl.play()
+                    /*  toPrint[0].start()
+                     toPrint[1].start() */
                 },
                 onEnterBack: () => {
-                    tl.play();
+                    /*  toPrint[0].start()
+                     toPrint[1].start() */
+                  tl.play()
+
                 },
                 onLeave: () => {
-                    tl.reverse();
+                    /* toPrint[0].reset(true)
+                    toPrint[1].reset(true) */
+                    tl.reverse()
+
                 },
                 onLeaveBack: () => {
-                    tl.reverse();
+                    /*  toPrint[0].reset(true)
+                     toPrint[1].reset(true) */
+                     tl.reverse()
                 },
-                // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+               // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
     /*---------------animate__heading--------------  */

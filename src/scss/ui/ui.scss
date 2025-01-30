@@ -34,7 +34,7 @@
     text-align: left;
     overflow: hidden;
     margin-bottom: 7rem;
-    border-left: 1px solid $green;
+   /*  border-left: 1px solid $green; */
     padding: 2rem 0;
 
     /*  padding-left: 2rem; */
@@ -50,8 +50,16 @@
 
         box-sizing: border-box;
         text-transform: uppercase;
+        @include desktop{
 
-        & span {
+            &::after{
+                content: ' |';
+                color: $green;
+                animation: blink 1s infinite linear;
+            }
+        }
+
+        & span:nth-child(1) {
             color: $green;
          /*    background-image: $staticBg;
             background-clip: text;

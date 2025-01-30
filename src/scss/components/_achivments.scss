@@ -4,13 +4,16 @@
     & .swiper {
 
         @include desktop {
-            width: 100rem;
+            width: 110rem;
         }
 
     }
 
     & .container {
         position: relative;
+        @include mobile{
+            padding: 0;
+        }
     }
 
     &__eggs {
@@ -23,6 +26,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include desktop{
+            height: 72%;
+            top: 18rem;
+        }
 
 
         &-list {
@@ -217,7 +224,7 @@
 
 
             @include mobile {
-                padding: 3.6rem 1.6rem;
+                padding: 1.6rem 1.6rem;
             }
 
             /*     &-bg {
@@ -246,6 +253,10 @@
                 display: flex;
                 filter: grayscale(1);
                 transition: filter 1s linear;
+                @include mobile{
+                    width: 10rem;
+                    height: 10rem;
+                }
 
                 & img {
                     object-fit: cover;
@@ -264,7 +275,7 @@
                 transition: color 1s linear;
 
                 @include mobile {
-                    font-size: 2.4rem;
+                    font-size: 2.2rem;
                 }
             }
 
@@ -279,7 +290,7 @@
                 transition: color 1s linear;
 
                 @include mobile {
-                    font-size: 2.4rem;
+                    font-size: 2.0rem;
                 }
 
             }

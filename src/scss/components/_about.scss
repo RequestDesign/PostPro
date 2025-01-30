@@ -104,10 +104,15 @@
                 @include mobile {
                     padding-left: 10rem;
 
-                    &-count svg {
+                    &-count {
+                        display: flex;
+                        width: fit-content;
+                        justify-content: center;
+                        & svg {
+                            flex-shrink: 0;
                         height: 8rem;
                         width: fit-content;
-                    }
+                    }}
                 }
 
             }

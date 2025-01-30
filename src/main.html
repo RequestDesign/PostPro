@@ -16,9 +16,9 @@
       <section id="top" class="heading">
         <div class="container">
           <div class="heading__main ">
-          
-            <video class="heading__main-video" pip="false" muted loop autoplay="true" disablepictureinpicture poster="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg"
-              >
+
+            <video class="heading__main-video" pip="false" muted loop autoplay="true" disablepictureinpicture
+              poster="https://media.formula1.com/image/upload/content/dam/fom-website/manual/Misc/2023manual/Pre-season/February/AMR/AM23_CAR_2548%20TC%2016x9.jpg">
               <source src="./assets/video/vidos.mp4" type="video/mp4" />
             </video>
           </div>
@@ -75,7 +75,11 @@
           </div>
           <div class="gradient-bg"></div>
           <div class="section-heading wow animate__fadeInUp">
-            <h2 class="wow animate__width wow animate__heading" data-wow-duration="2s" data-wow-delay=".5s"> &nbsp;<span>о</span> нас</h2>
+            <h2 data-typed="о нас" class="wow animate__width wow animate__heading" data-wow-duration="2s" data-wow-delay=".5s">
+            <!--   <span data-typed="o"> </span>
+              <span data-typed="nas"> </span> -->
+            
+            </h2>
           </div>
           <div class="about__c">
             <div class="about__c-left">
@@ -110,19 +114,37 @@
                 <li class="mobile about__c-right-head txt-up gradient-border wow animate__fadeInUp">
                   <span> возможности</span>
                 </li>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "3D"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "2D"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "AI"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "SFX"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "ЗВУК"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "ПОСТПРОДАКШН"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "цвето"}, ".about__c-right-tags-e-two": {"html": "коррекция"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "монтаж"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "кино"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'></include>
-                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'></include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "3D"}}'>
+                </include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-two": {"html": "2D"}}'>
+                </include>
+                <include src="./components/_about-tag.html" data-props='{".about__c-right-tags-e-one": {"html": "AI"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "SFX"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "ЗВУК"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "ПОСТПРОДАКШН"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "моушн"}, ".about__c-right-tags-e-two": {"html": "-графика"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "цвето"}, ".about__c-right-tags-e-two": {"html": "коррекция"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "монтаж"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "кино"}}'></include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "разработка"}, ".about__c-right-tags-e-three": {"html": "персонажей"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-two": {"html": "экраны"}, ".about__c-right-tags-e-three": {"html": "&#173;360"}}'>
+                </include>
+                <include src="./components/_about-tag.html"
+                  data-props='{".about__c-right-tags-e-one": {"html": "мультимедийные "}, ".about__c-right-tags-e-two": {"html": "интерактивные"}, ".about__c-right-tags-e-three": {"html": "вставки"}}'>
+                </include>
 
 
               </ul>
@@ -266,8 +288,8 @@
             </h2>
           </div>
           <p class="team__sub wow animate__fadeInUp">
-            У нас большой штат настоящих профессионалов,<br/>
-            каждый из которых вносит значительный вклад в наши проекты. <br/>
+            У нас большой штат настоящих профессионалов,<br />
+            каждый из которых вносит значительный вклад в наши проекты. <br />
             Представляем вам лидеров команды
           </p>
           <ul class="team__list">
