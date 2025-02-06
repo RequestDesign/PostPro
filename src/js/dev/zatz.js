@@ -187,12 +187,12 @@ function initSwipers() {
             initialSlide: 2,
             speed: 500,
             followFinger: true,
-            /*   slideToClickedSlide: true, */
+            slideToClickedSlide: true,
 
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 pauseOnMouseEnter: true,
-                disableOnInteraction: true,
+               /*  disableOnInteraction: true, */
             },
             creativeEffect: {
                 prev: {
@@ -314,11 +314,17 @@ function initWow() {
     });
     wow.init(); */
     if (window.innerWidth < 768) {
-document.querySelectorAll('.animate__heading')
-.forEach((e)=>{
-    e.textContent = e.dataset.typed
-})
+        document.querySelectorAll('.animate__heading')
+            .forEach((e) => {
+                e.textContent = e.dataset.typed
+            })
         return
+    }
+    const scrollCfg = {
+        start: 'top 90%',
+        end: 'top 10%',
+        toggleActions: 'play none none reverse',
+        once: true,
     }
     gsap.defaults({ duration: .5, ease: 'none' });
     gsap.registerPlugin(ScrollTrigger);
@@ -347,24 +353,8 @@ document.querySelectorAll('.animate__heading')
     document.querySelectorAll('.animate__heading')
         .forEach((el) => {
             const tl = gsap.timeline({ paused: true })
-            /*  if (!el.querySelector('span').dataset.typed) return
-  */
 
-            /*   const toPrint = Array.from(el.querySelectorAll('span')).map(el => {
-                  return new Typed(el, {
-                      strings: [el.dataset.typed],
-                      typeSpeed: 50,
-                      showCursor: false,
-                      onComplete:(self)=>{
-                          self.showCursor = false;
-                      }
-                  });
-              })
-  
-              console.log(toPrint); */
-
-
-              tl.to(el, {
+            tl.to(el, {
                 duration: 1,
                 text: { value: el.dataset.typed }, // Анимация текста
                 ease: 'none'
@@ -372,32 +362,23 @@ document.querySelectorAll('.animate__heading')
 
             ScrollTrigger.create({
                 trigger: el,
-                start: 'top 80%',
-                end: 'top 10%',
-                toggleActions: 'play none none reverse',
+                ...scrollCfg,
                 onEnter: () => {
-                  tl.play()
-                    /*  toPrint[0].start()
-                     toPrint[1].start() */
-                },
+                    tl.play()
+
+                }/* ,
                 onEnterBack: () => {
-                    /*  toPrint[0].start()
-                     toPrint[1].start() */
                   tl.play()
 
                 },
                 onLeave: () => {
-                    /* toPrint[0].reset(true)
-                    toPrint[1].reset(true) */
                     tl.reverse()
 
                 },
                 onLeaveBack: () => {
-                    /*  toPrint[0].reset(true)
-                     toPrint[1].reset(true) */
                      tl.reverse()
-                },
-               // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+                }, */
+                // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
     /*---------------animate__heading--------------  */
@@ -413,20 +394,29 @@ document.querySelectorAll('.animate__heading')
 
             ScrollTrigger.create({
                 trigger: el,
-                start: 'top 80%',
-                end: 'top 10%',
-                toggleActions: 'play none none reverse',
+                ...scrollCfg,
                 onEnter: () => {
                     tl.clear();
-                    tl.fromTo(el, {
-                        opacity: 0,
-                        translateY: '105%',
-                    }, {
-                        opacity: 1,
-                        translateY: '0%',
-                        duration: 0.5,
-                    }).play();
-                },
+                    tl.fromTo(
+                        el,
+                        { translateY: '110%' },
+                        {
+                            translateY: '0%',
+                            duration: 1.5,
+                            ease: 'power1.inOut'
+                        } // Указывает, что эта анимация должна начаться одновременно с предыдущей
+                    );
+                    tl.fromTo(
+                        el,
+                        { opacity: 0 },
+                        {
+                            opacity: 1,
+                            duration: 1,
+                            ease: 'none'
+                        },
+                        '<'
+                    ).play();
+                },/* 
                 onEnterBack: () => {
                     tl.clear();
                     tl.fromTo(el, {
@@ -461,7 +451,7 @@ document.querySelectorAll('.animate__heading')
                     }).play();
 
 
-                },
+                }, */
                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -479,6 +469,7 @@ document.querySelectorAll('.animate__heading')
                     opacity: 1,
                     duration: config.duration ? config.duration : 1,
                     delay: config.delay ? config.delay : 0,
+                    ease: 'none',
                 }
             );
         },
@@ -491,12 +482,10 @@ document.querySelectorAll('.animate__heading')
             tl.reverse()
             ScrollTrigger.create({
                 trigger: el,
-                start: 'top 80%',
-                end: 'top 10%',
-                toggleActions: 'play none none reverse',
+                ...scrollCfg,
                 onEnter: () => {
                     tl.play();
-                },
+                },/* 
                 onEnterBack: () => {
                     tl.play();
                 },
@@ -505,7 +494,7 @@ document.querySelectorAll('.animate__heading')
                 },
                 onLeaveBack: () => {
                     tl.reverse();
-                },
+                }, */
                 // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -523,6 +512,7 @@ document.querySelectorAll('.animate__heading')
                     translateX: '0',
                     duration: config.duration ? config.duration : 1,
                     delay: config.delay ? config.delay : 0,
+                   ease: 'power1.inOut'
                 }
             );
         },
@@ -535,12 +525,10 @@ document.querySelectorAll('.animate__heading')
             tl.reverse()
             ScrollTrigger.create({
                 trigger: el,
-                start: 'top 80%',
-                end: 'top 10%',
-                toggleActions: 'play none none reverse',
+                ...scrollCfg,
                 onEnter: () => {
                     tl.play();
-                },
+                },/* 
                 onEnterBack: () => {
                     tl.play();
                 },
@@ -549,7 +537,7 @@ document.querySelectorAll('.animate__heading')
                 },
                 onLeaveBack: () => {
                     tl.reverse();
-                },
+                }, */
                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -567,6 +555,7 @@ document.querySelectorAll('.animate__heading')
                     translateX: '0',
                     duration: config.duration ? config.duration : 1,
                     delay: config.delay ? config.delay : 0,
+                    ease: 'power1.inOut'
                 }
             );
         },
@@ -579,12 +568,10 @@ document.querySelectorAll('.animate__heading')
             tl.reverse()
             ScrollTrigger.create({
                 trigger: el,
-                start: 'top 80%',
-                end: 'top 10%',
-                toggleActions: 'play none none reverse',
+                ...scrollCfg,
                 onEnter: () => {
                     tl.play();
-                },
+                },/* 
                 onEnterBack: () => {
                     tl.play();
                 },
@@ -593,7 +580,7 @@ document.querySelectorAll('.animate__heading')
                 },
                 onLeaveBack: () => {
                     tl.reverse();
-                },
+                }, */
                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -603,10 +590,33 @@ document.querySelectorAll('.animate__heading')
 function initMarque() {
     const container = document.querySelectorAll('.partners__list')
     if (!container) return
-    container.forEach((c) => [
-        new Marquee(c, 180)
+    container.forEach((c, i) => {
+        new Swiper(c, {
+            modules: [Autoplay],
+            speed: 3000 ,
+            slidesPerView: 'auto',
+            loop: true,
+            allowTouchMove: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: true // отключаем возможность отлючить анимацию при касании
+            },
+            breakpoints: {
+                769: {
+                    speed: 4000,
+                    slidesPerView: 'auto',
+                    loop: true,
+                    allowTouchMove: false,
+                    autoplay: {
+                        delay: 0,
+                        disableOnInteraction: false // отключаем возможность отлючить анимацию при касании
+                    }
+                }
+            }
+        })
 
-    ])
+
+    })
 }
 
 

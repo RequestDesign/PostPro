@@ -1,11 +1,9 @@
 .about {
     position: relative;
-    z-index: 8;
+   
     overflow: visible;
 
-    @include desktop {
-        z-index: 8;
-    }
+ 
 
     & .container {
         position: relative;
@@ -85,6 +83,8 @@
                 }
 
 
+
+
             }
 
             &-years {
@@ -92,10 +92,51 @@
                 flex-wrap: wrap;
                 align-items: flex-end;
 
-                &>span:first-of-type {
+                &-top {
                     width: 100%;
-                    text-align: left;
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-bottom: 1rem;
+
+                    & svg {
+                        height: 1.8rem;
+                        width: 10.3rem;
+
+                        @include mobile {
+                            width: 8.4rem;
+                            height: 1.48rem;
+
+                        }
+                    }
+
+
                 }
+
+                &-bottom {
+                    & svg {
+                        width: 6.1rem;
+                        height: 1.4rem;
+
+                        @include mobile {
+                            width: 5rem;
+                            height: 2.5rem;
+                        }
+                    }
+
+
+                }
+
+                &-count {
+                    display: flex;
+                    width: fit-content;
+                    gap: 3.8px;
+
+                    & svg {
+                        width: 10.8rem;
+                        height: 9.4rem;
+                    }
+                }
+
 
                 & .col-purple {
                     font-style: italic;
@@ -108,11 +149,13 @@
                         display: flex;
                         width: fit-content;
                         justify-content: center;
+
                         & svg {
                             flex-shrink: 0;
-                        height: 8rem;
-                        width: fit-content;
-                    }}
+                            height: 8rem;
+                            width: fit-content;
+                        }
+                    }
                 }
 
             }
@@ -164,7 +207,7 @@
 
 
                 &-e {
-                    border-radius: 1rem;
+                   
                     font-family: 'Esqadero FF CY 4F';
                     font-size: 2.2rem;
                     font-weight: 400;
@@ -180,6 +223,7 @@
                     align-items: center;
                     position: relative;
                     cursor: pointer;
+                   
 
                     &._opened {
                         cursor: default;
@@ -193,6 +237,7 @@
                     }
 
                     &-wrp {
+                        border-radius: 1rem;
                         position: absolute;
                         z-index: 5;
                         top: 0;
@@ -201,7 +246,8 @@
                         height: 100%;
                         transition: all .5s ease-in-out;
                         overflow: hidden;
-
+                    /*     background-image: url(../assets/images/texture.webp);
+                        background-size: 14rem; */
                         &-text {
                             margin-top: 4.6rem;
                             position: relative;
@@ -227,7 +273,8 @@
 
 
                     }
-                    &-wrpText{
+
+                    &-wrpText {
                         position: relative;
                         z-index: 6;
                         transition: transform .5s ease-in-out;
@@ -239,7 +286,10 @@
 
 
                     &:hover {
-                        box-shadow: 0px 0px 6rem .5rem rgba(0, 164, 131, .5);
+                        & .about__c-right-tags-e-wrp{
+
+                            box-shadow: 0px 0px 6rem .5rem rgba(0, 164, 131, .5);
+                        }
 
                         & .about__c-right-tags-e-bg {
                             box-shadow: 0px 0px 2rem .5rem rgba(0, 164, 131, .5) inset;
@@ -301,22 +351,27 @@
                         top: 0;
                         left: 0;
                         border-radius: 10px;
+                        mask-image: url(../assets/images/about-tag-mask.svg);
+                        mask-size: 100%;
 
                         @include mobile {
                             border-radius: 6px;
                         }
                     }
 
+                   
+
                     &-bg {
 
                         position: absolute;
-                        z-index: 1;
+                        z-index: 2;
                         width: calc(100% - 2px);
                         top: 1px;
                         left: 1px;
                         height: calc(100% - 2px);
                         border-radius: 10px;
-                        background-color: rgba(20, 18, 22, 0.856);
+                        background-color: rgba(20, 18, 22, 0.11);
+                        backdrop-filter: blur(10px);
 
                         /*   box-shadow: 0px 0px .1rem .1rem rgba(0, 164, 131, .5) inset; */
                         @include mobile {
@@ -326,7 +381,7 @@
 
                     &-img {
                         position: absolute;
-                        z-index: 2;
+                        z-index: 5;
                         width: 100%;
                         top: 0;
                         left: 0;

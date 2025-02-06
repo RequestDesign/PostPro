@@ -1,6 +1,9 @@
 .partners {
     width: 100%;
     padding: 5rem 0;
+    & .swiper-wrapper{
+        transition-timing-function: linear;
+    }
 
     &__list {
         width: 100%;
@@ -12,12 +15,15 @@
 
         &-e {
             height: 100%;
+            width: 15rem;
             display: flex;
+            @include mobile{
+                width: 20rem;
+            }
 
             & img {
-                height: 100%;
-                width: max-content;
                 object-fit: contain;
+                object-position: center;
             }
 
         }

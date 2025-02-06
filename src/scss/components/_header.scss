@@ -7,6 +7,7 @@
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.74);
     backdrop-filter: blur(45px);
+    font-family: Idealist Sans;
     & .container {
 
         display: flex;
@@ -30,16 +31,20 @@
         text-align: left;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.4);
+       
 
         &-e._active {
             color: $white;
 
             & span {
                 color: $green;
+                flex-shrink: 0;
             }
         }
 
         &-e {
+            display: flex;
+            gap: 5px;
             @include hover {
                 color: $white;
             }
@@ -86,7 +91,7 @@
 
         &-nav {
             display: flex;
-            gap: 6rem;
+            gap: 6.8rem;
             //styleName: T01b;
             font-family: Idealist Sans;
             font-size: 1.6rem;

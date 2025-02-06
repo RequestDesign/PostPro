@@ -5,7 +5,7 @@
         top: 50%;
         transform: translateY(-50%);
         right: -20rem;
-        
+
     }
 
     & .container {
@@ -48,8 +48,9 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 6rem 20rem;
-        @include mobile{
-            gap:6rem 4rem ;
+
+        @include mobile {
+            gap: 6rem 4rem;
         }
 
         &-e {
@@ -60,29 +61,33 @@
             width: min-content;
 
             &:first-of-type {
-                padding-left:16rem;
+                padding-left: 16rem;
             }
 
             &:nth-child(2) {
-                padding-right:16rem;
+                padding-right: 16rem;
             }
-            @include mobile{
+
+            @include mobile {
                 &:first-of-type {
                     padding: 0 8rem;
                 }
-    
+
                 &:nth-child(2) {
                     padding: 0 8rem;
-                }  
+                }
+
                 &:nth-child(3) {
                     padding: 0 8rem;
-                } 
+                }
+
                 &:nth-child(4) {
                     padding: 0 8rem;
-                } 
+                }
+
                 &:nth-child(5) {
                     padding: 0 8rem;
-                } 
+                }
             }
 
             &-border {
@@ -95,6 +100,22 @@
                 box-shadow: .8rem .8rem 3rem 0px rgba(0, 164, 131, 0.3) inset,
                     -.9rem -1rem 5rem 0px rgba(197, 149, 255, 0.2) inset,
                     3rem 3.2rem 10rem 0px rgba(23, 4, 43, 0.41);
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: url(../assets/images/texture.webp);
+                    background-size: 14.5rem;
+                    z-index: -1;
+                    border-radius: 50%;
+                    opacity: .2;
+                }
+
 
                 @include mobile {
                     width: 30rem;
@@ -121,8 +142,9 @@
                 font-weight: 400;
                 line-height: 100%;
                 text-align: center;
-             
-                @include mobile{
+                white-space: nowrap;
+
+                @include mobile {
                     font-size: 2.4rem;
                 }
             }
@@ -134,7 +156,8 @@
                 line-height: 120%;
                 letter-spacing: 0.05em;
                 text-align: center;
-                @include mobile{
+
+                @include mobile {
                     font-size: 2.4rem;
                 }
 
@@ -159,7 +182,7 @@
 
         &._top {
             animation: bladerunner 55s infinite linear alternate;
-            top: 50%;
+            top: 57%;
 
             & div {
                 background-image: url(../assets/images/line-top.svg);
@@ -179,7 +202,7 @@
         &._bottom {
 
             animation: bladerunnerRev 60s infinite linear alternate;
-            top: 70%;
+            top: 62%;
 
             & div {
                 background-image: url(../assets/images/line-bottom.svg);

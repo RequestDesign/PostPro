@@ -19,15 +19,17 @@
         top: -12rem;
         left: 15rem;
         display: flex;
-        @include mobile{
+
+        @include mobile {
             top: 37rem;
-            left: 52rem;  
+            left: 52rem;
             z-index: -1;
         }
 
         & img {
             object-fit: contain;
-            @include mobile{
+
+            @include mobile {
                 transform: rotate(-15deg);
             }
         }
@@ -63,11 +65,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-image: url(../assets/images/texture.png);
                 background-size: 1rem;
                 border-radius: 1rem;
                 background: linear-gradient(129.47deg, rgba(14, 168, 133, 0.3) 7.71%, rgba(161, 66, 255, 0.3) 78.89%);
                 position: relative;
+                z-index: 3;
 
                 @include mobile {
                     width: 8rem;
@@ -77,6 +79,8 @@
                 & svg {
                     max-width: 60%;
                     max-height: 60%;
+                    position: relative;
+                    z-index: 4;
                 }
 
                 &::after {
@@ -91,6 +95,21 @@
                     opacity: 0;
                     background: radial-gradient(circle, rgba(0, 164, 131, .5) 0%, transparent 62%, transparent 100%);
                     transition: transform .5s, opacity .5s;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    border-radius: 1rem;
+                    top: 0;
+                    left: 0;
+                    background-image: url(../assets/images/texture.webp);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    opacity: .5;
                 }
 
                 .contacts__list-e-icon-fill &-fill,
@@ -126,12 +145,13 @@
                 line-height: 120%;
                 letter-spacing: 0.05em;
                 text-align: left;
-              
+
                 width: fit-content;
                 color: $green;
+
                 @include mobile {
                     font-size: 2.8rem;
-                   
+
                 }
 
                 &._center {
@@ -140,7 +160,7 @@
 
 
                 @include hover {
-                  
+
 
                     &~.contacts__list-e-icon {
                         background-image: none;
