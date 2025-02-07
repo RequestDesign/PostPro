@@ -12,6 +12,7 @@ import CSSRulePlugin from 'gsap/all';
 import Typed from 'typed.js';
 
 $(function () {
+    window.scrollTo({top: 0})
     initSwipers()
     initFancybox()
     initHeadingText()
@@ -25,24 +26,6 @@ $(function () {
 
     document.querySelectorAll('.about__c-right-tags-e')
         .forEach((el) => {
-            /**
-             *   height: number;
-                width: number;
-                x: number;
-                y: number;
-                bottom: number;
-                left: number;
-                right: number;
-                top: number;
-                */
-
-
-
-
-            /*  wrp.style.width = width + 'px'
-            wrp.style.height = height + 'px'
-            wrp.style.left = (x - container.x) + 'px'
-            wrp.style.top = (y - container.y + height + height)  + 'px' */
             el.querySelector('.about__c-right-tags-e-wrp-text-el')
                 .style.width = el.closest('.about__c-right-tags').getBoundingClientRect().width + 'px'
             el.addEventListener('click', (ev) => {
@@ -51,20 +34,6 @@ $(function () {
                     text = ev.currentTarget.querySelector('.about__c-right-tags-e-wrpText')
 
                 if (!ev.currentTarget.classList.contains('_opened')) {
-
-                    //prev
-                    /*  const prev = ev.currentTarget.closest('.about__c-right-tags').querySelector('._opened')
-                     if (prev) {
-                         prev.style.zIndex = '2'
-                         prev.classList.remove('_opened')
-                         const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
-                         wrpPrev.style.width = '100%'
-                         wrpPrev.style.left = '0'
-                         wrpPrev.style.height = '100%'
-                         setTimeout(() => {
-                             prev.style.zIndex = '1'
-                         }, 500);
-                     } */
 
                     //actual
 
@@ -82,19 +51,7 @@ $(function () {
                     ev.currentTarget.classList.add('_opened')
 
                 } else {
-                    /*  const prev = ev.currentTarget
-                     if (prev) {
-                         prev.classList.remove('_opened')
-                         const wrpPrev = prev.querySelector('.about__c-right-tags-e-wrp')
-                         wrpPrev.style.width = '100%'
-                         wrpPrev.style.left = '0'
-                         wrpPrev.style.height = '100%'
- 
-                         setTimeout(() => {
-                             prev.style.zIndex = '1'
-                         }, 500);
- 
-                     } */
+
 
                     const { width, height, left, top } = el.getBoundingClientRect()
                     setTimeout(() => {
@@ -116,6 +73,59 @@ $(function () {
 
             })
 
+            el.addEventListener('mouseleave', (ev) => {
+                const container = ev.currentTarget.closest('.about__c-right-tags').getBoundingClientRect(),
+                    wrp = ev.currentTarget.querySelector('.about__c-right-tags-e-wrp'),
+                    text = ev.currentTarget.querySelector('.about__c-right-tags-e-wrpText')
+
+                const { width, height, left, top } = el.getBoundingClientRect()
+                setTimeout(() => {
+                    el.style.zIndex = '1'
+                }, 600);
+
+
+                wrp.style.width = '100%'
+                wrp.style.left = '0px'
+                wrp.style.top = '0px'
+                wrp.style.height = '100%'
+
+
+                text.style.transform = `translate(0px, 0px)`
+                ev.currentTarget.classList.remove('_opened')
+            })
+            if (window.innerWidth < 768) {
+                let canWork = true
+                document.addEventListener('scroll', (ev) => {
+                    if (!canWork) return
+                    canWork = false
+
+                    setTimeout(() => {
+                        canWork = true
+                    }, 1000);
+
+                    const t = document.querySelector('.about__c-right-tags-e._opened')
+                    if (t) {
+                        const container = t.closest('.about__c-right-tags').getBoundingClientRect(),
+                            wrp = t.querySelector('.about__c-right-tags-e-wrp'),
+                            text = t.querySelector('.about__c-right-tags-e-wrpText')
+
+                        const { width, height, left, top } = el.getBoundingClientRect()
+                        setTimeout(() => {
+                            el.style.zIndex = '1'
+                        }, 600);
+
+
+                        wrp.style.width = '100%'
+                        wrp.style.left = '0px'
+                        wrp.style.top = '0px'
+                        wrp.style.height = '100%'
+
+
+                        text.style.transform = `translate(0px, 0px)`
+                        t.classList.remove('_opened')
+                    }
+                })
+            }
 
 
 
@@ -231,7 +241,7 @@ function initSwipers() {
                     next.addEventListener('mouseenter', () => {
                         mouseOver = true
                         s.autoplay.pause()
-                        slide(()=>s.slideNext())
+                        slide(() => s.slideNext())
 
                     })
                     next.addEventListener('mouseleave', () => {
@@ -240,7 +250,7 @@ function initSwipers() {
                     prev.addEventListener('mouseenter', () => {
                         mouseOver = true
                         s.autoplay.pause()
-                        slide(()=>s.slidePrev())
+                        slide(() => s.slidePrev())
 
                     })
                     prev.addEventListener('mouseleave', () => {
@@ -359,7 +369,7 @@ function initWow() {
     }
     const scrollCfg = {
         start: 'top 90%',
-        end: 'top -10%',
+        end: 'bottom 10%',
         toggleActions: 'play none none reverse',
         once: false,
     }

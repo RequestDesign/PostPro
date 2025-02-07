@@ -10,18 +10,20 @@
             top: 15%;
             height: 80%;
             width: 20%;
-            border: 1px solid red;
-           
+
 
             &-prev {
                 left: 14%;
-                cursor: url('../assets/images/cursor/left.ico'), default;
+                cursor: default;
+                /* cursor: url('../assets/images/cursor/left.ico'), default; */
 
             }
 
             &-next {
                 right: 14%;
-                cursor: url('../assets/images/cursor/right.ico'), default;
+                cursor: default;
+
+               /*  cursor: url('../assets/images/cursor/right.ico'), default; */
             }
         }
 
@@ -151,10 +153,9 @@
         padding: 2px;
         transition: padding 0s;
         box-sizing: border-box;
-        transition: background-color 1s linear,
-            backdrop-filter 1s linear;
+        transition: background-color 1s linear;
         background-color: rgb(66 58 77 / 0%);
-        backdrop-filter: blur(0);
+        backdrop-filter: blur(30px);
 
 
         & .gradient-border {
@@ -196,7 +197,6 @@
 
         &.swiper-slide-active {
             background-color: rgb(66 58 77 / 7%);
-            backdrop-filter: blur(30px);
             border-radius: 10px;
 
             & .achivments-item__c-ttl.col-green {
