@@ -215,7 +215,7 @@
                     height: 4.6rem;
                     padding: 0 1.5rem;
                     box-sizing: border-box;
-                    text-transform: uppercase;
+                  
                     user-select: none;
                     z-index: 2;
                     transition: all .5s;
@@ -303,7 +303,7 @@
                             /*  background-size: 30rem; */
                         }
 
-                        & span {
+                        & .about__c-right-tags-e-wrpText {
                             color: $green;
                         }
                     }

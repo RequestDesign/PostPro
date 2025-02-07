@@ -178,7 +178,7 @@ function initSwipers() {
             translateY: () => { return window.innerWidth > 768 ? 30 : 15 }
         }
         new Swiper(swiper.querySelector('.swiper'), {
-            modules: [EffectCreative, Autoplay],
+            modules: [EffectCreative, Autoplay, Navigation],
             loop: true,
             effect: 'creative',
             slidesPerView: 2.2,
@@ -187,12 +187,15 @@ function initSwipers() {
             initialSlide: 2,
             speed: 500,
             followFinger: true,
-            slideToClickedSlide: true,
-
+            /*  slideToClickedSlide: true, */
+            navigation: {
+                prevEl: swiper.querySelector('.swiper-btn-prev'),
+                nextEl: swiper.querySelector('.swiper-btn-next'),
+            },
             autoplay: {
                 delay: 2000,
                 pauseOnMouseEnter: true,
-               /*  disableOnInteraction: true, */
+                /*  disableOnInteraction: true, */
             },
             creativeEffect: {
                 prev: {
@@ -211,6 +214,40 @@ function initSwipers() {
                     slidesPerView: 3
                 }
             },
+            on: {
+                init: (s) => {
+                    let mouseOver = false
+                    const next = swiper.querySelector('.swiper-btn-next'),
+                        prev = swiper.querySelector('.swiper-btn-prev')
+                    function slide(foo) {
+                        if (mouseOver) {
+                            foo()
+                            setTimeout(() => {
+                                slide(foo)
+                            }, 0);
+
+                        }
+                    }
+                    next.addEventListener('mouseenter', () => {
+                        mouseOver = true
+                        s.autoplay.pause()
+                        slide(()=>s.slideNext())
+
+                    })
+                    next.addEventListener('mouseleave', () => {
+                        mouseOver = false
+                    })
+                    prev.addEventListener('mouseenter', () => {
+                        mouseOver = true
+                        s.autoplay.pause()
+                        slide(()=>s.slidePrev())
+
+                    })
+                    prev.addEventListener('mouseleave', () => {
+                        mouseOver = false
+                    })
+                }
+            }
 
 
         })
@@ -322,9 +359,9 @@ function initWow() {
     }
     const scrollCfg = {
         start: 'top 90%',
-        end: 'top 10%',
+        end: 'top -10%',
         toggleActions: 'play none none reverse',
-        once: true,
+        once: false,
     }
     gsap.defaults({ duration: .5, ease: 'none' });
     gsap.registerPlugin(ScrollTrigger);
@@ -366,7 +403,7 @@ function initWow() {
                 onEnter: () => {
                     tl.play()
 
-                }/* ,
+                },/* 
                 onEnterBack: () => {
                   tl.play()
 
@@ -416,7 +453,7 @@ function initWow() {
                         },
                         '<'
                     ).play();
-                },/* 
+                },
                 onEnterBack: () => {
                     tl.clear();
                     tl.fromTo(el, {
@@ -451,7 +488,7 @@ function initWow() {
                     }).play();
 
 
-                }, */
+                },
                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -485,7 +522,7 @@ function initWow() {
                 ...scrollCfg,
                 onEnter: () => {
                     tl.play();
-                },/* 
+                },
                 onEnterBack: () => {
                     tl.play();
                 },
@@ -494,7 +531,7 @@ function initWow() {
                 },
                 onLeaveBack: () => {
                     tl.reverse();
-                }, */
+                },
                 // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -512,7 +549,7 @@ function initWow() {
                     translateX: '0',
                     duration: config.duration ? config.duration : 1,
                     delay: config.delay ? config.delay : 0,
-                   ease: 'power1.inOut'
+                    ease: 'power1.inOut'
                 }
             );
         },
@@ -528,7 +565,7 @@ function initWow() {
                 ...scrollCfg,
                 onEnter: () => {
                     tl.play();
-                },/* 
+                },
                 onEnterBack: () => {
                     tl.play();
                 },
@@ -537,7 +574,7 @@ function initWow() {
                 },
                 onLeaveBack: () => {
                     tl.reverse();
-                }, */
+                },
                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -571,7 +608,7 @@ function initWow() {
                 ...scrollCfg,
                 onEnter: () => {
                     tl.play();
-                },/* 
+                },
                 onEnterBack: () => {
                     tl.play();
                 },
@@ -580,7 +617,7 @@ function initWow() {
                 },
                 onLeaveBack: () => {
                     tl.reverse();
-                }, */
+                },
                 //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
             });
         })
@@ -593,7 +630,7 @@ function initMarque() {
     container.forEach((c, i) => {
         new Swiper(c, {
             modules: [Autoplay],
-            speed: 3000 ,
+            speed: 3000,
             slidesPerView: 'auto',
             loop: true,
             allowTouchMove: true,
