@@ -12,7 +12,7 @@ import CSSRulePlugin from 'gsap/all';
 import Typed from 'typed.js';
 
 $(function () {
-    window.scrollTo({top: 0})
+    window.scrollTo({ top: 0 })
     initSwipers()
     initFancybox()
     initHeadingText()
@@ -459,7 +459,7 @@ function initWow() {
                         {
                             opacity: 1,
                             duration: 1,
-                            ease: 'none'
+                            ease: 'power1.inOut'
                         },
                         '<'
                     ).play();
