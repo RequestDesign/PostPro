@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 907:
+/***/ 998:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 
@@ -138,64 +138,15 @@ const _slideToggle = function (target) {
 // EXTERNAL MODULE: ./node_modules/@fancyapps/ui/dist/index.esm.js
 var index_esm = __webpack_require__(252);
 // EXTERNAL MODULE: ./node_modules/wow.js/dist/wow.js
-var dist_wow = __webpack_require__(630);
-var wow_default = /*#__PURE__*/__webpack_require__.n(dist_wow);
-;// CONCATENATED MODULE: ./src/js/utils/Marquee.js
-class Marquee {
-  /**
-   * 
-   * @param {DomElement | string} container 
-   * @param {number} timing 
-   * @param {boolean} reverse 
-   */
-  constructor(container, timing) {
-    let reverse = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-    this._container = typeof container == 'string' ? document.querySelector(container) : container;
-    this._timing = timing; //second
-    this._isReverse = reverse;
-    this._list = this._container.querySelector('.marquee');
-    this._slides = Array.from(this._list.children);
-    this._duplicateSlides();
-    this._maxTranslate = this._list.lastElementChild.getBoundingClientRect().left - this._container.getBoundingClientRect().width;
-    this._addSliding();
-  }
-  _duplicateSlides() {
-    const ww = window.innerWidth,
-      lastElPos = this._list.lastElementChild.getBoundingClientRect().left,
-      minWidth = this._container.getBoundingClientRect().width * 4,
-      addCount = Math.ceil(minWidth / lastElPos);
-    for (let i = 0; addCount + 1 > i; i++) {
-      this._slides.forEach(e => [this._list.append(e.cloneNode(true))]);
-    }
-  }
-  _addSliding() {
-    if (this._isReverse) {
-      this._list.style.transform = `translateX(-${this._maxTranslate}px)`;
-      this._list.getBoundingClientRect();
-    }
-    this._sliding();
-  }
-  _sliding() {
-    this._list.style.transition = `transform ${this._timing}s linear`;
-    if (this._isReverse) {
-      this._list.style.transform = `translateX(0px)`;
-    } else {
-      this._list.style.transform = `translateX(-${this._maxTranslate}px)`;
-    }
-    setTimeout(() => {
-      console.log('timing');
-      this._list.style.transition = `transform 0s linear`;
-      if (this._isReverse) {
-        this._list.style.transform = `translateX(-${this._maxTranslate}px)`;
-      } else {
-        this._list.style.transform = `translateX(0px)`;
-      }
-      this._list.getBoundingClientRect(); // Этот вызов заставляет браузер применить изменения
-      // Запускаем анимацию заново
-      requestAnimationFrame(() => this._sliding());
-    }, this._timing * 1000);
-  }
-}
+var wow = __webpack_require__(630);
+// EXTERNAL MODULE: ./node_modules/gsap/index.js + 2 modules
+var gsap = __webpack_require__(358);
+// EXTERNAL MODULE: ./node_modules/gsap/src/ScrollTrigger.js + 1 modules
+var ScrollTrigger = __webpack_require__(58);
+// EXTERNAL MODULE: ./node_modules/gsap/src/TextPlugin.js + 1 modules
+var TextPlugin = __webpack_require__(343);
+// EXTERNAL MODULE: ./node_modules/typed.js/dist/typed.module.js
+var typed_module = __webpack_require__(911);
 ;// CONCATENATED MODULE: ./src/js/dev/zatz.js
 
 
@@ -204,7 +155,15 @@ class Marquee {
 
 
 
+
+
+
+
+
 jquery_default()(function () {
+  window.scrollTo({
+    top: 0
+  });
   initSwipers();
   initFancybox();
   initHeadingText();
@@ -214,6 +173,98 @@ jquery_default()(function () {
   initHeader();
   /*    initVideos() */
   jquery_default()('html').addClass('_page-loaded');
+  document.querySelectorAll('.about__c-right-tags-e').forEach(el => {
+    el.querySelector('.about__c-right-tags-e-wrp-text-el').style.width = el.closest('.about__c-right-tags').getBoundingClientRect().width + 'px';
+    el.addEventListener('click', ev => {
+      const container = ev.currentTarget.closest('.about__c-right-tags').getBoundingClientRect(),
+        wrp = ev.currentTarget.querySelector('.about__c-right-tags-e-wrp'),
+        text = ev.currentTarget.querySelector('.about__c-right-tags-e-wrpText');
+      if (!ev.currentTarget.classList.contains('_opened')) {
+        //actual
+
+        const {
+          width,
+          height,
+          left,
+          top
+        } = el.getBoundingClientRect();
+        el.style.zIndex = '5';
+        wrp.style.width = container.width + 'px';
+        wrp.style.left = container.left - left + 'px';
+        wrp.style.top = container.top - top + 'px';
+        wrp.style.height = container.height + 'px';
+        text.style.transform = `translate(${container.left - left}px, ${container.top - top}px)`;
+        ev.currentTarget.classList.add('_opened');
+      } else {
+        const {
+          width,
+          height,
+          left,
+          top
+        } = el.getBoundingClientRect();
+        setTimeout(() => {
+          el.style.zIndex = '1';
+        }, 600);
+        wrp.style.width = '100%';
+        wrp.style.left = '0px';
+        wrp.style.top = '0px';
+        wrp.style.height = '100%';
+        text.style.transform = `translate(0px, 0px)`;
+        ev.currentTarget.classList.remove('_opened');
+      }
+    });
+    el.addEventListener('mouseleave', ev => {
+      const container = ev.currentTarget.closest('.about__c-right-tags').getBoundingClientRect(),
+        wrp = ev.currentTarget.querySelector('.about__c-right-tags-e-wrp'),
+        text = ev.currentTarget.querySelector('.about__c-right-tags-e-wrpText');
+      const {
+        width,
+        height,
+        left,
+        top
+      } = el.getBoundingClientRect();
+      setTimeout(() => {
+        el.style.zIndex = '1';
+      }, 600);
+      wrp.style.width = '100%';
+      wrp.style.left = '0px';
+      wrp.style.top = '0px';
+      wrp.style.height = '100%';
+      text.style.transform = `translate(0px, 0px)`;
+      ev.currentTarget.classList.remove('_opened');
+    });
+    if (window.innerWidth < 768) {
+      let canWork = true;
+      document.addEventListener('scroll', ev => {
+        if (!canWork) return;
+        canWork = false;
+        setTimeout(() => {
+          canWork = true;
+        }, 1000);
+        const t = document.querySelector('.about__c-right-tags-e._opened');
+        if (t) {
+          const container = t.closest('.about__c-right-tags').getBoundingClientRect(),
+            wrp = t.querySelector('.about__c-right-tags-e-wrp'),
+            text = t.querySelector('.about__c-right-tags-e-wrpText');
+          const {
+            width,
+            height,
+            left,
+            top
+          } = el.getBoundingClientRect();
+          setTimeout(() => {
+            el.style.zIndex = '1';
+          }, 600);
+          wrp.style.width = '100%';
+          wrp.style.left = '0px';
+          wrp.style.top = '0px';
+          wrp.style.height = '100%';
+          text.style.transform = `translate(0px, 0px)`;
+          t.classList.remove('_opened');
+        }
+      });
+    }
+  });
 });
 function initHeaderSwiper() {
   const targets = jquery_default()('.header__c-nav-e');
@@ -264,21 +315,26 @@ function initSwipers() {
       }
     };
     new swiper_swiper/* default */.Z(swiper.querySelector('.swiper'), {
-      modules: [modules/* EffectCreative */.gI, modules/* Autoplay */.pt],
+      modules: [modules/* EffectCreative */.gI, modules/* Autoplay */.pt, modules/* Navigation */.W_],
       loop: true,
       effect: 'creative',
-      slidesPerView: 2,
+      slidesPerView: 2.2,
       centeredSlides: true,
       spaceBetween: rem(3),
       initialSlide: 2,
-      speed: 1000,
-      /*   slideToClickedSlide: true, */
-
-      autoplay: {
-        delay: 3000,
-        pauseOnMouseEnter: true,
-        disableOnInteraction: true
+      speed: 500,
+      followFinger: true,
+      /*  slideToClickedSlide: true, */
+      navigation: {
+        prevEl: swiper.querySelector('.swiper-btn-prev'),
+        nextEl: swiper.querySelector('.swiper-btn-next')
       },
+      autoplay: {
+        delay: 2000,
+        pauseOnMouseEnter: true
+        /*  disableOnInteraction: true, */
+      },
+
       creativeEffect: {
         prev: {
           opacity: 0.15,
@@ -292,7 +348,39 @@ function initSwipers() {
       },
       breakpoints: {
         768: {
+          followFinger: false,
           slidesPerView: 3
+        }
+      },
+      on: {
+        init: s => {
+          let mouseOver = false;
+          const next = swiper.querySelector('.swiper-btn-next'),
+            prev = swiper.querySelector('.swiper-btn-prev');
+          function slide(foo) {
+            if (mouseOver) {
+              foo();
+              setTimeout(() => {
+                slide(foo);
+              }, 0);
+            }
+          }
+          next.addEventListener('mouseenter', () => {
+            mouseOver = true;
+            s.autoplay.pause();
+            slide(() => s.slideNext());
+          });
+          next.addEventListener('mouseleave', () => {
+            mouseOver = false;
+          });
+          prev.addEventListener('mouseenter', () => {
+            mouseOver = true;
+            s.autoplay.pause();
+            slide(() => s.slidePrev());
+          });
+          prev.addEventListener('mouseleave', () => {
+            mouseOver = false;
+          });
         }
       }
     });
@@ -360,20 +448,302 @@ function initHeadingText() {
   }
 }
 function initWow() {
-  const wow = new (wow_default())({
-    boxClass: "wow",
-    animateClass: "animate__animated",
-    offset: 150,
-    mobile: false,
-    live: true
+  /* const wow = new WOW({
+      boxClass: "wow",
+      animateClass: "animate__animated",
+      offset: 150,
+      mobile: false,
+      live: true,
   });
-  wow.init();
+  wow.init(); */
+  if (window.innerWidth < 768) {
+    document.querySelectorAll('.animate__heading').forEach(e => {
+      e.textContent = e.dataset.typed;
+    });
+    return;
+  }
+  const scrollCfg = {
+    start: 'top 90%',
+    end: 'bottom 10%',
+    toggleActions: 'play none none reverse',
+    once: false
+  };
+  gsap/* default */.ZP.defaults({
+    duration: .5,
+    ease: 'none'
+  });
+  gsap/* default */.ZP.registerPlugin(ScrollTrigger/* ScrollTrigger */.i);
+  gsap/* default */.ZP.registerPlugin(TextPlugin/* TextPlugin */.z);
+
+  /*---------------animate__heading--------------  */
+  gsap/* default */.ZP.registerEffect({
+    name: 'heading',
+    effect: (targets, config, pst) => {
+      return gsap/* default */.ZP.fromTo(targets, {
+        opacity: 0,
+        translateX: '-105%',
+        visibility: 'hidden'
+      }, {
+        opacity: 1,
+        translateX: '0%',
+        visibility: 'visible',
+        duration: 1,
+        delay: .5,
+        ease: 'sine.inOut'
+      });
+    },
+    extendTimeline: true
+  });
+  document.querySelectorAll('.animate__heading').forEach(el => {
+    const tl = gsap/* default */.ZP.timeline({
+      paused: true
+    });
+    tl.to(el, {
+      duration: 1,
+      text: {
+        value: el.dataset.typed
+      },
+      // Анимация текста
+      ease: 'none'
+    }).reverse();
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: el,
+      ...scrollCfg,
+      onEnter: () => {
+        tl.play();
+      } /* 
+        onEnterBack: () => {
+        tl.play()
+        },
+        onLeave: () => {
+          tl.reverse()
+        },
+        onLeaveBack: () => {
+           tl.reverse()
+        }, */
+      // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+    });
+  });
+  /*---------------animate__heading--------------  */
+
+  /*---------------animate__fadeInUp--------------  */
+  document.querySelectorAll('.animate__fadeInUp').forEach(el => {
+    const tl = gsap/* default */.ZP.timeline();
+    gsap/* default */.ZP.set(el, {
+      opacity: 0,
+      transform: 'translateY: 105%'
+    });
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: el,
+      ...scrollCfg,
+      onEnter: () => {
+        tl.clear();
+        tl.fromTo(el, {
+          translateY: '110%'
+        }, {
+          translateY: '0%',
+          duration: 1.5,
+          ease: 'power1.inOut'
+        } // Указывает, что эта анимация должна начаться одновременно с предыдущей
+        );
+
+        tl.fromTo(el, {
+          opacity: 0
+        }, {
+          opacity: 1,
+          duration: 1,
+          ease: 'power1.inOut'
+        }, '<').play();
+      },
+      onEnterBack: () => {
+        tl.clear();
+        tl.fromTo(el, {
+          opacity: 0,
+          translateY: '-105%'
+        }, {
+          opacity: 1,
+          translateY: '0%',
+          duration: 0.5
+        }).play();
+      },
+      onLeave: () => {
+        tl.clear();
+        tl.fromTo(el, {
+          opacity: 1,
+          translateY: '0%'
+        }, {
+          opacity: 0,
+          translateY: '-105%',
+          duration: 0.5
+        }).play();
+      },
+      onLeaveBack: () => {
+        tl.clear();
+        tl.fromTo(el, {
+          opacity: 1,
+          translateY: '0%'
+        }, {
+          opacity: 0,
+          translateY: '105%',
+          duration: 0.5
+        }).play();
+      }
+      //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+    });
+  });
+
+  /*---------------animate__fadeInUp--------------  */
+
+  /*---------------animate__fadeIn--------------  */
+  gsap/* default */.ZP.registerEffect({
+    name: 'animate__fadeIn',
+    effect: (targets, config, pst) => {
+      return gsap/* default */.ZP.fromTo(targets, {
+        opacity: 0
+      }, {
+        opacity: 1,
+        duration: config.duration ? config.duration : 1,
+        delay: config.delay ? config.delay : 0,
+        ease: 'none'
+      });
+    },
+    extendTimeline: true
+  });
+  document.querySelectorAll('.animate__fadeIn').forEach(el => {
+    const tl = gsap/* default */.ZP.timeline().animate__fadeIn(el, {});
+    tl.reverse();
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: el,
+      ...scrollCfg,
+      onEnter: () => {
+        tl.play();
+      },
+      onEnterBack: () => {
+        tl.play();
+      },
+      onLeave: () => {
+        tl.reverse();
+      },
+      onLeaveBack: () => {
+        tl.reverse();
+      }
+      // markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+    });
+  });
+  /*---------------animate__fadeIn--------------  */
+
+  /*---------------animate__fadeInLeft--------------  */
+  gsap/* default */.ZP.registerEffect({
+    name: 'animate__fadeInLeft',
+    effect: (targets, config, pst) => {
+      return gsap/* default */.ZP.fromTo(targets, {
+        opacity: 0,
+        translateX: '-105%'
+      }, {
+        opacity: 1,
+        translateX: '0',
+        duration: config.duration ? config.duration : 1,
+        delay: config.delay ? config.delay : 0,
+        ease: 'power1.inOut'
+      });
+    },
+    extendTimeline: true
+  });
+  document.querySelectorAll('.animate__fadeInLeft').forEach(el => {
+    const tl = gsap/* default */.ZP.timeline().animate__fadeInLeft(el, {});
+    tl.reverse();
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: el,
+      ...scrollCfg,
+      onEnter: () => {
+        tl.play();
+      },
+      onEnterBack: () => {
+        tl.play();
+      },
+      onLeave: () => {
+        tl.reverse();
+      },
+      onLeaveBack: () => {
+        tl.reverse();
+      }
+      //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+    });
+  });
+  /*---------------animate__fadeInLeft--------------  */
+
+  /*---------------animate__fadeInRight--------------  */
+  gsap/* default */.ZP.registerEffect({
+    name: 'animate__fadeInRight',
+    effect: (targets, config, pst) => {
+      return gsap/* default */.ZP.fromTo(targets, {
+        opacity: 0,
+        translateX: '105%'
+      }, {
+        opacity: 1,
+        translateX: '0',
+        duration: config.duration ? config.duration : 1,
+        delay: config.delay ? config.delay : 0,
+        ease: 'power1.inOut'
+      });
+    },
+    extendTimeline: true
+  });
+  document.querySelectorAll('.animate__fadeInRight').forEach(el => {
+    const tl = gsap/* default */.ZP.timeline().animate__fadeInRight(el, {});
+    tl.reverse();
+    ScrollTrigger/* ScrollTrigger */.i.create({
+      trigger: el,
+      ...scrollCfg,
+      onEnter: () => {
+        tl.play();
+      },
+      onEnterBack: () => {
+        tl.play();
+      },
+      onLeave: () => {
+        tl.reverse();
+      },
+      onLeaveBack: () => {
+        tl.reverse();
+      }
+      //markers: true, // Показываем маркеры для тестирования (удалить в продакшене)
+    });
+  });
+  /*---------------animate__fadeInRight--------------  */
 }
+
 function initMarque() {
   const container = document.querySelectorAll('.partners__list');
   if (!container) return;
-  container.forEach(c => [new Marquee(c, 180)]);
+  container.forEach((c, i) => {
+    new swiper_swiper/* default */.Z(c, {
+      modules: [modules/* Autoplay */.pt],
+      speed: 3000,
+      slidesPerView: 'auto',
+      loop: true,
+      allowTouchMove: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: true // отключаем возможность отлючить анимацию при касании
+      },
+
+      breakpoints: {
+        769: {
+          speed: 4000,
+          slidesPerView: 'auto',
+          loop: true,
+          allowTouchMove: false,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false // отключаем возможность отлючить анимацию при касании
+          }
+        }
+      }
+    });
+  });
 }
+
 function initVideos() {
   const vidos = document.querySelectorAll('.heading__main');
   if (vidos) {
@@ -550,7 +920,7 @@ function initVideos() {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [251], function() { return __webpack_require__(907); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [650], function() { return __webpack_require__(998); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
