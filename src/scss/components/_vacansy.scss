@@ -26,20 +26,16 @@
                 position: absolute;
                 top: -3rem;
                 left: -2.5rem;
-                width: 23rem;
+                width: 40rem;
                 height: 22.5rem;
                 display: flex;
                 z-index: 1;
                 @include mobile{
-                    top: -4rem;
-                left: -4.7rem;
+                    width: 34rem;
+                    top: -3rem;
+                    left: -7rem;
                 }
 
-                & img {
-                    transform-origin: right bottom;
-                    transform: rotate(15deg);
-                    object-fit: contain;
-                }
             }
 
             &-circle {

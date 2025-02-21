@@ -1,9 +1,9 @@
 .about {
     position: relative;
-   
+
     overflow: visible;
 
- 
+
 
     & .container {
         position: relative;
@@ -131,9 +131,10 @@
                     width: fit-content;
                     gap: 3.8px;
 
-                    & svg {
-                        width: 10.8rem;
-                        height: 9.4rem;
+                    @include desktop {
+                        & svg {
+                            height: 9.4rem !important;
+                        }
                     }
                 }
 
@@ -207,7 +208,7 @@
 
 
                 &-e {
-                   
+
                     font-family: 'Esqadero FF CY 4F';
                     font-size: 2.2rem;
                     font-weight: 400;
@@ -215,15 +216,15 @@
                     height: 4.6rem;
                     padding: 0 1.5rem;
                     box-sizing: border-box;
-                  
+
                     user-select: none;
                     z-index: 2;
-                  /*   transition: all .5s; */
+                    /*   transition: all .5s; */
                     display: flex;
                     align-items: center;
                     position: relative;
                     cursor: pointer;
-                   
+
 
                     &._opened {
                         cursor: default;
@@ -246,7 +247,8 @@
                         height: 100%;
                         transition: all .5s ease-in-out;
                         overflow: hidden;
-                    /*     background-image: url(../assets/images/texture.webp);
+
+                        /*     background-image: url(../assets/images/texture.webp);
                         background-size: 14rem; */
                         &-text {
                             margin-top: 4.6rem;
@@ -284,9 +286,8 @@
                         flex-wrap: nowrap;
                     }
 
-
-                    &:hover {
-                        & .about__c-right-tags-e-wrp{
+                    @include hover {
+                        & .about__c-right-tags-e-wrp {
 
                             box-shadow: 0px 0px 6rem .5rem rgba(0, 164, 131, .5);
                         }
@@ -307,6 +308,7 @@
                             color: $green;
                         }
                     }
+
 
                     &-text {
                         position: relative;
@@ -359,7 +361,7 @@
                         }
                     }
 
-                   
+
 
                     &-bg {
 
